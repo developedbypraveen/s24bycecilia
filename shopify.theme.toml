@@ -1,0 +1,6 @@
+# Shopify theme configuration
+# Run `shopify theme dev` to connect to your store and preview changes locally.
+# https://shopify.dev/docs/storefronts/themes/tools/cli
+
+[theme]
+name = "s24bycecilia"

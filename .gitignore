@@ -1,0 +1,24 @@
+# Shopify CLI
+.shopify/
+.shopify-cli.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if using theme tooling)
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
