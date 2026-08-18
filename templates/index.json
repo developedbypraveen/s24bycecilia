@@ -1,5 +1,41 @@
 {
   "sections": {
+    "s24_homepage_hero": {
+      "type": "s24-split-hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "kicker": "New trending style",
+            "heading": "African Luxury<br>Elegance.",
+            "text": "",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/shop-all",
+            "video_url": "shopify://collections/shop-all",
+            "fallback_image": "https://cdn.shopify.com/s/files/1/0871/2005/2417/files/two-piece-african-print-geometric-lifestyle-01.jpg",
+            "overlay_word": "Fashion"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "kicker": "Made to fit",
+            "heading": "Custom looks<br>for your moment.",
+            "text": "",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/custom-orders",
+            "video_url": "shopify://collections/custom-orders",
+            "fallback_image": "https://cdn.shopify.com/s/files/1/0871/2005/2417/files/showcase-custom-ankara-ballgown-front-01.jpg",
+            "overlay_word": "Fashion"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2"],
+      "settings": {
+        "autoplay_speed": 6,
+        "color_scheme": "scheme-1"
+      }
+    },
     "trending": {
       "type": "featured-collection",
       "settings": {
@@ -285,6 +321,7 @@
     }
   },
   "order": [
+    "s24_homepage_hero",
     "trending",
     "promo_banners",
     "circle_cats",

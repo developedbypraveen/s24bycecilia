@@ -473,11 +473,8 @@ body {
   }
 }
 
-/* Hide leftover Dawn/homepage heroes inside the JSON template.
-   The live 50/50 hero is rendered from layout, before #MainContent. */
-body.template-index #MainContent .s24-hero,
-body.template-index #MainContent .banner,
-body.template-index #MainContent slideshow-component {
+/* Hide leftover Dawn image banners if an old homepage JSON is still synced */
+body.template-index #MainContent slideshow-component.banner {
   display: none !important;
 }
 
