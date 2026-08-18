@@ -28,16 +28,15 @@
 {%- endstyle -%}
 
 <section class="s24-circles s24-circles-{{ section.id }}">
-  <div class="page-width">
-    <div class="s24-circles__intro">
+  <div class="page-width s24-circles__intro">
     {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
   </div>
 
   {%- if show_arrows -%}
-    <slider-component class="s24-circles-slider">
+    <slider-component class="s24-circles-slider page-width">
       <button type="button" class="s24-circles__arrow s24-circles__arrow--prev" name="previous" aria-label="Previous">‹</button>
   {%- else -%}
-    <div class="s24-circles-slider">
+    <div class="s24-circles-slider page-width">
   {%- endif -%}
 
     <ul
@@ -102,7 +101,6 @@
   {%- else -%}
     </div>
   {%- endif -%}
-  </div>
 </section>
 
 {% schema %}
