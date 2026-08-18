@@ -110,7 +110,8 @@
           "settings": {
             "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
             "label": "Tops",
-            "link": "shopify://collections/tops"
+            "link": "shopify://collections/tops",
+            "collection": "tops"
           }
         },
         "cat_pants": {
@@ -118,7 +119,8 @@
           "settings": {
             "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-01.jpg",
             "label": "Pants",
-            "link": "shopify://collections/pants"
+            "link": "shopify://collections/pants",
+            "collection": "pants"
           }
         },
         "cat_sets": {
@@ -126,15 +128,17 @@
           "settings": {
             "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
             "label": "Two-piece",
-            "link": "shopify://collections/two-piece-sets"
+            "link": "shopify://collections/two-piece-sets",
+            "collection": "two-piece-sets"
           }
         },
         "cat_mens": {
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
-            "label": "Men's",
-            "link": "shopify://collections/mens"
+            "label": "Men's Fashion",
+            "link": "shopify://collections/mens",
+            "collection": "mens"
           }
         },
         "cat_custom": {
@@ -142,7 +146,8 @@
           "settings": {
             "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-02.jpg",
             "label": "Custom",
-            "link": "shopify://collections/custom-orders"
+            "link": "shopify://collections/custom-orders",
+            "collection": "custom-orders"
           }
         }
       },
@@ -155,9 +160,9 @@
       ],
       "settings": {
         "title": "Top category",
-        "subtitle": "Shop by the pieces you wear most.",
-        "padding_top": 48,
-        "padding_bottom": 20
+        "subtitle": "Follow the most popular trends and get exclusive pieces from the S24 studio.",
+        "padding_top": 72,
+        "padding_bottom": 48
       }
     },
     "services": {
@@ -166,33 +171,33 @@
         "s1": {
           "type": "service",
           "settings": {
-            "icon": "🚚",
-            "heading": "Thoughtful shipping",
-            "text": "Ready-to-wear packed with care from the Canada studio."
+            "icon": "shipping",
+            "heading": "Worldwide Shipping",
+            "text": "Packed with care from the Canada studio."
           }
         },
         "s2": {
           "type": "service",
           "settings": {
-            "icon": "🔒",
-            "heading": "Secure payment",
-            "text": "Shopify checkout with cards, Apple Pay, Google Pay and PayPal."
+            "icon": "payment",
+            "heading": "Secured Payment",
+            "text": "Safe & secured checkout."
           }
         },
         "s3": {
           "type": "service",
           "settings": {
-            "icon": "💬",
-            "heading": "Studio support",
-            "text": "Message us for sizing, styling, and custom appointments."
+            "icon": "returns",
+            "heading": "Studio Support",
+            "text": "Sizing, styling, and custom appointments."
           }
         },
         "s4": {
           "type": "service",
           "settings": {
-            "icon": "✂️",
-            "heading": "Made to fit",
-            "text": "Choose Custom when standard sizes are not enough."
+            "icon": "gift",
+            "heading": "Made to Fit",
+            "text": "Custom when standard sizes are not enough."
           }
         }
       },
@@ -203,8 +208,8 @@
         "s4"
       ],
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "best_sellers": {
