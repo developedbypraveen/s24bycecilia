@@ -780,6 +780,7 @@ body.template-index #MainContent slideshow-component.banner {
 /* Services */
 .s24-services {
   border-top: 1px solid var(--s24-line);
+  border-bottom: 1px solid var(--s24-line);
 }
 
 .s24-services__grid {
