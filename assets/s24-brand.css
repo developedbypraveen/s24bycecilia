@@ -664,22 +664,14 @@ body.template-index #MainContent slideshow-component.banner {
 
 /* Circle categories */
 .s24-circles__intro {
-  padding: 0 2rem 3.6rem;
+  padding: 0 0 3.6rem;
   text-align: center;
 }
 
 .s24-circles-slider {
   position: relative;
   width: 100%;
-  max-width: none;
-  padding: 0 2rem;
   --desktop-margin-left-first-item: 0rem;
-}
-
-@media screen and (min-width: 750px) {
-  .s24-circles-slider {
-    padding: 0 3.2rem;
-  }
 }
 
 .s24-circles__row {
@@ -691,7 +683,6 @@ body.template-index #MainContent slideshow-component.banner {
   padding: 0;
   list-style: none;
   width: 100%;
-  max-width: none;
 }
 
 .s24-circles__item {

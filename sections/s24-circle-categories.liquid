@@ -1,5 +1,5 @@
 {% comment %}
-  Top category — circular images, full width.
+  Top category — circular images in page width.
   Arrows only when there are more than 5 categories.
 {% endcomment %}
 
@@ -28,7 +28,8 @@
 {%- endstyle -%}
 
 <section class="s24-circles s24-circles-{{ section.id }}">
-  <div class="s24-circles__intro">
+  <div class="page-width">
+    <div class="s24-circles__intro">
     {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
   </div>
 
@@ -101,6 +102,7 @@
   {%- else -%}
     </div>
   {%- endif -%}
+  </div>
 </section>
 
 {% schema %}
