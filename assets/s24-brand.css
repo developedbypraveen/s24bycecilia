@@ -236,19 +236,62 @@ button.shopify-payment-button__button--unbranded {
   opacity: 0.82;
 }
 
-/* Footer */
+/* Footer — dark luxury bar with gold accents */
 .footer {
   border-top: 1px solid rgba(205, 154, 48, 0.35);
 }
 
-.footer__content-top a:hover {
+.footer .footer__content-top {
+  padding-bottom: 4.8rem;
+}
+
+.footer .footer-block__heading {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 1.8rem;
   color: var(--s24-gold);
 }
 
-.footer-block__heading {
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: 1.2rem;
+.footer .footer-block__details-content {
+  line-height: 1.8;
+}
+
+.footer .footer-block__details-content a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+.footer .footer-block__details-content a:hover {
+  color: var(--s24-gold);
+  opacity: 1;
+}
+
+.footer .footer-block--newsletter {
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(205, 154, 48, 0.22);
+}
+
+.footer .newsletter-form__field-wrapper .field__input {
+  background: transparent;
+  color: var(--s24-cream);
+}
+
+.footer .footer__content-bottom {
+  border-top: 1px solid rgba(205, 154, 48, 0.22);
+}
+
+.footer .copyright__content,
+.footer .copyright__content a {
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.footer__content-top a:hover {
+  color: var(--s24-gold);
 }
 
 /* Inputs */
