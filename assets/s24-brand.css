@@ -322,7 +322,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5.6rem 3.2rem;
+  order: 2;
+  padding: 4rem 2.4rem 5.6rem;
   background: #f3f3f3;
 }
 
@@ -392,6 +393,7 @@ body {
   overflow: hidden;
   background: #e8e2dc;
   border-radius: 0;
+  order: 1;
 }
 
 .s24-hero__media img,
@@ -471,10 +473,12 @@ body {
   }
 
   .s24-hero__copy {
+    order: 0;
     padding: 8rem 6rem;
   }
 
   .s24-hero__media {
+    order: 0;
     min-height: 100%;
   }
 }
