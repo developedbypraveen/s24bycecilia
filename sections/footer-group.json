@@ -21,18 +21,18 @@
             "subtext": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p><p>Every piece carries a story of craft, culture, and confidence.</p>"
           }
         },
-        "shop": {
-          "type": "text",
+        "link_list_xC9ncf": {
+          "type": "link_list",
           "settings": {
             "heading": "Shop",
-            "subtext": "<p><a href=\"/collections/shop-all\">Shop all</a><br/><a href=\"/collections/new-arrivals\">New arrivals</a><br/><a href=\"/collections/tops\">Tops</a><br/><a href=\"/collections/pants\">Pants</a><br/><a href=\"/collections/two-piece-sets\">Two-piece sets</a><br/><a href=\"/collections/mens\">Men's</a></p>"
+            "menu": "footer"
           }
         },
-        "studio": {
-          "type": "text",
+        "link_list_786BD8": {
+          "type": "link_list",
           "settings": {
             "heading": "The studio",
-            "subtext": "<p><a href=\"/collections/custom-orders\">Custom orders</a><br/><a href=\"/pages/about\">Meet Cecilia</a><br/><a href=\"/pages/contact\">Book appointment</a><br/><a href=\"/pages/contact\">Contact</a></p>"
+            "menu": "footer"
           }
         },
         "visit": {
@@ -45,8 +45,8 @@
       },
       "block_order": [
         "brand",
-        "shop",
-        "studio",
+        "link_list_xC9ncf",
+        "link_list_786BD8",
         "visit"
       ],
       "settings": {
@@ -65,5 +65,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
