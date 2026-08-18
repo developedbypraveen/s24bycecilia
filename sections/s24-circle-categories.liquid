@@ -1,8 +1,18 @@
 {% comment %}
-  Top category — circular image slider with overlay labels and side arrows.
+  Top category — circular images, full width.
+  Arrows only when there are more than 5 categories.
 {% endcomment %}
 
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign show_arrows = false
+  if section.blocks.size > 5
+    assign show_arrows = true
+  endif
+-%}
+
+{%- if show_arrows -%}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .s24-circles-{{ section.id }} {
@@ -18,23 +28,22 @@
 {%- endstyle -%}
 
 <section class="s24-circles s24-circles-{{ section.id }}">
-  <div class="page-width">
+  <div class="s24-circles__intro">
     {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
   </div>
 
-  <slider-component class="s24-circles-slider page-width">
-    {%- if section.blocks.size > 1 -%}
-      <button
-        type="button"
-        class="s24-circles__arrow s24-circles__arrow--prev"
-        name="previous"
-        aria-label="Previous"
-      >
-        ‹
-      </button>
-    {%- endif -%}
+  {%- if show_arrows -%}
+    <slider-component class="s24-circles-slider">
+      <button type="button" class="s24-circles__arrow s24-circles__arrow--prev" name="previous" aria-label="Previous">‹</button>
+  {%- else -%}
+    <div class="s24-circles-slider">
+  {%- endif -%}
 
-    <ul id="Slider-{{ section.id }}" class="s24-circles__row slider slider--desktop slider--tablet" role="list">
+    <ul
+      {% if show_arrows %}id="Slider-{{ section.id }}"{% endif %}
+      class="s24-circles__row{% if show_arrows %} slider slider--desktop slider--tablet{% endif %}"
+      role="list"
+    >
       {%- for block in section.blocks -%}
         {%- liquid
           assign cat_label = block.settings.label
@@ -50,7 +59,11 @@
             endif
           endif
         -%}
-        <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="s24-circles__item slider__slide" {{ block.shopify_attributes }}>
+        <li
+          {% if show_arrows %}id="Slide-{{ section.id }}-{{ forloop.index }}"{% endif %}
+          class="s24-circles__item{% if show_arrows %} slider__slide{% endif %}"
+          {{ block.shopify_attributes }}
+        >
           <a class="s24-circle" href="{{ cat_link | default: routes.all_products_collection_url }}">
             <span class="s24-circle__media">
               {%- if block.settings.image != blank -%}
@@ -82,17 +95,12 @@
       {%- endfor -%}
     </ul>
 
-    {%- if section.blocks.size > 1 -%}
-      <button
-        type="button"
-        class="s24-circles__arrow s24-circles__arrow--next"
-        name="next"
-        aria-label="Next"
-      >
-        ›
-      </button>
-    {%- endif -%}
-  </slider-component>
+  {%- if show_arrows -%}
+      <button type="button" class="s24-circles__arrow s24-circles__arrow--next" name="next" aria-label="Next">›</button>
+    </slider-component>
+  {%- else -%}
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
