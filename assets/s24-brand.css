@@ -487,6 +487,36 @@ body.template-index #MainContent slideshow-component.banner {
 /* Trending / featured collection — title left, arrows right */
 .s24-featured {
   display: block;
+  --desktop-margin-left-first-item: 0rem;
+}
+
+@media screen and (min-width: 990px) {
+  .s24-featured .slider--desktop {
+    scroll-padding-left: 0;
+  }
+
+  .s24-featured .slider--desktop .slider__slide:first-child {
+    margin-left: 0;
+    scroll-margin-left: 0;
+  }
+
+  .s24-featured .slider--desktop::after {
+    content: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .s24-featured .slider--desktop.grid--4-col-desktop .grid__item {
+    width: calc((100% - var(--grid-desktop-horizontal-spacing) * 3) / 4);
+  }
+
+  .s24-featured .slider--desktop.grid--3-col-desktop .grid__item {
+    width: calc((100% - var(--grid-desktop-horizontal-spacing) * 2) / 3);
+  }
+
+  .s24-featured .slider--desktop.grid--2-col-desktop .grid__item {
+    width: calc((100% - var(--grid-desktop-horizontal-spacing)) / 2);
+  }
 }
 
 .s24-collection-head {
