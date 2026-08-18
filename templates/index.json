@@ -299,25 +299,6 @@
         "padding_bottom": 20
       }
     },
-    "lookbook": {
-      "type": "s24-lookbook",
-      "settings": {
-        "title": "Shop the lookbook",
-        "subtitle": "See how the pieces live on the body.",
-        "left_image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
-        "left_label": "For her",
-        "left_link": "shopify://collections/tops",
-        "right_image": "shopify://shop_images/mens-blue-line-top-outdoor-event-01.jpg",
-        "right_label": "For him",
-        "right_link": "shopify://collections/mens",
-        "wide_image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
-        "wide_heading": "Custom made for your moment",
-        "wide_button": "Shop now",
-        "wide_link": "shopify://collections/custom-orders",
-        "padding_top": 48,
-        "padding_bottom": 20
-      }
-    },
     "instagram": {
       "type": "s24-instagram",
       "blocks": {
@@ -383,7 +364,6 @@
     "marquee",
     "featured_split",
     "reviews",
-    "lookbook",
     "instagram"
   ]
 }
