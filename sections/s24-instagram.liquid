@@ -16,9 +16,10 @@
 {%- endstyle -%}
 
 <section class="s24-ig s24-ig-{{ section.id }}">
-  <div class="page-width">
+  <div class="s24-ig__intro">
     {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
-    <div class="s24-ig__grid">
+  </div>
+  <div class="s24-ig__grid">
       {%- for block in section.blocks -%}
         <a
           class="s24-ig__item"
@@ -33,7 +34,6 @@
         </a>
       {%- endfor -%}
     </div>
-  </div>
 </section>
 
 {% schema %}

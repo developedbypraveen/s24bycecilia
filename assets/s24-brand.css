@@ -1077,22 +1077,31 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 /* Instagram */
+.s24-ig__intro {
+  padding: 0 2rem 3.6rem;
+  text-align: center;
+}
+
 .s24-ig__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.8rem;
+  width: 100%;
+  max-width: none;
+  padding: 0 2rem;
 }
 
 @media screen and (min-width: 750px) {
   .s24-ig__grid {
     grid-template-columns: repeat(5, 1fr);
+    padding: 0 3.2rem;
+    gap: 1.2rem;
   }
 }
 
 .s24-ig__item {
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 1.2rem;
 }
 
 .s24-ig__item img,
