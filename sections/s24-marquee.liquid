@@ -1,12 +1,15 @@
 {% comment %}
-  Full-width scrolling ticker bar from the mockup.
+  Full-width marquee — alternating solid and outline text, scrolling loop.
 {% endcomment %}
 
-<section class="s24-marquee color-{{ section.settings.color_scheme }}" aria-label="{{ section.settings.text | escape }}">
+{%- assign marquee_text = section.settings.text | default: 'Welcome to our store' -%}
+
+<section class="s24-marquee" aria-label="{{ marquee_text | escape }}">
   <div class="s24-marquee__track">
-    {%- for i in (1..8) -%}
-      <span>{{ section.settings.text | escape }}</span>
-      <span class="s24-marquee__dot" aria-hidden="true">●</span>
+    {%- for copy in (1..2) -%}
+      {%- for i in (1..6) -%}
+        <span class="s24-marquee__item{% cycle ' is-solid', ' is-outline' %}">{{ marquee_text | escape }}</span>
+      {%- endfor -%}
     {%- endfor -%}
   </div>
 </section>
@@ -22,9 +25,8 @@
       "type": "text",
       "id": "text",
       "label": "Scrolling text",
-      "default": "African luxury fashion  ·  Ready-to-wear & custom  ·  Designed in Canada"
-    },
-    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-2" }
+      "default": "Welcome to our store"
+    }
   ],
   "presets": [{ "name": "S24 marquee" }]
 }

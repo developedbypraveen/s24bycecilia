@@ -243,8 +243,7 @@
     "marquee": {
       "type": "s24-marquee",
       "settings": {
-        "text": "African luxury fashion   Free studio styling   Custom made to fit   Designed in Canada",
-        "color_scheme": "scheme-2"
+        "text": "Welcome to our store"
       }
     },
     "featured_split": {
