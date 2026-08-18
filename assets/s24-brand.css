@@ -285,6 +285,12 @@ body {
   margin: 0;
 }
 
+#shopify-section-s24_hero,
+#shopify-section-s24_hero .section-s24_hero-padding {
+  padding: 0 !important;
+  margin: 0;
+}
+
 .s24-hero--slider {
   position: relative;
   overflow: hidden;
