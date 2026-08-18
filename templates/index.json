@@ -1,22 +1,51 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "s24_hero_e6JjHB": {
+      "type": "s24-hero",
+      "blocks": {
+        "slide_j3wEpR": {
+          "type": "slide",
+          "settings": {
+            "kicker": "New trending style",
+            "heading": "African Luxury Elegance.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections",
+            "image": "shopify://shop_images/IMG_1134.jpg",
+            "overlay_word": "Fashion"
+          }
+        }
+      },
+      "block_order": [
+        "slide_j3wEpR"
+      ],
+      "name": "S24 hero",
+      "settings": {}
+    },
     "trending": {
       "type": "featured-collection",
       "settings": {
+        "collection": "new-arrivals",
+        "products_to_show": 8,
         "title": "Trending product",
         "heading_size": "h1",
         "description": "<p>Fresh from the studio — pieces made to be seen and worn.</p>",
         "show_description": true,
         "description_style": "body",
-        "collection": "new-arrivals",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": true,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "swipe_on_mobile": true,
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -24,6 +53,7 @@
         "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 48,
         "padding_bottom": 20
       }
@@ -62,7 +92,11 @@
           }
         }
       },
-      "block_order": ["banner_1", "banner_2", "banner_3"],
+      "block_order": [
+        "banner_1",
+        "banner_2",
+        "banner_3"
+      ],
       "settings": {
         "padding_top": 20,
         "padding_bottom": 20
@@ -112,7 +146,13 @@
           }
         }
       },
-      "block_order": ["cat_tops", "cat_pants", "cat_sets", "cat_mens", "cat_custom"],
+      "block_order": [
+        "cat_tops",
+        "cat_pants",
+        "cat_sets",
+        "cat_mens",
+        "cat_custom"
+      ],
       "settings": {
         "title": "Top category",
         "subtitle": "Shop by the pieces you wear most.",
@@ -156,7 +196,12 @@
           }
         }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -165,20 +210,19 @@
     "best_sellers": {
       "type": "featured-collection",
       "settings": {
+        "collection": "shop-all",
+        "products_to_show": 8,
         "title": "Best selling product",
         "heading_size": "h1",
         "description": "<p>The pieces customers reach for first.</p>",
         "show_description": true,
         "description_style": "body",
-        "collection": "shop-all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -186,6 +230,7 @@
         "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 20
       }
@@ -238,7 +283,11 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3"],
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
       "settings": {
         "title": "Customer review",
         "subtitle": "What women say when they wear S24.",
@@ -268,13 +317,49 @@
     "instagram": {
       "type": "s24-instagram",
       "blocks": {
-        "ig1": { "type": "image", "settings": { "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg", "link": "shopify://collections/shop-all" } },
-        "ig2": { "type": "image", "settings": { "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-02.jpg", "link": "shopify://collections/shop-all" } },
-        "ig3": { "type": "image", "settings": { "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg", "link": "shopify://collections/shop-all" } },
-        "ig4": { "type": "image", "settings": { "image": "shopify://shop_images/pants-yellow-scale-ruffle-flatlay-01.jpg", "link": "shopify://collections/shop-all" } },
-        "ig5": { "type": "image", "settings": { "image": "shopify://shop_images/mens-blue-line-top-indoor-layered.png", "link": "shopify://collections/shop-all" } }
+        "ig1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
+            "link": "shopify://collections/shop-all"
+          }
+        },
+        "ig2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-02.jpg",
+            "link": "shopify://collections/shop-all"
+          }
+        },
+        "ig3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
+            "link": "shopify://collections/shop-all"
+          }
+        },
+        "ig4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pants-yellow-scale-ruffle-flatlay-01.jpg",
+            "link": "shopify://collections/shop-all"
+          }
+        },
+        "ig5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mens-blue-line-top-indoor-layered.png",
+            "link": "shopify://collections/shop-all"
+          }
+        }
       },
-      "block_order": ["ig1", "ig2", "ig3", "ig4", "ig5"],
+      "block_order": [
+        "ig1",
+        "ig2",
+        "ig3",
+        "ig4",
+        "ig5"
+      ],
       "settings": {
         "title": "@follow us instagram",
         "subtitle": "Daily elegance from the S24 studio.",
@@ -285,6 +370,7 @@
     }
   },
   "order": [
+    "s24_hero_e6JjHB",
     "trending",
     "promo_banners",
     "circle_cats",

@@ -9,8 +9,9 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/1000000217.jpg",
-    "logo_width": 140,
+    "logo": "shopify://shop_images/logo.png",
+    "logo_width": 50,
+    "favicon": "shopify://shop_images/logo.png",
     "type_header_font": "jost_n7",
     "heading_scale": 115,
     "type_body_font": "jost_n4",
@@ -107,7 +108,7 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "S24 By Cecilia",
-    "brand_description": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut \u2014 designed in Canada.</p>",
+    "brand_description": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
     "brand_image_width": 140,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -137,42 +138,6 @@
       "main-password-footer": {
         "type": "main-password-footer",
         "settings": {
-          "color_scheme": "scheme-1"
-        }
-      },
-      "s24-split-hero": {
-        "type": "s24-split-hero",
-        "blocks": {
-          "slide_1": {
-            "type": "slide",
-            "settings": {
-              "kicker": "New trending style",
-              "heading": "African Luxury<br>Elegance.",
-              "text": "",
-              "button_label": "Shop Now",
-              "button_link": "shopify://collections/shop-all",
-              "video_url": "shopify://collections/shop-all",
-              "fallback_image": "https://cdn.shopify.com/s/files/1/0871/2005/2417/files/two-piece-african-print-geometric-lifestyle-01.jpg",
-              "overlay_word": "Fashion"
-            }
-          },
-          "slide_2": {
-            "type": "slide",
-            "settings": {
-              "kicker": "Made to fit",
-              "heading": "Custom looks<br>for your moment.",
-              "text": "",
-              "button_label": "Shop Now",
-              "button_link": "shopify://collections/custom-orders",
-              "video_url": "shopify://collections/custom-orders",
-              "fallback_image": "https://cdn.shopify.com/s/files/1/0871/2005/2417/files/showcase-custom-ankara-ballgown-front-01.jpg",
-              "overlay_word": "Fashion"
-            }
-          }
-        },
-        "block_order": ["slide_1", "slide_2"],
-        "settings": {
-          "autoplay_speed": 6,
           "color_scheme": "scheme-1"
         }
       }
