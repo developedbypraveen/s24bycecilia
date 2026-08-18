@@ -1,0 +1,263 @@
+/*
+ * ------------------------------------------------------------
+ * S24 By Cecilia — brand layer on Dawn
+ *
+ * Logo colors:
+ *   Magenta / plum  #a7176e
+ *   Gold            #cd9a30
+ *
+ * Do not put store-specific copy here — only look & feel.
+ * Theme settings (color schemes + fonts) do the heavy lifting.
+ * ------------------------------------------------------------
+ */
+
+:root {
+  --s24-plum: #a7176e;
+  --s24-gold: #cd9a30;
+  --s24-ink: #1a1216;
+  --s24-cream: #fffdfb;
+}
+
+/* Tighter tracking than Dawn default — fashion, not tech */
+body {
+  letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3,
+.hxl,
+.h0,
+.h1,
+.h2,
+.banner__heading {
+  letter-spacing: 0.01em;
+}
+
+/* Header: quieter luxury bar */
+.header-wrapper {
+  border-bottom: 1px solid rgba(167, 23, 110, 0.12);
+}
+
+.header__menu-item {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.header__icon,
+.header__heading-link {
+  transition: opacity 0.2s ease;
+}
+
+.header__icon:hover,
+.header__heading-link:hover {
+  opacity: 0.7;
+}
+
+/* Announcement bar uses plum scheme; gold rule underneath */
+.utility-bar {
+  border-bottom: 1px solid var(--s24-gold);
+}
+
+.announcement-bar__announcement {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+/* Buttons — sharper fashion cut, gold hover on plum */
+.button,
+.shopify-challenge__button,
+button.shopify-payment-button__button--unbranded {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  min-height: 4.6rem;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+.button:hover {
+  box-shadow: 0 0 0 1px var(--s24-gold);
+}
+
+.button--secondary {
+  background: transparent;
+}
+
+/* Hero overlay: ink + plum so white type stays readable */
+.banner::after {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 12, 16, 0.15) 0%,
+    rgba(167, 23, 110, 0.45) 55%,
+    rgba(20, 12, 16, 0.72) 100%
+  );
+}
+
+.banner__box {
+  max-width: 78rem;
+}
+
+.banner__heading {
+  max-width: 16ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner__text {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.92;
+}
+
+/* Product cards — editorial, not boxed */
+.card--standard .card__inner {
+  background: #f4ece8;
+}
+
+.card__heading {
+  font-size: 1.6rem;
+}
+
+.price {
+  letter-spacing: 0.04em;
+}
+
+.card-wrapper:hover .card__inner .media img {
+  transform: scale(1.04);
+}
+
+.card__inner .media img {
+  transition: transform 0.7s ease;
+}
+
+/* Sale badge uses gold so it matches the logo */
+.badge {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Collection list titles */
+.collection-list-title,
+.title-wrapper-with-link .title {
+  text-align: center;
+  width: 100%;
+}
+
+.title-wrapper-with-link {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.title-wrapper-with-link .link {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Founder quote: gold hairline */
+.rich-text__caption {
+  color: var(--s24-plum);
+}
+
+.rich-text__heading {
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Image with text — more breathing room */
+.image-with-text .image-with-text__content {
+  padding: 4rem 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .image-with-text .image-with-text__content {
+    padding: 6rem 5rem;
+  }
+}
+
+/* S24 pillars section */
+.s24-pillars__intro {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto 4.8rem;
+}
+
+.s24-pillars__kicker {
+  margin: 0 0 1.2rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: var(--s24-plum);
+}
+
+.s24-pillars__heading {
+  margin: 0;
+}
+
+.s24-pillars__grid {
+  display: grid;
+  gap: 2.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-pillars__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.2rem;
+  }
+}
+
+.s24-pillars__item {
+  padding: 2.4rem 0;
+  border-top: 1px solid var(--s24-gold);
+}
+
+.s24-pillars__index {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  color: var(--s24-gold);
+}
+
+.s24-pillars__title {
+  margin: 0 0 1.2rem;
+  font-size: 2.2rem;
+}
+
+.s24-pillars__text {
+  margin: 0;
+  opacity: 0.82;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid rgba(205, 154, 48, 0.35);
+}
+
+.footer__content-top a:hover {
+  color: var(--s24-gold);
+}
+
+.footer-block__heading {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Inputs */
+.field__input:focus,
+.select__select:focus {
+  box-shadow: 0 0 0 1px var(--s24-plum);
+}
+
+/* Predictive search / cart drawer polish */
+.cart-drawer {
+  border-left: 1px solid rgba(167, 23, 110, 0.12);
+}

@@ -1,37 +1,46 @@
 {
   "sections": {
-    "image_banner": {
+    "hero_banner": {
       "type": "image-banner",
       "blocks": {
-        "heading": {
+        "hero_heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "heading": "African Luxury Fashion for Women Who Love Elegance",
+            "heading_size": "hxl"
           }
         },
-        "button": {
+        "hero_text": {
+          "type": "text",
+          "settings": {
+            "text": "Heritage print. Modern cut. Clothing that carries a story — from Nigeria to Canada.",
+            "text_style": "subtitle"
+          }
+        },
+        "hero_buttons": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/shop-all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Book Appointment",
+            "button_link_2": "shopify://collections/custom-orders",
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "hero_heading",
+        "hero_text",
+        "hero_buttons"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
+        "image_overlay_opacity": 50,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "show_text_box": false,
-        "image_behavior": "none",
+        "image_behavior": "zoom-in",
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
         "mobile_content_alignment": "center",
@@ -39,37 +48,311 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
+    "shop_collections": {
+      "type": "collection-list",
+      "blocks": {
+        "col_tops": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tops"
+          }
+        },
+        "col_pants": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pants"
+          }
+        },
+        "col_sets": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "two-piece-sets"
+          }
+        },
+        "col_mens": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "mens"
+          }
+        }
+      },
+      "block_order": [
+        "col_tops",
+        "col_pants",
+        "col_sets",
+        "col_mens"
+      ],
+      "settings": {
+        "title": "Shop the edit",
+        "heading_size": "h1",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 72,
+        "padding_bottom": 28
+      }
+    },
+    "new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "title": "New Arrivals",
+        "heading_size": "h1",
+        "description": "<p>Ready-to-wear pieces you can order today — bold print, modern ease, made to be remembered.</p>",
+        "show_description": true,
         "description_style": "body",
-        "collection": "all",
+        "collection": "new-arrivals",
         "products_to_show": 8,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "outline",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 44,
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    },
+    "founder_quote": {
+      "type": "rich-text",
+      "blocks": {
+        "quote_caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "From the founder",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "quote_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "I didn't just move to Canada — I carried my dreams, my culture, and my passion with me.",
+            "heading_size": "h1"
+          }
+        },
+        "quote_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every design I create is a reminder that elegance has no borders.</p><p>— Cecilia, Founder &amp; Creative Director</p>"
+          }
+        }
+      },
+      "block_order": [
+        "quote_caption",
+        "quote_heading",
+        "quote_text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "meet_cecilia": {
+      "type": "image-with-text",
+      "blocks": {
+        "about_caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Meet Cecilia",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "about_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "A story of heritage, resilience, and everyday luxury",
+            "heading_size": "h1"
+          }
+        },
+        "about_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fashion has never been just about clothing for Cecilia. It has always been about courage, identity, and telling stories without saying a word.</p><p>S24 By Cecilia began in Nigeria in 2014 and was rebuilt in Canada — blending African heritage with modern elegance so every woman feels confident, unforgettable, and uniquely herself.</p>",
+            "text_style": "body"
+          }
+        },
+        "about_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read her story",
+            "button_link": "shopify://pages/about",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "about_caption",
+        "about_heading",
+        "about_text",
+        "about_button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
+        "height": "adapt",
+        "desktop_image_width": "large",
+        "layout": "image_first",
+        "image_behavior": "ambient",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "why_s24": {
+      "type": "s24-pillars",
+      "blocks": {
+        "pillar_1": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Heritage, made modern",
+            "text": "African print and craftsmanship cut for the way you live now — not costume, not trend-chasing. Everyday luxury with a story."
+          }
+        },
+        "pillar_2": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Made to fit you",
+            "text": "Standard sizes plus custom when the rack is not enough. If your size is not listed, we still have a way to dress you."
+          }
+        },
+        "pillar_3": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Designed in Canada",
+            "text": "A brand rebuilt with care after relocation — small-batch pieces, thoughtful details, and clothing meant to be worn and remembered."
+          }
+        }
+      },
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ],
+      "settings": {
+        "kicker": "Why S24 By Cecilia",
+        "heading": "Clothing that feels as unique as you",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "custom_orders": {
+      "type": "image-with-text",
+      "blocks": {
+        "custom_caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Made to fit",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "custom_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Custom dresses, kaftans, and occasion pieces",
+            "heading_size": "h1"
+          }
+        },
+        "custom_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your dress should not ask you to shrink into a standard size. Book an appointment and we will design around your measurements, your occasion, and your vision.</p>",
+            "text_style": "body"
+          }
+        },
+        "custom_button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start a custom order",
+            "button_link": "shopify://collections/custom-orders",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "custom_caption",
+        "custom_heading",
+        "custom_text",
+        "custom_button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-02.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "newsletter_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the S24 circle",
+            "heading_size": "h1"
+          }
+        },
+        "newsletter_text": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>New drops, styling notes, and first access to custom booking dates — sent with care, never noise.</p>"
+          }
+        },
+        "newsletter_form": {
+          "type": "email_form"
+        }
+      },
+      "block_order": [
+        "newsletter_heading",
+        "newsletter_text",
+        "newsletter_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero_banner",
+    "shop_collections",
+    "new_arrivals",
+    "founder_quote",
+    "meet_cecilia",
+    "why_s24",
+    "custom_orders",
+    "newsletter"
   ]
 }
