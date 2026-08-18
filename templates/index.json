@@ -37,13 +37,13 @@
         "products_to_show": 8,
         "title": "Trending product",
         "heading_size": "h1",
-        "description": "<p>Fresh from the studio — pieces made to be seen and worn.</p>",
-        "show_description": true,
+        "description": "<p>Follow the most popular trends and get exclusive pieces from the S24 studio.</p>",
+        "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": true,
         "full_width": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_style": "link",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
@@ -54,8 +54,8 @@
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 48,
-        "padding_bottom": 20
+        "padding_top": 72,
+        "padding_bottom": 40
       }
     },
     "promo_banners": {
@@ -67,7 +67,7 @@
             "image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
             "kicker": "Just for you",
             "heading": "Ready to wear",
-            "button_label": "Shop now",
+            "button_label": "Explore Now",
             "button_link": "shopify://collections/ready-to-wear"
           }
         },
@@ -77,7 +77,7 @@
             "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
             "kicker": "Studio offer",
             "heading": "New arrivals",
-            "button_label": "Shop now",
+            "button_label": "Explore Now",
             "button_link": "shopify://collections/new-arrivals"
           }
         },
@@ -87,7 +87,7 @@
             "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
             "kicker": "Made to fit",
             "heading": "Custom orders",
-            "button_label": "Book now",
+            "button_label": "Explore Now",
             "button_link": "shopify://collections/custom-orders"
           }
         }
@@ -98,8 +98,8 @@
         "banner_3"
       ],
       "settings": {
-        "padding_top": 52,
-        "padding_bottom": 52
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "circle_cats": {

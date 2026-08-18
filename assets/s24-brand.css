@@ -484,7 +484,85 @@ body.template-index #MainContent slideshow-component.banner {
   display: none !important;
 }
 
-/* Promo banners */
+/* Trending / featured collection — title left, arrows right */
+.s24-featured {
+  display: block;
+}
+
+.s24-collection-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.4rem;
+  margin-bottom: 3.2rem;
+  text-align: left;
+}
+
+.s24-collection-head__copy {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.s24-collection-head .title {
+  margin: 0 0 0.8rem;
+  text-align: left;
+}
+
+.s24-collection-head .collection__description,
+.s24-collection-head .collection__description p {
+  margin: 0;
+  text-align: left;
+  color: var(--s24-muted);
+  max-width: 48rem;
+}
+
+.s24-slider-nav {
+  display: flex !important;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  margin: 0.4rem 0 0;
+}
+
+.s24-slider-nav .slider-button {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 1px solid #111;
+  background: #fff;
+  color: #111;
+}
+
+.s24-slider-nav .slider-button:hover {
+  background: var(--s24-plum);
+  border-color: var(--s24-plum);
+  color: #fff;
+}
+
+.s24-slider-nav .slider-button[disabled] {
+  opacity: 0.35;
+}
+
+.collection .card__information,
+.collection .card__heading,
+.collection .price {
+  text-align: left;
+}
+
+/* Promo banners — full width, centered white overlay */
+.s24-promos {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-promos {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
 .s24-promos__grid {
   display: grid;
   gap: 1.6rem;
@@ -493,13 +571,14 @@ body.template-index #MainContent slideshow-component.banner {
 @media screen and (min-width: 750px) {
   .s24-promos__grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 }
 
 .s24-promo-card {
   position: relative;
-  min-height: 28rem;
-  border-radius: var(--s24-radius);
+  min-height: 42rem;
+  border-radius: 2rem;
   overflow: hidden;
   color: #fff;
 }
@@ -514,26 +593,43 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 .s24-promo-card__overlay {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 28rem;
-  padding: 2.4rem;
-  background: linear-gradient(180deg, transparent 20%, rgba(20, 12, 16, 0.72) 100%);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3.2rem 2.4rem;
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff;
 }
 
 .s24-promo-card__overlay p {
-  margin: 0 0 0.4rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 1.1rem;
+  margin: 0 0 1rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #fff;
 }
 
 .s24-promo-card__overlay h3 {
-  margin: 0 0 1.6rem;
-  font-size: 2.4rem;
+  margin: 0 0 2.4rem;
+  font-size: clamp(2.8rem, 3vw, 4.2rem);
+  line-height: 1.05;
+  color: #fff;
+}
+
+.s24-promo-card .s24-btn--light {
+  background: #fff;
+  color: #111;
+}
+
+.s24-promo-card .s24-btn--light:hover {
+  background: var(--s24-plum);
+  color: #fff;
 }
 
 /* Circle categories */

@@ -16,8 +16,7 @@
 {%- endstyle -%}
 
 <section class="s24-promos s24-promos-{{ section.id }}">
-  <div class="page-width">
-    <div class="s24-promos__grid">
+  <div class="s24-promos__grid">
       {%- for block in section.blocks -%}
         <article class="s24-promo-card" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
@@ -45,7 +44,6 @@
         </article>
       {%- endfor -%}
     </div>
-  </div>
 </section>
 
 {% schema %}
