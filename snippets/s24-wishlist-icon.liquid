@@ -1,0 +1,12 @@
+{% comment %}
+  Header wishlist icon with live count. Page handle: /pages/wishlist
+{% endcomment %}
+<a
+  href="{{ pages.wishlist.url | default: '/pages/wishlist' }}"
+  class="header__icon header__icon--wishlist link focus-inset"
+  aria-label="Wishlist"
+>
+  <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+  <span class="visually-hidden">Wishlist</span>
+  <div class="cart-count-bubble" data-s24-wishlist-count>0</div>
+</a>

@@ -281,6 +281,8 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {% comment %} S24 By Cecilia brand layer — plum #a7176e + gold #cd9a30 {% endcomment %}
     {{ 's24-brand.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 's24-ui.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 's24-wishlist.js' | asset_url }}" defer="defer"></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -302,10 +304,8 @@
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endunless -%}
 
-    {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
-      {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
-      <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
+    <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.predictive_search_enabled -%}
       <link

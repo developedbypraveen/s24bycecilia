@@ -1,0 +1,76 @@
+{% comment %}
+  Wishlist page — reads product handles from localStorage and loads product JSON.
+  Create a page in Shopify Admin with handle `wishlist` and this template.
+{% endcomment %}
+
+<script src="{{ 's24-wishlist.js' | asset_url }}" defer="defer"></script>
+
+<div class="page-width s24-wishlist section-{{ section.id }}-padding">
+  <h1 class="s24-heading__title">{{ page.title | default: 'Wishlist' }}</h1>
+  <p class="s24-heading__subtitle" data-s24-wishlist-empty hidden>Your wishlist is empty.</p>
+  <div class="s24-wishlist__grid" data-s24-wishlist-grid></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async function () {
+    const grid = document.querySelector('[data-s24-wishlist-grid]');
+    const empty = document.querySelector('[data-s24-wishlist-empty]');
+    if (!grid || !window.S24Wishlist) return;
+
+    const handles = window.S24Wishlist.read();
+    if (!handles.length) {
+      empty.hidden = false;
+      return;
+    }
+
+    const money = (cents) => {
+      return (cents / 100).toLocaleString(undefined, { style: 'currency', currency: {{ shop.currency | json }} });
+    };
+
+    const cards = await Promise.all(
+      handles.map(async (handle) => {
+        try {
+          const product = await fetch('/products/' + handle + '.js').then((r) => {
+            if (!r.ok) throw new Error('missing');
+            return r.json();
+          });
+          const image = product.featured_image || (product.images && product.images[0]) || '';
+          return `
+            <article class="s24-wishlist__card">
+              <a href="${product.url}">
+                ${image ? `<img src="${image}" alt="${product.title}">` : ''}
+                <h3>${product.title}</h3>
+                <p>${money(product.price)}</p>
+              </a>
+              <button type="button" class="s24-btn s24-btn--outline" data-s24-wishlist-toggle data-handle="${product.handle}">Remove</button>
+            </article>
+          `;
+        } catch (e) {
+          return '';
+        }
+      })
+    );
+
+    grid.innerHTML = cards.join('');
+    if (!grid.children.length) empty.hidden = false;
+
+    document.addEventListener('s24:wishlist:update', () => {
+      const left = window.S24Wishlist.read();
+      grid.querySelectorAll('[data-handle]').forEach((btn) => {
+        if (!left.includes(btn.getAttribute('data-handle'))) {
+          btn.closest('.s24-wishlist__card')?.remove();
+        }
+      });
+      if (!left.length) empty.hidden = false;
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "S24 wishlist",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

@@ -60,6 +60,15 @@
           style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
         >
           {%- if card_product.featured_media -%}
+            <button
+              type="button"
+              class="s24-wish-btn"
+              data-s24-wishlist-toggle
+              data-handle="{{ card_product.handle }}"
+              aria-label="Add to wishlist"
+            >
+              <span class="svg-wrapper">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+            </button>
             <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
               <div class="media media--transparent media--hover-effect">
                 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
