@@ -34,7 +34,7 @@
       "type": "featured-collection",
       "settings": {
         "collection": "new-arrivals",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "title": "Trending product",
         "heading_size": "h1",
         "description": "<p>Fresh from the studio — pieces made to be seen and worn.</p>",
