@@ -349,6 +349,37 @@ body {
   gap: 1.2rem;
 }
 
+.s24-hero__play {
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  border: 1px solid #111;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.s24-hero__play-icon {
+  width: 0;
+  height: 0;
+  margin-left: 0.3rem;
+  border-top: 0.7rem solid transparent;
+  border-bottom: 0.7rem solid transparent;
+  border-left: 1.1rem solid #111;
+}
+
+.s24-hero__play:hover {
+  background: var(--s24-plum);
+  border-color: var(--s24-plum);
+}
+
+.s24-hero__play:hover .s24-hero__play-icon {
+  border-left-color: #fff;
+}
+
 .s24-hero__media {
   position: relative;
   min-height: 42rem;
@@ -440,6 +471,14 @@ body {
   .s24-hero__media {
     min-height: 100%;
   }
+}
+
+/* Hide leftover Dawn/homepage heroes inside the JSON template.
+   The live 50/50 hero is rendered from layout, before #MainContent. */
+body.template-index #MainContent .s24-hero,
+body.template-index #MainContent .banner,
+body.template-index #MainContent slideshow-component {
+  display: none !important;
 }
 
 /* Promo banners */

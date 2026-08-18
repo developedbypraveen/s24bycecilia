@@ -30,6 +30,13 @@
               {{ block.settings.button_label | escape }}
             </a>
           {%- endif -%}
+          <a
+            class="s24-hero__play"
+            href="{{ block.settings.video_url | default: routes.all_products_collection_url }}"
+            aria-label="Play"
+          >
+            <span class="s24-hero__play-icon"></span>
+          </a>
         </div>
       </div>
       <div class="s24-hero__media">
@@ -49,6 +56,14 @@
               widths: '600, 900, 1200, 1600, 1800',
               alt: block.settings.heading
           }}
+        {%- elsif block.settings.fallback_image != blank -%}
+          <img
+            src="{{ block.settings.fallback_image }}"
+            alt="{{ block.settings.heading | escape }}"
+            loading="{{ hero_loading }}"
+            width="1800"
+            height="1800"
+          >
         {%- else -%}
           {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
         {%- endif -%}
@@ -104,9 +119,11 @@
         { "type": "text", "id": "kicker", "label": "Small heading", "default": "New trending style" },
         { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "African Luxury<br>Elegance." },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Heritage print. Modern cut. Designed in Canada." },
-        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop now" },
+        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop Now" },
         { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "url", "id": "video_url", "label": "Play button link" },
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "fallback_image", "label": "Fallback image URL" },
         { "type": "text", "id": "overlay_word", "label": "Image overlay word", "default": "Fashion" }
       ]
     }

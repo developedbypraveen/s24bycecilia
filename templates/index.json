@@ -1,39 +1,5 @@
 {
   "sections": {
-    "split_hero": {
-      "type": "s24-split-hero",
-      "blocks": {
-        "slide_1": {
-          "type": "slide",
-          "settings": {
-            "kicker": "New trending style",
-            "heading": "African Luxury<br>Elegance.",
-            "text": "Heritage print. Modern cut. Ready-to-wear and custom pieces designed in Canada.",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/shop-all",
-            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
-            "overlay_word": "Fashion"
-          }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "kicker": "Made to fit",
-            "heading": "Custom looks<br>for your moment.",
-            "text": "Book an appointment for made-to-fit dresses, kaftans, and occasion pieces.",
-            "button_label": "Book now",
-            "button_link": "shopify://collections/custom-orders",
-            "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
-            "overlay_word": "Custom"
-          }
-        }
-      },
-      "block_order": ["slide_1", "slide_2"],
-      "settings": {
-        "autoplay_speed": 6,
-        "color_scheme": "scheme-1"
-      }
-    },
     "trending": {
       "type": "featured-collection",
       "settings": {
@@ -319,7 +285,6 @@
     }
   },
   "order": [
-    "split_hero",
     "trending",
     "promo_banners",
     "circle_cats",
