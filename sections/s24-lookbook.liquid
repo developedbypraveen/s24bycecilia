@@ -1,0 +1,83 @@
+{% comment %}
+  Lookbook: two tall images + one wide banner underneath.
+{% endcomment %}
+
+{%- style -%}
+  .s24-lookbook-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-lookbook-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="s24-lookbook s24-lookbook-{{ section.id }}">
+  <div class="page-width">
+    {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
+    <div class="s24-lookbook__pair">
+      <a class="s24-lookbook__tall" href="{{ section.settings.left_link | default: routes.all_products_collection_url }}">
+        {%- if section.settings.left_image != blank -%}
+          {{ section.settings.left_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.left_label }}
+        {%- else -%}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        {%- if section.settings.left_label != blank -%}
+          <span>{{ section.settings.left_label | escape }}</span>
+        {%- endif -%}
+      </a>
+      <a class="s24-lookbook__tall" href="{{ section.settings.right_link | default: routes.all_products_collection_url }}">
+        {%- if section.settings.right_image != blank -%}
+          {{ section.settings.right_image | image_url: width: 1000 | image_tag: loading: 'lazy', alt: section.settings.right_label }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        {%- if section.settings.right_label != blank -%}
+          <span>{{ section.settings.right_label | escape }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+    <a class="s24-lookbook__wide" href="{{ section.settings.wide_link | default: routes.all_products_collection_url }}">
+      {%- if section.settings.wide_image != blank -%}
+        {{ section.settings.wide_image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: section.settings.wide_heading }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+      <div class="s24-lookbook__wide-copy">
+        {%- if section.settings.wide_heading != blank -%}
+          <h3>{{ section.settings.wide_heading | escape }}</h3>
+        {%- endif -%}
+        <span class="s24-btn s24-btn--light">{{ section.settings.wide_button | default: 'Shop now' }}</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S24 lookbook",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "text", "id": "title", "label": "Heading", "default": "Shop the lookbook" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "See how the pieces live on the body." },
+    { "type": "image_picker", "id": "left_image", "label": "Left image" },
+    { "type": "text", "id": "left_label", "label": "Left label", "default": "For her" },
+    { "type": "url", "id": "left_link", "label": "Left link" },
+    { "type": "image_picker", "id": "right_image", "label": "Right image" },
+    { "type": "text", "id": "right_label", "label": "Right label", "default": "For him" },
+    { "type": "url", "id": "right_link", "label": "Right link" },
+    { "type": "image_picker", "id": "wide_image", "label": "Wide banner image" },
+    { "type": "text", "id": "wide_heading", "label": "Wide heading", "default": "Custom made for your moment" },
+    { "type": "text", "id": "wide_button", "label": "Wide button", "default": "Shop now" },
+    { "type": "url", "id": "wide_link", "label": "Wide link" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 20 }
+  ],
+  "presets": [{ "name": "S24 lookbook" }]
+}
+{% endschema %}

@@ -1,13 +1,7 @@
 /*
  * ------------------------------------------------------------
- * S24 By Cecilia — brand layer on Dawn
- *
- * Logo colors:
- *   Magenta / plum  #a7176e
- *   Gold            #cd9a30
- *
- * Do not put store-specific copy here — only look & feel.
- * Theme settings (color schemes + fonts) do the heavy lifting.
+ * S24 By Cecilia — homepage layout matching the fashion mockup
+ * Accents: plum #a7176e  |  gold #cd9a30
  * ------------------------------------------------------------
  */
 
@@ -16,291 +10,607 @@
   --s24-gold: #cd9a30;
   --s24-ink: #1a1216;
   --s24-cream: #fffdfb;
+  --s24-muted: #6b6568;
+  --s24-line: #ece8e6;
+  --s24-radius: 1.6rem;
 }
 
-/* Tighter tracking than Dawn default — fashion, not tech */
 body {
   letter-spacing: 0.01em;
 }
 
-h1,
-h2,
-h3,
-.hxl,
-.h0,
-.h1,
-.h2,
-.banner__heading {
-  letter-spacing: 0.01em;
-}
-
-/* Header: quieter luxury bar */
+/* Header */
 .header-wrapper {
-  border-bottom: 1px solid rgba(167, 23, 110, 0.12);
+  border-bottom: 1px solid var(--s24-line);
 }
 
 .header__menu-item {
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  font-size: 1.4rem;
+  text-transform: none;
 }
 
-.header__icon,
-.header__heading-link {
-  transition: opacity 0.2s ease;
+.header__menu-item:hover,
+.header__active-menu-item {
+  color: var(--s24-plum);
 }
 
-.header__icon:hover,
-.header__heading-link:hover {
-  opacity: 0.7;
-}
-
-/* Announcement bar uses plum scheme; gold rule underneath */
 .utility-bar {
-  border-bottom: 1px solid var(--s24-gold);
+  border-bottom: 0;
 }
 
+.announcement-bar__message,
 .announcement-bar__announcement {
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-}
-
-/* Buttons — sharper fashion cut, gold hover on plum */
-.button,
-.shopify-challenge__button,
-button.shopify-payment-button__button--unbranded {
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 1.2rem;
-  min-height: 4.6rem;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
 }
 
-.button:hover {
-  box-shadow: 0 0 0 1px var(--s24-gold);
+/* Pill buttons (mockup) */
+.s24-btn,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  min-height: 4.6rem;
+  padding: 0 2.4rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.s24-btn {
+  background: var(--s24-plum);
+  color: #fff;
+  border: 0;
+}
+
+.s24-btn:hover {
+  background: #8c125c;
+  color: #fff;
+}
+
+.s24-btn--light {
+  background: #fff;
+  color: var(--s24-ink);
+}
+
+.s24-btn--light:hover {
+  background: var(--s24-plum);
+  color: #fff;
+}
+
+.s24-btn__arrow {
+  display: inline-flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+}
+
+.button {
+  background: var(--s24-plum) !important;
+  color: #fff !important;
 }
 
 .button--secondary {
-  background: transparent;
+  background: transparent !important;
+  color: var(--s24-plum) !important;
+  box-shadow: 0 0 0 1px var(--s24-plum);
 }
 
-/* Hero overlay: ink + plum so white type stays readable */
-.banner::after {
-  background: linear-gradient(
-    180deg,
-    rgba(20, 12, 16, 0.15) 0%,
-    rgba(167, 23, 110, 0.45) 55%,
-    rgba(20, 12, 16, 0.72) 100%
-  );
-}
-
-.banner__box {
-  max-width: 78rem;
-}
-
-.banner__heading {
-  max-width: 16ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.banner__text {
-  max-width: 42rem;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.92;
-}
-
-/* Product cards — editorial, not boxed */
-.card--standard .card__inner {
-  background: #f4ece8;
-}
-
-.card__heading {
-  font-size: 1.6rem;
-}
-
-.price {
-  letter-spacing: 0.04em;
-}
-
-.card-wrapper:hover .card__inner .media img {
-  transform: scale(1.04);
-}
-
-.card__inner .media img {
-  transition: transform 0.7s ease;
-}
-
-/* Sale badge uses gold so it matches the logo */
-.badge {
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-/* Collection list titles */
-.collection-list-title,
-.title-wrapper-with-link .title {
+/* Section titles */
+.s24-heading {
   text-align: center;
-  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto 3.6rem;
+}
+
+.s24-heading__title {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2.8rem, 3vw, 3.6rem);
+}
+
+.s24-heading__subtitle {
+  margin: 0;
+  color: var(--s24-muted);
 }
 
 .title-wrapper-with-link {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 0.8rem;
   margin-bottom: 3.2rem;
 }
 
-.title-wrapper-with-link .link {
-  letter-spacing: 0.14em;
+.collection-list-title,
+.title-wrapper-with-link .title {
+  text-align: center;
+  width: 100%;
+}
+
+/* Product cards */
+.card--standard .card__inner {
+  background: #f3f1ef;
+  border-radius: var(--s24-radius);
+  overflow: hidden;
+}
+
+.card__inner .media img {
+  transition: transform 0.6s ease;
+}
+
+.card-wrapper:hover .card__inner .media img {
+  transform: scale(1.05);
+}
+
+.badge {
+  border-radius: 999px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* Founder quote: gold hairline */
-.rich-text__caption {
-  color: var(--s24-plum);
+/* Split hero */
+.s24-hero {
+  background: #f6f4f2;
 }
 
-.rich-text__heading {
-  max-width: 22ch;
-  margin-left: auto;
-  margin-right: auto;
+.s24-hero__grid {
+  display: grid;
+  gap: 3.2rem;
+  align-items: center;
 }
 
-/* Image with text — more breathing room */
-.image-with-text .image-with-text__content {
-  padding: 4rem 3rem;
-}
-
-@media screen and (min-width: 990px) {
-  .image-with-text .image-with-text__content {
-    padding: 6rem 5rem;
+@media screen and (min-width: 750px) {
+  .s24-hero__grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 6rem;
+    min-height: 58rem;
   }
 }
 
-/* S24 pillars section */
-.s24-pillars__intro {
-  text-align: center;
-  max-width: 64rem;
-  margin: 0 auto 4.8rem;
-}
-
-.s24-pillars__kicker {
+.s24-hero__kicker {
   margin: 0 0 1.2rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 1.2rem;
   color: var(--s24-plum);
 }
 
-.s24-pillars__heading {
-  margin: 0;
+.s24-hero__title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(4rem, 6vw, 7.2rem);
+  line-height: 0.95;
 }
 
-.s24-pillars__grid {
+.s24-hero__text {
+  margin: 0 0 2.8rem;
+  max-width: 42rem;
+  color: var(--s24-muted);
+}
+
+.s24-hero__media {
+  border-radius: 2rem;
+  overflow: hidden;
+  background: #e8e2dc;
+  min-height: 36rem;
+}
+
+.s24-hero__media img,
+.s24-hero__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Promo banners */
+.s24-promos__grid {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-promos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.s24-promo-card {
+  position: relative;
+  min-height: 28rem;
+  border-radius: var(--s24-radius);
+  overflow: hidden;
+  color: #fff;
+}
+
+.s24-promo-card img,
+.s24-promo-card svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.s24-promo-card__overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 28rem;
+  padding: 2.4rem;
+  background: linear-gradient(180deg, transparent 20%, rgba(20, 12, 16, 0.72) 100%);
+}
+
+.s24-promo-card__overlay p {
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.s24-promo-card__overlay h3 {
+  margin: 0 0 1.6rem;
+  font-size: 2.4rem;
+}
+
+/* Circle categories */
+.s24-circles__row {
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.s24-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  width: 14rem;
+}
+
+.s24-circle__media {
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eee;
+}
+
+.s24-circle__media img,
+.s24-circle__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.s24-circle__label {
+  font-weight: 600;
+}
+
+/* Services */
+.s24-services {
+  border-top: 1px solid var(--s24-line);
+  border-bottom: 1px solid var(--s24-line);
+}
+
+.s24-services__grid {
   display: grid;
   gap: 2.4rem;
 }
 
 @media screen and (min-width: 750px) {
-  .s24-pillars__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3.2rem;
+  .s24-services__grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.s24-pillars__item {
-  padding: 2.4rem 0;
-  border-top: 1px solid var(--s24-gold);
+.s24-service {
+  text-align: center;
 }
 
-.s24-pillars__index {
-  display: block;
+.s24-service__icon {
+  display: inline-flex;
+  width: 4.4rem;
+  height: 4.4rem;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1.2rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.18em;
-  color: var(--s24-gold);
+  border-radius: 50%;
+  background: #f8eef4;
+  color: var(--s24-plum);
+  font-size: 1.8rem;
 }
 
-.s24-pillars__title {
-  margin: 0 0 1.2rem;
-  font-size: 2.2rem;
+.s24-service h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.6rem;
 }
 
-.s24-pillars__text {
+.s24-service p {
   margin: 0;
-  opacity: 0.82;
+  color: var(--s24-muted);
+  font-size: 1.3rem;
 }
 
-/* Footer — dark luxury bar with gold accents */
+/* Marquee */
+.s24-marquee {
+  overflow: hidden;
+  padding: 1.4rem 0;
+}
+
+.s24-marquee__track {
+  display: flex;
+  gap: 2.4rem;
+  width: max-content;
+  animation: s24-marquee 28s linear infinite;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+.s24-marquee__dot {
+  color: var(--s24-plum);
+}
+
+@keyframes s24-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Featured split */
+.s24-split__panel {
+  display: grid;
+  gap: 0;
+  background: #f3f1ef;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-split__panel {
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 48rem;
+  }
+}
+
+.s24-split__media img,
+.s24-split__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 32rem;
+}
+
+.s24-split__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3.2rem;
+}
+
+.s24-split__badge {
+  width: 9.6rem;
+  height: 9.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--s24-plum);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.s24-split__copy h2 {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 1.05;
+}
+
+.s24-split__copy p {
+  margin: 0 0 2.4rem;
+  color: var(--s24-muted);
+}
+
+/* Reviews */
+.s24-reviews__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-reviews__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.s24-review {
+  background: #fff;
+  border-radius: var(--s24-radius);
+  padding: 2.8rem;
+  box-shadow: 0 12px 40px rgba(26, 18, 22, 0.06);
+}
+
+.s24-review__stars {
+  color: var(--s24-gold);
+  letter-spacing: 0.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.s24-review__quote {
+  margin: 0 0 2.4rem;
+  min-height: 8rem;
+}
+
+.s24-review__person {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.s24-review__avatar {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8eef4;
+  color: var(--s24-plum);
+  font-weight: 700;
+}
+
+.s24-review__person span {
+  display: block;
+  color: var(--s24-muted);
+  font-size: 1.2rem;
+}
+
+/* Lookbook */
+.s24-lookbook__pair {
+  display: grid;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-lookbook__pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.s24-lookbook__tall,
+.s24-lookbook__wide {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--s24-radius);
+  color: #fff;
+  text-decoration: none;
+}
+
+.s24-lookbook__tall img,
+.s24-lookbook__tall svg,
+.s24-lookbook__wide img,
+.s24-lookbook__wide svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.s24-lookbook__tall {
+  min-height: 52rem;
+}
+
+.s24-lookbook__tall span,
+.s24-lookbook__wide-copy {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.s24-lookbook__wide {
+  min-height: 28rem;
+}
+
+.s24-lookbook__wide-copy {
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.s24-lookbook__wide-copy h3 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+/* Instagram */
+.s24-ig__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-ig__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.s24-ig__item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 1.2rem;
+}
+
+.s24-ig__item img,
+.s24-ig__item svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Footer */
 .footer {
-  border-top: 1px solid rgba(205, 154, 48, 0.35);
-}
-
-.footer .footer__content-top {
-  padding-bottom: 4.8rem;
+  border-top: 0;
 }
 
 .footer .footer-block__heading {
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 1.6rem;
   margin-bottom: 1.8rem;
-  color: var(--s24-gold);
-}
-
-.footer .footer-block__details-content {
-  line-height: 1.8;
+  color: var(--s24-ink);
 }
 
 .footer .footer-block__details-content a {
-  display: inline-block;
-  padding: 0.2rem 0;
+  display: block;
+  padding: 0.35rem 0;
   text-decoration: none;
-  opacity: 0.88;
 }
 
 .footer .footer-block__details-content a:hover {
-  color: var(--s24-gold);
-  opacity: 1;
+  color: var(--s24-plum);
 }
 
 .footer .footer-block--newsletter {
-  margin-top: 2.4rem;
-  padding-top: 2.4rem;
-  border-top: 1px solid rgba(205, 154, 48, 0.22);
-}
-
-.footer .newsletter-form__field-wrapper .field__input {
-  background: transparent;
-  color: var(--s24-cream);
-}
-
-.footer .footer__content-bottom {
-  border-top: 1px solid rgba(205, 154, 48, 0.22);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .footer .copyright__content,
 .footer .copyright__content a {
-  letter-spacing: 0.06em;
   opacity: 0.7;
 }
 
-.footer__content-top a:hover {
-  color: var(--s24-gold);
-}
-
-/* Inputs */
 .field__input:focus,
 .select__select:focus {
   box-shadow: 0 0 0 1px var(--s24-plum);
-}
-
-/* Predictive search / cart drawer polish */
-.cart-drawer {
-  border-left: 1px solid rgba(167, 23, 110, 0.12);
 }

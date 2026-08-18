@@ -1,106 +1,25 @@
 {
   "sections": {
-    "hero_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "hero_heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "African Luxury Fashion for Women Who Love Elegance",
-            "heading_size": "hxl"
-          }
-        },
-        "hero_text": {
-          "type": "text",
-          "settings": {
-            "text": "Heritage print. Modern cut. Clothing that carries a story — from Nigeria to Canada.",
-            "text_style": "subtitle"
-          }
-        },
-        "hero_buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "shopify://collections/shop-all",
-            "button_style_secondary_1": false,
-            "button_label_2": "Book Appointment",
-            "button_link_2": "shopify://collections/custom-orders",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "hero_heading",
-        "hero_text",
-        "hero_buttons"
-      ],
+    "split_hero": {
+      "type": "s24-split-hero",
       "settings": {
-        "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
-        "image_overlay_opacity": 50,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "image_behavior": "zoom-in",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "shop_collections": {
-      "type": "collection-list",
-      "blocks": {
-        "col_tops": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "tops"
-          }
-        },
-        "col_pants": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "pants"
-          }
-        },
-        "col_sets": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "two-piece-sets"
-          }
-        },
-        "col_mens": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "mens"
-          }
-        }
-      },
-      "block_order": [
-        "col_tops",
-        "col_pants",
-        "col_sets",
-        "col_mens"
-      ],
-      "settings": {
-        "title": "Shop the edit",
-        "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 4,
+        "kicker": "New trending style",
+        "heading": "African Luxury<br>Elegance.",
+        "text": "Heritage print. Modern cut. Ready-to-wear and custom pieces designed in Canada.",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/shop-all",
+        "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
         "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 72,
-        "padding_bottom": 28
+        "padding_top": 20,
+        "padding_bottom": 40
       }
     },
-    "new_arrivals": {
+    "trending": {
       "type": "featured-collection",
       "settings": {
-        "title": "New Arrivals",
+        "title": "Trending product",
         "heading_size": "h1",
-        "description": "<p>Ready-to-wear pieces you can order today — bold print, modern ease, made to be remembered.</p>",
+        "description": "<p>Fresh from the studio — pieces made to be seen and worn.</p>",
         "show_description": true,
         "description_style": "body",
         "collection": "new-arrivals",
@@ -108,9 +27,9 @@
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
         "swipe_on_mobile": true,
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -119,240 +38,277 @@
         "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 72
+        "padding_top": 48,
+        "padding_bottom": 20
       }
     },
-    "founder_quote": {
-      "type": "rich-text",
+    "promo_banners": {
+      "type": "s24-promo-banners",
       "blocks": {
-        "quote_caption": {
-          "type": "caption",
+        "banner_1": {
+          "type": "banner",
           "settings": {
-            "caption": "From the founder",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
+            "kicker": "Just for you",
+            "heading": "Ready to wear",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/ready-to-wear"
           }
         },
-        "quote_heading": {
-          "type": "heading",
+        "banner_2": {
+          "type": "banner",
           "settings": {
-            "heading": "I didn't just move to Canada — I carried my dreams, my culture, and my passion with me.",
-            "heading_size": "h1"
+            "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
+            "kicker": "Studio offer",
+            "heading": "New arrivals",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/new-arrivals"
           }
         },
-        "quote_text": {
-          "type": "text",
+        "banner_3": {
+          "type": "banner",
           "settings": {
-            "text": "<p>Every design I create is a reminder that elegance has no borders.</p><p>— Cecilia, Founder &amp; Creative Director</p>"
+            "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
+            "kicker": "Made to fit",
+            "heading": "Custom orders",
+            "button_label": "Book now",
+            "button_link": "shopify://collections/custom-orders"
           }
         }
       },
-      "block_order": [
-        "quote_caption",
-        "quote_heading",
-        "quote_text"
-      ],
+      "block_order": ["banner_1", "banner_2", "banner_3"],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
-    "meet_cecilia": {
-      "type": "image-with-text",
+    "circle_cats": {
+      "type": "s24-circle-categories",
       "blocks": {
-        "about_caption": {
-          "type": "caption",
+        "cat_tops": {
+          "type": "category",
           "settings": {
-            "caption": "Meet Cecilia",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
+            "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
+            "label": "Tops",
+            "link": "shopify://collections/tops"
           }
         },
-        "about_heading": {
-          "type": "heading",
+        "cat_pants": {
+          "type": "category",
           "settings": {
-            "heading": "A story of heritage, resilience, and everyday luxury",
-            "heading_size": "h1"
+            "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-01.jpg",
+            "label": "Pants",
+            "link": "shopify://collections/pants"
           }
         },
-        "about_text": {
-          "type": "text",
+        "cat_sets": {
+          "type": "category",
           "settings": {
-            "text": "<p>Fashion has never been just about clothing for Cecilia. It has always been about courage, identity, and telling stories without saying a word.</p><p>S24 By Cecilia began in Nigeria in 2014 and was rebuilt in Canada — blending African heritage with modern elegance so every woman feels confident, unforgettable, and uniquely herself.</p>",
-            "text_style": "body"
+            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
+            "label": "Two-piece",
+            "link": "shopify://collections/two-piece-sets"
           }
         },
-        "about_button": {
-          "type": "button",
+        "cat_mens": {
+          "type": "category",
           "settings": {
-            "button_label": "Read her story",
-            "button_link": "shopify://pages/about",
-            "button_style_secondary": false
+            "image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
+            "label": "Men's",
+            "link": "shopify://collections/mens"
+          }
+        },
+        "cat_custom": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-02.jpg",
+            "label": "Custom",
+            "link": "shopify://collections/custom-orders"
           }
         }
       },
-      "block_order": [
-        "about_caption",
-        "about_heading",
-        "about_text",
-        "about_button"
-      ],
+      "block_order": ["cat_tops", "cat_pants", "cat_sets", "cat_mens", "cat_custom"],
       "settings": {
-        "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
-        "height": "adapt",
-        "desktop_image_width": "large",
-        "layout": "image_first",
-        "image_behavior": "ambient",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
+        "title": "Top category",
+        "subtitle": "Shop by the pieces you wear most.",
+        "padding_top": 48,
+        "padding_bottom": 20
+      }
+    },
+    "services": {
+      "type": "s24-services",
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "icon": "🚚",
+            "heading": "Thoughtful shipping",
+            "text": "Ready-to-wear packed with care from the Canada studio."
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "icon": "🔒",
+            "heading": "Secure payment",
+            "text": "Shopify checkout with cards, Apple Pay, Google Pay and PayPal."
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "icon": "💬",
+            "heading": "Studio support",
+            "text": "Message us for sizing, styling, and custom appointments."
+          }
+        },
+        "s4": {
+          "type": "service",
+          "settings": {
+            "icon": "✂️",
+            "heading": "Made to fit",
+            "text": "Choose Custom when standard sizes are not enough."
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "why_s24": {
-      "type": "s24-pillars",
-      "blocks": {
-        "pillar_1": {
-          "type": "pillar",
-          "settings": {
-            "heading": "Heritage, made modern",
-            "text": "African print and craftsmanship cut for the way you live now — not costume, not trend-chasing. Everyday luxury with a story."
-          }
-        },
-        "pillar_2": {
-          "type": "pillar",
-          "settings": {
-            "heading": "Made to fit you",
-            "text": "Standard sizes plus custom when the rack is not enough. If your size is not listed, we still have a way to dress you."
-          }
-        },
-        "pillar_3": {
-          "type": "pillar",
-          "settings": {
-            "heading": "Designed in Canada",
-            "text": "A brand rebuilt with care after relocation — small-batch pieces, thoughtful details, and clothing meant to be worn and remembered."
-          }
-        }
-      },
-      "block_order": [
-        "pillar_1",
-        "pillar_2",
-        "pillar_3"
-      ],
+    "best_sellers": {
+      "type": "featured-collection",
       "settings": {
-        "kicker": "Why S24 By Cecilia",
-        "heading": "Clothing that feels as unique as you",
+        "title": "Best selling product",
+        "heading_size": "h1",
+        "description": "<p>The pieces customers reach for first.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "shop-all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 72
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 20
       }
     },
-    "custom_orders": {
-      "type": "image-with-text",
-      "blocks": {
-        "custom_caption": {
-          "type": "caption",
-          "settings": {
-            "caption": "Made to fit",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "custom_heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Custom dresses, kaftans, and occasion pieces",
-            "heading_size": "h1"
-          }
-        },
-        "custom_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Your dress should not ask you to shrink into a standard size. Book an appointment and we will design around your measurements, your occasion, and your vision.</p>",
-            "text_style": "body"
-          }
-        },
-        "custom_button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Start a custom order",
-            "button_link": "shopify://collections/custom-orders",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "custom_caption",
-        "custom_heading",
-        "custom_text",
-        "custom_button"
-      ],
+    "marquee": {
+      "type": "s24-marquee",
       "settings": {
-        "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-02.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-2",
+        "text": "African luxury fashion   Free studio styling   Custom made to fit   Designed in Canada",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "featured_split": {
+      "type": "s24-promo-split",
+      "settings": {
+        "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
+        "badge": "New season",
+        "heading": "Heritage fashion for women who love elegance.",
+        "text": "Ready-to-wear pieces and made-to-fit custom orders — African luxury, designed in Canada.",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/shop-all",
         "padding_top": 36,
-        "padding_bottom": 72
+        "padding_bottom": 20
       }
     },
-    "newsletter": {
-      "type": "newsletter",
+    "reviews": {
+      "type": "s24-reviews",
       "blocks": {
-        "newsletter_heading": {
-          "type": "heading",
+        "r1": {
+          "type": "review",
           "settings": {
-            "heading": "Join the S24 circle",
-            "heading_size": "h1"
+            "quote": "The print, the fit, the way it made me feel — I have never owned anything like this.",
+            "name": "Amaka O.",
+            "role": "Toronto"
           }
         },
-        "newsletter_text": {
-          "type": "paragraph",
+        "r2": {
+          "type": "review",
           "settings": {
-            "text": "<p>New drops, styling notes, and first access to custom booking dates — sent with care, never noise.</p>"
+            "quote": "I wore the two-piece to a dinner and spent the night answering “where is this from?”",
+            "name": "Ngozi A.",
+            "role": "Calgary"
           }
         },
-        "newsletter_form": {
-          "type": "email_form"
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "Custom sizing that actually listened to my body. Elegant, not costume.",
+            "name": "Sarah K.",
+            "role": "Ottawa"
+          }
         }
       },
-      "block_order": [
-        "newsletter_heading",
-        "newsletter_text",
-        "newsletter_form"
-      ],
+      "block_order": ["r1", "r2", "r3"],
       "settings": {
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "title": "Customer review",
+        "subtitle": "What women say when they wear S24.",
+        "padding_top": 48,
+        "padding_bottom": 20
+      }
+    },
+    "lookbook": {
+      "type": "s24-lookbook",
+      "settings": {
+        "title": "Shop the lookbook",
+        "subtitle": "See how the pieces live on the body.",
+        "left_image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
+        "left_label": "For her",
+        "left_link": "shopify://collections/tops",
+        "right_image": "shopify://shop_images/mens-blue-line-top-outdoor-event-01.jpg",
+        "right_label": "For him",
+        "right_link": "shopify://collections/mens",
+        "wide_image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
+        "wide_heading": "Custom made for your moment",
+        "wide_button": "Shop now",
+        "wide_link": "shopify://collections/custom-orders",
+        "padding_top": 48,
+        "padding_bottom": 20
+      }
+    },
+    "instagram": {
+      "type": "s24-instagram",
+      "blocks": {
+        "ig1": { "type": "image", "settings": { "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg", "link": "shopify://collections/shop-all" } },
+        "ig2": { "type": "image", "settings": { "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-02.jpg", "link": "shopify://collections/shop-all" } },
+        "ig3": { "type": "image", "settings": { "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg", "link": "shopify://collections/shop-all" } },
+        "ig4": { "type": "image", "settings": { "image": "shopify://shop_images/pants-yellow-scale-ruffle-flatlay-01.jpg", "link": "shopify://collections/shop-all" } },
+        "ig5": { "type": "image", "settings": { "image": "shopify://shop_images/mens-blue-line-top-indoor-layered.png", "link": "shopify://collections/shop-all" } }
+      },
+      "block_order": ["ig1", "ig2", "ig3", "ig4", "ig5"],
+      "settings": {
+        "title": "@follow us instagram",
+        "subtitle": "Daily elegance from the S24 studio.",
+        "profile_url": "",
+        "padding_top": 48,
+        "padding_bottom": 40
       }
     }
   },
   "order": [
-    "hero_banner",
-    "shop_collections",
-    "new_arrivals",
-    "founder_quote",
-    "meet_cecilia",
-    "why_s24",
-    "custom_orders",
-    "newsletter"
+    "split_hero",
+    "trending",
+    "promo_banners",
+    "circle_cats",
+    "services",
+    "best_sellers",
+    "marquee",
+    "featured_split",
+    "reviews",
+    "lookbook",
+    "instagram"
   ]
 }

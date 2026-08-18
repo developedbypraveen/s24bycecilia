@@ -1,0 +1,31 @@
+{% comment %}
+  Full-width scrolling ticker bar from the mockup.
+{% endcomment %}
+
+<section class="s24-marquee color-{{ section.settings.color_scheme }}" aria-label="{{ section.settings.text | escape }}">
+  <div class="s24-marquee__track">
+    {%- for i in (1..8) -%}
+      <span>{{ section.settings.text | escape }}</span>
+      <span class="s24-marquee__dot" aria-hidden="true">●</span>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S24 marquee",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Scrolling text",
+      "default": "African luxury fashion  ·  Ready-to-wear & custom  ·  Designed in Canada"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-2" }
+  ],
+  "presets": [{ "name": "S24 marquee" }]
+}
+{% endschema %}
