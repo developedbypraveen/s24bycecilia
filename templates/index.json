@@ -108,46 +108,46 @@
         "cat_tops": {
           "type": "category",
           "settings": {
+            "collection": "tops",
             "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
             "label": "Tops",
-            "link": "shopify://collections/tops",
-            "collection": "tops"
+            "link": "shopify://collections/tops"
           }
         },
         "cat_pants": {
           "type": "category",
           "settings": {
+            "collection": "pants",
             "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-01.jpg",
             "label": "Pants",
-            "link": "shopify://collections/pants",
-            "collection": "pants"
+            "link": "shopify://collections/pants"
           }
         },
         "cat_sets": {
           "type": "category",
           "settings": {
+            "collection": "two-piece-sets",
             "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
             "label": "Two-piece",
-            "link": "shopify://collections/two-piece-sets",
-            "collection": "two-piece-sets"
+            "link": "shopify://collections/two-piece-sets"
           }
         },
         "cat_mens": {
           "type": "category",
           "settings": {
+            "collection": "mens",
             "image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
             "label": "Men's Fashion",
-            "link": "shopify://collections/mens",
-            "collection": "mens"
+            "link": "shopify://collections/mens"
           }
         },
         "cat_custom": {
           "type": "category",
           "settings": {
+            "collection": "custom-orders",
             "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-02.jpg",
             "label": "Custom",
-            "link": "shopify://collections/custom-orders",
-            "collection": "custom-orders"
+            "link": "shopify://collections/custom-orders"
           }
         }
       },
@@ -249,7 +249,7 @@
     "featured_split": {
       "type": "s24-promo-split",
       "settings": {
-        "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
+        "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.webp",
         "badge": "New season",
         "heading": "Heritage fashion for women who love elegance.",
         "text": "Ready-to-wear pieces and made-to-fit custom orders — African luxury, designed in Canada.",
