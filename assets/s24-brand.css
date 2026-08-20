@@ -1175,6 +1175,17 @@ body.template-index #MainContent slideshow-component.banner {
   text-align: center;
 }
 
+.s24-ig__app {
+  width: 100%;
+}
+
+.s24-ig__hint {
+  margin: 0 auto;
+  max-width: 48rem;
+  text-align: center;
+  color: var(--s24-muted);
+}
+
 .s24-ig__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

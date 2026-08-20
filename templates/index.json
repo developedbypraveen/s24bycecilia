@@ -290,42 +290,12 @@
     },
     "instagram": {
       "type": "s24-instagram",
-      "blocks": {
-        "ig1": {
-          "type": "image",
-          "settings": {
-            "link": "shopify://collections/shop-all"
-          }
-        },
-        "ig2": {
-          "type": "image",
-          "settings": {
-            "link": "shopify://collections/shop-all"
-          }
-        },
-        "ig3": {
-          "type": "image",
-          "settings": {
-            "link": "shopify://collections/shop-all"
-          }
-        },
-        "ig4": {
-          "type": "image",
-          "settings": {
-            "link": "shopify://collections/shop-all"
-          }
-        }
-      },
-      "block_order": [
-        "ig1",
-        "ig2",
-        "ig3",
-        "ig4"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "title": "From the studio",
         "subtitle": "",
-        "profile_url": "",
+        "include_margins": true,
         "padding_top": 48,
         "padding_bottom": 40
       }

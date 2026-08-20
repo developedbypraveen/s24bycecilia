@@ -1,5 +1,5 @@
 {% comment %}
-  Instagram-style image row. Uses uploaded photos until a real Instagram feed is connected.
+  From the studio — heading plus an Instagram / Reels app from the theme editor.
 {% endcomment %}
 
 {%- style -%}
@@ -15,61 +15,46 @@
   }
 {%- endstyle -%}
 
-<section class="s24-ig s24-ig-{{ section.id }}">
-  <div class="s24-ig__intro">
-    {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
-  </div>
-  <div class="s24-ig__grid">
-      {%- for block in section.blocks -%}
-        <a
-          class="s24-ig__item"
-          href="{{ block.settings.link | default: section.settings.profile_url | default: routes.all_products_collection_url }}"
-          {{ block.shopify_attributes }}
-        >
-          {%- if block.settings.image != blank -%}
-            {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: shop.name }}
-          {%- else -%}
-            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-          {%- endif -%}
-        </a>
-      {%- endfor -%}
+<section class="s24-ig s24-ig--app s24-ig-{{ section.id }}">
+  {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+    <div class="s24-ig__intro">
+      {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
     </div>
+  {%- endif -%}
+
+  <div class="s24-ig__app{% if section.settings.include_margins %} page-width{% endif %}">
+    {%- for block in section.blocks -%}
+      {% render block %}
+    {%- else -%}
+      {%- if request.design_mode -%}
+        <p class="s24-ig__hint">Add your Instagram Reels app here: Theme editor → From the studio → Add block → Apps.</p>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
 </section>
 
 {% schema %}
 {
-  "name": "S24 instagram row",
+  "name": "From the studio",
   "tag": "section",
   "class": "section",
-  "max_blocks": 6,
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "title", "label": "Heading", "default": "The studio on Instagram" },
-    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Daily elegance from the S24 studio." },
-    { "type": "url", "id": "profile_url", "label": "Instagram profile URL" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "From the studio" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "checkbox", "id": "include_margins", "label": "Add side margins", "default": true },
+    { "type": "paragraph", "content": "Install an Instagram Reels app, then add it as a block in this section." },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 48 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 40 }
   ],
   "blocks": [
     {
-      "type": "image",
-      "name": "Image",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "url", "id": "link", "label": "Link" }
-      ]
+      "type": "@app"
     }
   ],
   "presets": [
     {
-      "name": "S24 instagram row",
-      "blocks": [
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" },
-        { "type": "image" }
-      ]
+      "name": "From the studio"
     }
   ]
 }
