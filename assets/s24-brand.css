@@ -253,6 +253,18 @@ h1, h2, h3, h4, h5, h6,
   color: #fff !important;
 }
 
+.button:before,
+.button:after,
+.shopify-challenge__button:before,
+.shopify-challenge__button:after,
+.customer button:before,
+.customer button:after,
+.shopify-payment-button__button--unbranded:before,
+.shopify-payment-button__button--unbranded:after {
+  content: none !important;
+  box-shadow: none !important;
+}
+
 .button--secondary {
   background: transparent !important;
   color: var(--s24-plum) !important;
