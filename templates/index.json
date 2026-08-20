@@ -48,17 +48,16 @@
         "banner_1": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
-            "kicker": "For her",
-            "heading": "Ready to wear collection",
-            "button_label": "Shop now",
+            "image": "shopify://shop_images/Ready_to_wear_collection.png",
+            "kicker": "",
+            "heading": "",
+            "button_label": "",
             "button_link": "shopify://collections/ready-to-wear"
           }
         },
         "banner_2": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
             "kicker": "Just arrived",
             "heading": "New arrivals",
             "button_label": "Shop now",
@@ -68,7 +67,6 @@
         "banner_3": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
             "kicker": "Studio edit",
             "heading": "Two-piece sets",
             "button_label": "Shop now",
@@ -121,7 +119,6 @@
           "type": "category",
           "settings": {
             "collection": "tops",
-            "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
             "label": "Tops",
             "link": "shopify://collections/tops"
           }
@@ -130,7 +127,6 @@
           "type": "category",
           "settings": {
             "collection": "pants",
-            "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-01.jpg",
             "label": "Pants",
             "link": "shopify://collections/pants"
           }
@@ -139,7 +135,6 @@
           "type": "category",
           "settings": {
             "collection": "two-piece-sets",
-            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
             "label": "Two-piece",
             "link": "shopify://collections/two-piece-sets"
           }
@@ -200,13 +195,10 @@
       "settings": {
         "title": "",
         "subtitle": "",
-        "left_image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
         "left_label": "Men's fashion",
         "left_link": "shopify://collections/mens",
-        "right_image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
         "right_label": "Ready to wear",
         "right_link": "shopify://collections/ready-to-wear",
-        "wide_image": "",
         "wide_heading": "",
         "wide_button": "Shop now",
         "wide_link": "",
@@ -307,28 +299,24 @@
         "ig1": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/top-navy-white-pattern-lifestyle-01.jpg",
             "link": "shopify://collections/shop-all"
           }
         },
         "ig2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/pants-checkerboard-wide-leg-lifestyle-02.jpg",
             "link": "shopify://collections/shop-all"
           }
         },
         "ig3": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
             "link": "shopify://collections/shop-all"
           }
         },
         "ig4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/pants-yellow-scale-ruffle-flatlay-01.jpg",
             "link": "shopify://collections/shop-all"
           }
         }
