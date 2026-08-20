@@ -303,7 +303,9 @@ h1, h2, h3, h4, h5, h6,
   overflow: hidden;
 }
 
-.card__inner .media img {
+.card__inner .media img,
+.card__media .media img {
+  object-position: top center;
   transition: transform 0.8s ease;
 }
 
