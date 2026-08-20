@@ -68,8 +68,9 @@
         "banner_3": {
           "type": "banner",
           "settings": {
-            "kicker": "Studio edit",
-            "heading": "Two-piece sets",
+            "image": "shopify://shop_images/Two-piece_sets.png",
+            "kicker": "",
+            "heading": "",
             "button_label": "Shop now",
             "button_link": "shopify://collections/two-piece-sets"
           }
