@@ -1333,15 +1333,6 @@ body.template-index #MainContent slideshow-component.banner {
   order: 0;
 }
 
-.s24-hero--overlay .s24-hero__slide::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(42, 31, 34, 0.1) 18%, rgba(42, 31, 34, 0.46) 100%);
-  pointer-events: none;
-}
-
 .s24-hero--overlay .s24-hero__copy {
   position: relative;
   z-index: 2;
@@ -1349,15 +1340,16 @@ body.template-index #MainContent slideshow-component.banner {
   text-align: left;
   order: 0;
   min-height: 52rem;
-  max-width: 54rem;
+  max-width: 70rem;
   margin-left: auto;
   padding: 5rem 2.4rem;
   background: transparent;
+  color: var(--s24-hero-text, #000000);
 }
 
 .s24-hero--overlay .s24-hero__kicker,
 .s24-hero--overlay .s24-hero__title {
-  color: #fff;
+  color: inherit;
 }
 
 .s24-hero--overlay .s24-hero__actions {

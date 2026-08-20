@@ -17,6 +17,7 @@
           "settings": {
             "kicker": "Made to fit",
             "heading": "Custom looks for your moment",
+            "text_color": "#000000",
             "button_label": "Shop now",
             "button_link": "shopify://collections/custom-orders",
             "image": "shopify://shop_images/hero-section.png",
@@ -28,7 +29,9 @@
         "slide_custom"
       ],
       "name": "S24 hero",
-      "settings": {}
+      "settings": {
+        "text_color": "#000000"
+      }
     },
     "promo_banners": {
       "type": "s24-promo-banners",
