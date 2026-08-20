@@ -1216,14 +1216,21 @@ body.template-index #MainContent slideshow-component.banner {
   text-transform: none;
   font-size: 2rem;
   margin-bottom: 1.8rem;
-  color: var(--s24-ink);
+  color: rgb(var(--color-foreground));
   font-style: italic;
+}
+
+.footer .footer-block__details-content,
+.footer .footer-block__details-content p,
+.footer .rte {
+  color: rgba(var(--color-foreground), 0.82);
 }
 
 .footer .footer-block__details-content a {
   display: block;
   padding: 0.35rem 0;
   text-decoration: none;
+  color: rgba(var(--color-foreground), 0.82);
 }
 
 .footer .footer-block__details-content a:hover {
@@ -1519,8 +1526,16 @@ body.template-index #MainContent slideshow-component.banner {
 
 .footer.color-scheme-4,
 .footer.color-scheme-4 .footer-block__heading,
-.footer.color-scheme-4 a {
-  color: inherit;
+.footer.color-scheme-4 p,
+.footer.color-scheme-4 li,
+.footer.color-scheme-4 a,
+.footer.color-scheme-4 .newsletter-form__label,
+.footer.color-scheme-4 .copyright__content {
+  color: rgb(var(--color-foreground));
+}
+
+.footer.color-scheme-4 a:hover {
+  color: var(--s24-gold);
 }
 
 .footer .footer-block__heading {

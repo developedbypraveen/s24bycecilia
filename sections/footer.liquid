@@ -15,6 +15,21 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .footer.color-{{ section.settings.color_scheme }},
+  .footer.color-{{ section.settings.color_scheme }} .footer-block__heading,
+  .footer.color-{{ section.settings.color_scheme }} p,
+  .footer.color-{{ section.settings.color_scheme }} li,
+  .footer.color-{{ section.settings.color_scheme }} a,
+  .footer.color-{{ section.settings.color_scheme }} .rte,
+  .footer.color-{{ section.settings.color_scheme }} .copyright__content,
+  .footer.color-{{ section.settings.color_scheme }} .newsletter-form__label {
+    color: rgb(var(--color-foreground));
+  }
+
+  .footer.color-{{ section.settings.color_scheme }} a:hover {
+    color: #c9a96e;
+  }
+
   @media screen and (min-width: 750px) {
     .footer {
       margin-top: {{ section.settings.margin_top }}px;
