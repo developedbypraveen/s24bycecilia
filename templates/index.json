@@ -188,8 +188,10 @@
       "settings": {
         "title": "",
         "subtitle": "",
+        "left_image": "shopify://shop_images/Two-piece_sets.png",
         "left_label": "Men's fashion",
         "left_link": "shopify://collections/mens",
+        "right_image": "shopify://shop_images/new-arrivel.png",
         "right_label": "Ready to wear",
         "right_link": "shopify://collections/ready-to-wear",
         "wide_heading": "",
