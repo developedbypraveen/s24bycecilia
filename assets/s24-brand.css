@@ -1185,8 +1185,8 @@ body.template-index #MainContent slideshow-component.banner {
 
 @media screen and (min-width: 750px) {
   .s24-ig__grid {
-    grid-template-columns: repeat(5, 1fr);
-    padding: 0 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 3.2rem;
     gap: 1.2rem;
   }
 }
@@ -1317,4 +1317,220 @@ body.template-index #MainContent slideshow-component.banner {
 .header__icon .svg-wrapper {
   width: 2.2rem;
   height: 2.2rem;
+}
+
+/* ------------------------------------------------------------
+   FASHUP-style homepage layout
+   ------------------------------------------------------------ */
+.s24-hero--overlay .s24-hero__slide {
+  display: block;
+}
+
+.s24-hero--overlay .s24-hero__media {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  order: 0;
+}
+
+.s24-hero--overlay .s24-hero__slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(42, 31, 34, 0.1) 18%, rgba(42, 31, 34, 0.46) 100%);
+  pointer-events: none;
+}
+
+.s24-hero--overlay .s24-hero__copy {
+  position: relative;
+  z-index: 2;
+  align-items: flex-start;
+  text-align: left;
+  order: 0;
+  min-height: 52rem;
+  max-width: 54rem;
+  margin-left: auto;
+  padding: 5rem 2.4rem;
+  background: transparent;
+}
+
+.s24-hero--overlay .s24-hero__kicker,
+.s24-hero--overlay .s24-hero__title {
+  color: #fff;
+}
+
+.s24-hero--overlay .s24-hero__actions {
+  justify-content: flex-start;
+}
+
+.s24-hero--overlay .s24-btn {
+  background: #1a1416;
+  color: #fff;
+}
+
+.s24-hero--overlay .s24-btn:hover {
+  background: var(--s24-plum);
+}
+
+.s24-hero--overlay .s24-hero__watermark {
+  display: none;
+}
+
+.s24-hero--overlay .s24-hero__nav {
+  top: 50%;
+  bottom: auto;
+  left: 1.6rem;
+  right: 1.6rem;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.s24-hero--overlay .s24-hero__dots {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-hero--overlay .s24-hero__slide,
+  .s24-hero--overlay .s24-hero__copy {
+    min-height: min(78vh, 72rem);
+  }
+
+  .s24-hero--overlay .s24-hero__copy {
+    padding: 8rem 8vw 8rem 4rem;
+    margin-right: 4vw;
+  }
+}
+
+.s24-promos {
+  padding-top: 2.4rem !important;
+  padding-bottom: 1.2rem !important;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-promos__grid {
+    grid-template-columns: 1.45fr 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+.s24-promo-card {
+  min-height: 28rem;
+  border-radius: 0.4rem;
+}
+
+.s24-promo-card__overlay {
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
+  background: linear-gradient(180deg, rgba(42, 31, 34, 0) 35%, rgba(42, 31, 34, 0.55) 100%);
+}
+
+.s24-promo-card__overlay h3 {
+  font-size: clamp(2.2rem, 2.4vw, 3.2rem);
+  margin-bottom: 1.4rem;
+}
+
+.s24-circles-slider.page-width {
+  max-width: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-circles-slider.page-width {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
+.s24-circles__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-circles__row {
+    grid-template-columns: repeat(4, 1fr);
+    flex-wrap: nowrap;
+  }
+
+  .s24-circles__item {
+    max-width: none;
+    flex: none;
+    width: auto;
+  }
+}
+
+.s24-circle {
+  border-radius: 0.4rem;
+}
+
+.s24-circle__overlay {
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: left;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(42, 31, 34, 0) 40%, rgba(42, 31, 34, 0.55) 100%);
+}
+
+.s24-circles__arrow {
+  display: none;
+}
+
+.s24-featured:not(.slider-component-desktop) .s24-collection-head {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.s24-featured:not(.slider-component-desktop) .s24-collection-head__copy,
+.s24-featured:not(.slider-component-desktop) .s24-collection-head .title,
+.s24-featured:not(.slider-component-desktop) .s24-collection-head .collection__description,
+.s24-featured:not(.slider-component-desktop) .s24-collection-head .collection__description p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.s24-featured:not(.slider-component-desktop) .s24-collection-head .title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.collection__view-all {
+  margin-top: 2.8rem;
+}
+
+.collection .card__information,
+.collection .card__heading,
+.collection .price {
+  text-align: center;
+}
+
+.s24-lookbook__pair {
+  gap: 1.2rem;
+}
+
+.s24-lookbook__tall {
+  min-height: 56rem;
+  border-radius: 0.4rem;
+}
+
+.s24-lookbook__tall span {
+  left: 2.4rem;
+  bottom: 2.4rem;
+  font-size: 2.2rem;
+}
+
+.footer.color-scheme-4,
+.footer.color-scheme-4 .footer-block__heading,
+.footer.color-scheme-4 a {
+  color: inherit;
+}
+
+.footer .footer-block__heading {
+  font-style: italic;
 }

@@ -15,48 +15,32 @@
         "slide_j3wEpR": {
           "type": "slide",
           "settings": {
-            "kicker": "The new collection",
-            "heading": "African luxury, worn with grace.",
-            "button_label": "Shop the collection",
-            "button_link": "shopify://collections",
+            "kicker": "Latest season",
+            "heading": "Stylish women's clothes collection",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/shop-all",
             "image": "shopify://shop_images/IMG_1134.jpg",
-            "overlay_word": "Cecilia"
+            "overlay_word": ""
+          }
+        },
+        "slide_custom": {
+          "type": "slide",
+          "settings": {
+            "kicker": "Made to fit",
+            "heading": "Custom looks for your moment",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/custom-orders",
+            "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
+            "overlay_word": ""
           }
         }
       },
       "block_order": [
-        "slide_j3wEpR"
+        "slide_j3wEpR",
+        "slide_custom"
       ],
       "name": "S24 hero",
       "settings": {}
-    },
-    "trending": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "new-arrivals",
-        "products_to_show": 8,
-        "title": "New from the studio",
-        "heading_size": "h1",
-        "description": "<p>Pieces designed for women who love elegance — heritage print, modern cut.</p>",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "link",
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 72,
-        "padding_bottom": 40
-      }
     },
     "promo_banners": {
       "type": "s24-promo-banners",
@@ -66,8 +50,8 @@
           "settings": {
             "image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
             "kicker": "For her",
-            "heading": "Ready to wear",
-            "button_label": "Discover",
+            "heading": "Ready to wear collection",
+            "button_label": "Shop now",
             "button_link": "shopify://collections/ready-to-wear"
           }
         },
@@ -77,18 +61,18 @@
             "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
             "kicker": "Just arrived",
             "heading": "New arrivals",
-            "button_label": "Discover",
+            "button_label": "Shop now",
             "button_link": "shopify://collections/new-arrivals"
           }
         },
         "banner_3": {
           "type": "banner",
           "settings": {
-            "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
-            "kicker": "Made for you",
-            "heading": "Custom orders",
-            "button_label": "Book now",
-            "button_link": "shopify://collections/custom-orders"
+            "image": "shopify://shop_images/two-piece-african-print-geometric-lifestyle-01.jpg",
+            "kicker": "Studio edit",
+            "heading": "Two-piece sets",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/two-piece-sets"
           }
         }
       },
@@ -98,8 +82,36 @@
         "banner_3"
       ],
       "settings": {
-        "padding_top": 72,
-        "padding_bottom": 72
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "trending": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "new-arrivals",
+        "products_to_show": 8,
+        "title": "Popular products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "circle_cats": {
@@ -132,15 +144,6 @@
             "link": "shopify://collections/two-piece-sets"
           }
         },
-        "cat_mens": {
-          "type": "category",
-          "settings": {
-            "collection": "mens",
-            "image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
-            "label": "Men's Fashion",
-            "link": "shopify://collections/mens"
-          }
-        },
         "cat_custom": {
           "type": "category",
           "settings": {
@@ -155,60 +158,12 @@
         "cat_tops",
         "cat_pants",
         "cat_sets",
-        "cat_mens",
         "cat_custom"
       ],
       "settings": {
-        "title": "Shop the collection",
-        "subtitle": "Find the piece that feels like you — ready to wear, or made to fit.",
-        "padding_top": 0,
-        "padding_bottom": 72
-      }
-    },
-    "services": {
-      "type": "s24-services",
-      "blocks": {
-        "s1": {
-          "type": "service",
-          "settings": {
-            "icon": "shipping",
-            "heading": "Worldwide Shipping",
-            "text": "Packed with care from the Canada studio."
-          }
-        },
-        "s2": {
-          "type": "service",
-          "settings": {
-            "icon": "payment",
-            "heading": "Secured Payment",
-            "text": "Safe & secured checkout."
-          }
-        },
-        "s3": {
-          "type": "service",
-          "settings": {
-            "icon": "returns",
-            "heading": "Studio Support",
-            "text": "Sizing, styling, and custom appointments."
-          }
-        },
-        "s4": {
-          "type": "service",
-          "settings": {
-            "icon": "gift",
-            "heading": "Made to Fit",
-            "text": "Custom when standard sizes are not enough."
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
-      "settings": {
-        "padding_top": 48,
+        "title": "",
+        "subtitle": "",
+        "padding_top": 12,
         "padding_bottom": 48
       }
     },
@@ -216,17 +171,17 @@
       "type": "featured-collection",
       "settings": {
         "collection": "shop-all",
-        "products_to_show": 8,
-        "title": "Most loved",
+        "products_to_show": 4,
+        "title": "Deal of the week",
         "heading_size": "h1",
-        "description": "<p>The pieces customers reach for first.</p>",
-        "show_description": true,
+        "description": "",
+        "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
         "enable_desktop_slider": false,
         "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
+        "show_view_all": false,
+        "view_all_style": "solid",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -236,27 +191,27 @@
         "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 72,
-        "padding_bottom": 72
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "marquee": {
-      "type": "s24-marquee",
+    "lookbook": {
+      "type": "s24-lookbook",
       "settings": {
-        "text": "Heritage  ·  Elegance  ·  Made to fit  ·  Designed in Canada"
-      }
-    },
-    "featured_split": {
-      "type": "s24-promo-split",
-      "settings": {
-        "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.webp",
-        "badge": "New season",
-        "heading": "Fashion for women who love elegance.",
-        "text": "Ready-to-wear pieces and made-to-fit custom orders — African luxury, designed in Canada.",
-        "button_label": "Shop the collection",
-        "button_link": "shopify://collections/shop-all",
-        "padding_top": 72,
-        "padding_bottom": 20
+        "title": "",
+        "subtitle": "",
+        "left_image": "shopify://shop_images/mens-blue-line-top-indoor-bookshelf.png",
+        "left_label": "Men's fashion",
+        "left_link": "shopify://collections/mens",
+        "right_image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
+        "right_label": "Ready to wear",
+        "right_link": "shopify://collections/ready-to-wear",
+        "wide_image": "",
+        "wide_heading": "",
+        "wide_button": "Shop now",
+        "wide_link": "",
+        "padding_top": 12,
+        "padding_bottom": 48
       }
     },
     "reviews": {
@@ -293,10 +248,57 @@
         "r3"
       ],
       "settings": {
-        "title": "Kind words",
-        "subtitle": "What women say when they wear S24.",
+        "title": "Our happy clients",
+        "subtitle": "",
         "padding_top": 48,
         "padding_bottom": 20
+      }
+    },
+    "services": {
+      "type": "s24-services",
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Worldwide Shipping",
+            "text": "Packed with care from the Canada studio."
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "icon": "payment",
+            "heading": "Secured Payment",
+            "text": "Safe and secured checkout."
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "icon": "returns",
+            "heading": "Studio Support",
+            "text": "Sizing, styling, and custom appointments."
+          }
+        },
+        "s4": {
+          "type": "service",
+          "settings": {
+            "icon": "gift",
+            "heading": "Made to Fit",
+            "text": "Custom when standard sizes are not enough."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "instagram": {
@@ -329,25 +331,17 @@
             "image": "shopify://shop_images/pants-yellow-scale-ruffle-flatlay-01.jpg",
             "link": "shopify://collections/shop-all"
           }
-        },
-        "ig5": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/mens-blue-line-top-indoor-layered.png",
-            "link": "shopify://collections/shop-all"
-          }
         }
       },
       "block_order": [
         "ig1",
         "ig2",
         "ig3",
-        "ig4",
-        "ig5"
+        "ig4"
       ],
       "settings": {
-        "title": "The studio on Instagram",
-        "subtitle": "Daily elegance from S24 By Cecilia.",
+        "title": "From the studio",
+        "subtitle": "",
         "profile_url": "",
         "padding_top": 48,
         "padding_bottom": 40
@@ -356,14 +350,13 @@
   },
   "order": [
     "s24_hero_e6JjHB",
-    "trending",
     "promo_banners",
+    "trending",
     "circle_cats",
-    "services",
     "best_sellers",
-    "marquee",
-    "featured_split",
+    "lookbook",
     "reviews",
+    "services",
     "instagram"
   ]
 }

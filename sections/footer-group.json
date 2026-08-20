@@ -50,9 +50,9 @@
         "visit"
       ],
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-4",
         "newsletter_enable": true,
-        "newsletter_heading": "A note from Cecilia",
+        "newsletter_heading": "Subscribe to our newsletter",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,

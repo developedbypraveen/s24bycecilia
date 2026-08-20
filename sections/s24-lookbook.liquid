@@ -17,7 +17,9 @@
 
 <section class="s24-lookbook s24-lookbook-{{ section.id }}">
   <div class="page-width">
-    {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
+    {%- endif -%}
     <div class="s24-lookbook__pair">
       <a class="s24-lookbook__tall" href="{{ section.settings.left_link | default: routes.all_products_collection_url }}">
         {%- if section.settings.left_image != blank -%}
@@ -40,19 +42,21 @@
         {%- endif -%}
       </a>
     </div>
-    <a class="s24-lookbook__wide" href="{{ section.settings.wide_link | default: routes.all_products_collection_url }}">
-      {%- if section.settings.wide_image != blank -%}
-        {{ section.settings.wide_image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: section.settings.wide_heading }}
-      {%- else -%}
-        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}
-      <div class="s24-lookbook__wide-copy">
-        {%- if section.settings.wide_heading != blank -%}
-          <h3>{{ section.settings.wide_heading | escape }}</h3>
+    {%- if section.settings.wide_image != blank or section.settings.wide_heading != blank -%}
+      <a class="s24-lookbook__wide" href="{{ section.settings.wide_link | default: routes.all_products_collection_url }}">
+        {%- if section.settings.wide_image != blank -%}
+          {{ section.settings.wide_image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: section.settings.wide_heading }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
         {%- endif -%}
-        <span class="s24-btn s24-btn--light">{{ section.settings.wide_button | default: 'Shop now' }}</span>
-      </div>
-    </a>
+        <div class="s24-lookbook__wide-copy">
+          {%- if section.settings.wide_heading != blank -%}
+            <h3>{{ section.settings.wide_heading | escape }}</h3>
+          {%- endif -%}
+          <span class="s24-btn s24-btn--light">{{ section.settings.wide_button | default: 'Shop now' }}</span>
+        </div>
+      </a>
+    {%- endif -%}
   </div>
 </section>
 

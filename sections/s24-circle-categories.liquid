@@ -28,9 +28,11 @@
 {%- endstyle -%}
 
 <section class="s24-circles s24-circles-{{ section.id }}">
-  <div class="page-width s24-circles__intro">
-    {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
-  </div>
+  {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+    <div class="page-width s24-circles__intro">
+      {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
+    </div>
+  {%- endif -%}
 
   {%- if show_arrows -%}
     <slider-component class="s24-circles-slider page-width">
@@ -85,9 +87,6 @@
             <span class="s24-circle__overlay">
               {%- if cat_label != blank -%}
                 <span class="s24-circle__label">{{ cat_label | escape }}</span>
-              {%- endif -%}
-              {%- if cat_count != blank -%}
-                <span class="s24-circle__count">({{ cat_count }} {% if cat_count == 1 %}Item{% else %}Items{% endif %})</span>
               {%- endif -%}
             </span>
           </a>

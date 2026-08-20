@@ -1,10 +1,21 @@
 {% comment %}
-  S24 two-column hero slider. Schema matches other live S24 sections.
+  Full-width overlay hero slider, matching the boutique layout.
 {% endcomment %}
 
-<section class="s24-hero s24-hero--slider" data-s24-hero data-interval="6000">
+<section class="s24-hero s24-hero--slider s24-hero--overlay" data-s24-hero data-interval="6000">
   {%- for block in section.blocks -%}
     <article class="s24-hero__slide{% if forloop.first %} is-active{% endif %}" data-s24-hero-slide {{ block.shopify_attributes }}>
+      <div class="s24-hero__media">
+        {%- if block.settings.image != blank -%}
+          {{
+            block.settings.image
+            | image_url: width: 2400
+            | image_tag: loading: 'eager', widths: '750, 1100, 1500, 1800, 2400', alt: block.settings.heading
+          }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
       <div class="s24-hero__copy">
         {%- if block.settings.kicker != blank -%}
           <p class="s24-hero__kicker">{{ block.settings.kicker | escape }}</p>
@@ -19,20 +30,6 @@
             </a>
           {%- endif -%}
         </div>
-      </div>
-      <div class="s24-hero__media">
-        {%- if block.settings.image != blank -%}
-          {{
-            block.settings.image
-            | image_url: width: 1800
-            | image_tag: loading: 'eager', widths: '600, 900, 1200, 1800', alt: block.settings.heading
-          }}
-        {%- else -%}
-          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-        {%- endif -%}
-        {%- if block.settings.overlay_word != blank -%}
-          <span class="s24-hero__watermark">{{ block.settings.overlay_word | escape }}</span>
-        {%- endif -%}
       </div>
     </article>
   {%- endfor -%}
@@ -63,9 +60,9 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
-        { "type": "text", "id": "kicker", "label": "Small heading", "default": "The new collection" },
+        { "type": "text", "id": "kicker", "label": "Small heading", "default": "Latest season" },
         { "type": "text", "id": "heading", "label": "Heading", "default": "African luxury, worn with grace." },
-        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop the collection" },
+        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop now" },
         { "type": "url", "id": "button_link", "label": "Link" },
         { "type": "image_picker", "id": "image", "label": "Image" },
         { "type": "text", "id": "overlay_word", "label": "Overlay word", "default": "Cecilia" }
