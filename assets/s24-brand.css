@@ -296,6 +296,24 @@ h1, h2, h3, h4, h5, h6,
   width: 100%;
 }
 
+/* Crop all homepage and product photos from the top */
+.media > img,
+.card__inner .media img,
+.card__media .media img,
+.s24-hero__media img,
+.s24-promo-card img,
+.s24-circle__media img,
+.s24-split__media img,
+.s24-lookbook__tall img,
+.s24-lookbook__wide img,
+.s24-ig__item img,
+.s24-wishlist__card img,
+.product-media-container img,
+.product__media img,
+.global-media-settings img {
+  object-position: top center;
+}
+
 /* Product cards */
 .card--standard .card__inner {
   background: var(--s24-blush);
@@ -439,6 +457,7 @@ h1, h2, h3, h4, h5, h6,
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
   position: absolute;
   inset: 0;
@@ -675,6 +694,7 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.8s ease;
 }
 
@@ -781,6 +801,7 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -979,6 +1000,7 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
   min-height: 32rem;
 }
@@ -1110,6 +1132,7 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
@@ -1178,6 +1201,7 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
