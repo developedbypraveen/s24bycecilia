@@ -375,6 +375,12 @@ h1, h2, h3, h4, h5, h6,
   font-size: 1rem;
 }
 
+.card__badge {
+  align-self: flex-start !important;
+  justify-self: flex-start !important;
+  grid-row-start: 1 !important;
+}
+
 /* Split hero — 50/50 content + image slider */
 .s24-hero-section {
   padding: 0 !important;
