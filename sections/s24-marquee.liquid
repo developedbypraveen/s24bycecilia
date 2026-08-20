@@ -2,7 +2,7 @@
   Full-width marquee — alternating solid and outline text, scrolling loop.
 {% endcomment %}
 
-{%- assign marquee_text = section.settings.text | default: 'Welcome to our store' -%}
+{%- assign marquee_text = section.settings.text | default: 'Heritage · Elegance · Made to fit' -%}
 
 <section class="s24-marquee" aria-label="{{ marquee_text | escape }}">
   <div class="s24-marquee__track">
@@ -25,7 +25,7 @@
       "type": "text",
       "id": "text",
       "label": "Scrolling text",
-      "default": "Welcome to our store"
+      "default": "Heritage · Elegance · Made to fit"
     }
   ],
   "presets": [{ "name": "S24 marquee" }]

@@ -15,12 +15,12 @@
         "slide_j3wEpR": {
           "type": "slide",
           "settings": {
-            "kicker": "New trending style",
-            "heading": "African Luxury Elegance.",
-            "button_label": "Shop Now",
+            "kicker": "The new collection",
+            "heading": "African luxury, worn with grace.",
+            "button_label": "Shop the collection",
             "button_link": "shopify://collections",
             "image": "shopify://shop_images/IMG_1134.jpg",
-            "overlay_word": "Fashion"
+            "overlay_word": "Cecilia"
           }
         }
       },
@@ -35,9 +35,9 @@
       "settings": {
         "collection": "new-arrivals",
         "products_to_show": 8,
-        "title": "Trending product",
+        "title": "New from the studio",
         "heading_size": "h1",
-        "description": "<p>Follow the most popular trends and get exclusive pieces from the S24 studio.</p>",
+        "description": "<p>Pieces designed for women who love elegance — heritage print, modern cut.</p>",
         "show_description": false,
         "description_style": "body",
         "columns_desktop": 4,
@@ -65,9 +65,9 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/top-african-print-patchwork-lifestyle-01.jpg",
-            "kicker": "Just for you",
+            "kicker": "For her",
             "heading": "Ready to wear",
-            "button_label": "Explore Now",
+            "button_label": "Discover",
             "button_link": "shopify://collections/ready-to-wear"
           }
         },
@@ -75,9 +75,9 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.jpg",
-            "kicker": "Studio offer",
+            "kicker": "Just arrived",
             "heading": "New arrivals",
-            "button_label": "Explore Now",
+            "button_label": "Discover",
             "button_link": "shopify://collections/new-arrivals"
           }
         },
@@ -85,9 +85,9 @@
           "type": "banner",
           "settings": {
             "image": "shopify://shop_images/showcase-custom-ankara-ballgown-front-01.jpg",
-            "kicker": "Made to fit",
+            "kicker": "Made for you",
             "heading": "Custom orders",
-            "button_label": "Explore Now",
+            "button_label": "Book now",
             "button_link": "shopify://collections/custom-orders"
           }
         }
@@ -159,8 +159,8 @@
         "cat_custom"
       ],
       "settings": {
-        "title": "Top category",
-        "subtitle": "Follow the most popular trends and get exclusive pieces from the S24 studio.",
+        "title": "Shop the collection",
+        "subtitle": "Find the piece that feels like you — ready to wear, or made to fit.",
         "padding_top": 0,
         "padding_bottom": 72
       }
@@ -217,7 +217,7 @@
       "settings": {
         "collection": "shop-all",
         "products_to_show": 8,
-        "title": "Best selling product",
+        "title": "Most loved",
         "heading_size": "h1",
         "description": "<p>The pieces customers reach for first.</p>",
         "show_description": true,
@@ -243,7 +243,7 @@
     "marquee": {
       "type": "s24-marquee",
       "settings": {
-        "text": "Welcome to our store"
+        "text": "Heritage  ·  Elegance  ·  Made to fit  ·  Designed in Canada"
       }
     },
     "featured_split": {
@@ -251,9 +251,9 @@
       "settings": {
         "image": "shopify://shop_images/pants-yellow-scale-ruffle-lifestyle-01.webp",
         "badge": "New season",
-        "heading": "Heritage fashion for women who love elegance.",
+        "heading": "Fashion for women who love elegance.",
         "text": "Ready-to-wear pieces and made-to-fit custom orders — African luxury, designed in Canada.",
-        "button_label": "Shop now",
+        "button_label": "Shop the collection",
         "button_link": "shopify://collections/shop-all",
         "padding_top": 72,
         "padding_bottom": 20
@@ -293,7 +293,7 @@
         "r3"
       ],
       "settings": {
-        "title": "Customer review",
+        "title": "Kind words",
         "subtitle": "What women say when they wear S24.",
         "padding_top": 48,
         "padding_bottom": 20
@@ -346,8 +346,8 @@
         "ig5"
       ],
       "settings": {
-        "title": "@follow us instagram",
-        "subtitle": "Daily elegance from the S24 studio.",
+        "title": "The studio on Instagram",
+        "subtitle": "Daily elegance from S24 By Cecilia.",
         "profile_url": "",
         "padding_top": 48,
         "padding_bottom": 40

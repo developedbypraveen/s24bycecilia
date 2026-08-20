@@ -1,61 +1,26 @@
 {% comment %}
-  Homepage 50/50 hero slider.
+  Homepage 50/50 hero slider fallback. Live homepage uses the S24 hero section.
 {% endcomment %}
 {%- if request.page_type == 'index' -%}
 <section class="s24-hero s24-hero--slider" data-s24-hero data-interval="6000">
   <article class="s24-hero__slide is-active" data-s24-hero-slide>
     <div class="s24-hero__copy">
-      <p class="s24-hero__kicker">New trending style</p>
-      <h1 class="s24-hero__title">African Luxury<br>Elegance.</h1>
+      <p class="s24-hero__kicker">The new collection</p>
+      <h1 class="s24-hero__title">African luxury,<br>worn with grace.</h1>
       <div class="s24-hero__actions">
-        <a class="s24-btn s24-btn--outline" href="{{ routes.all_products_collection_url }}">Shop Now</a>
-        <a class="s24-hero__play" href="{{ routes.all_products_collection_url }}" aria-label="Play">
-          <span class="s24-hero__play-icon"></span>
-        </a>
+        <a class="s24-btn" href="{{ routes.all_products_collection_url }}">Shop the collection</a>
       </div>
     </div>
     <div class="s24-hero__media">
       <img
         src="https://cdn.shopify.com/s/files/1/0871/2005/2417/files/two-piece-african-print-geometric-lifestyle-01.jpg"
-        alt="African Luxury Elegance"
+        alt="African luxury, worn with grace"
         width="1800"
         height="1800"
         loading="eager"
       >
-      <span class="s24-hero__watermark">Fashion</span>
+      <span class="s24-hero__watermark">Cecilia</span>
     </div>
   </article>
-
-  <article class="s24-hero__slide" data-s24-hero-slide>
-    <div class="s24-hero__copy">
-      <p class="s24-hero__kicker">Made to fit</p>
-      <h1 class="s24-hero__title">Custom looks<br>for your moment.</h1>
-      <div class="s24-hero__actions">
-        <a class="s24-btn s24-btn--outline" href="{{ routes.all_products_collection_url }}">Shop Now</a>
-        <a class="s24-hero__play" href="{{ routes.all_products_collection_url }}" aria-label="Play">
-          <span class="s24-hero__play-icon"></span>
-        </a>
-      </div>
-    </div>
-    <div class="s24-hero__media">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0871/2005/2417/files/showcase-custom-ankara-ballgown-front-01.jpg"
-        alt="Custom looks"
-        width="1800"
-        height="1800"
-        loading="lazy"
-      >
-      <span class="s24-hero__watermark">Fashion</span>
-    </div>
-  </article>
-
-  <div class="s24-hero__nav">
-    <button type="button" class="s24-hero__arrow" data-s24-hero-prev aria-label="Previous">‹</button>
-    <div class="s24-hero__dots">
-      <button type="button" class="s24-hero__dot is-active" data-s24-hero-dot aria-label="Slide 1"></button>
-      <button type="button" class="s24-hero__dot" data-s24-hero-dot aria-label="Slide 2"></button>
-    </div>
-    <button type="button" class="s24-hero__arrow" data-s24-hero-next aria-label="Next">›</button>
-  </div>
 </section>
 {%- endif -%}

@@ -14,13 +14,10 @@
         {%- endif -%}
         <div class="s24-hero__actions">
           {%- if block.settings.button_label != blank -%}
-            <a class="s24-btn s24-btn--outline" href="{{ block.settings.button_link | default: routes.all_products_collection_url }}">
+            <a class="s24-btn" href="{{ block.settings.button_link | default: routes.all_products_collection_url }}">
               {{ block.settings.button_label | escape }}
             </a>
           {%- endif -%}
-          <a class="s24-hero__play" href="{{ block.settings.button_link | default: routes.all_products_collection_url }}" aria-label="Play">
-            <span class="s24-hero__play-icon"></span>
-          </a>
         </div>
       </div>
       <div class="s24-hero__media">
@@ -66,12 +63,12 @@
       "type": "slide",
       "name": "Slide",
       "settings": [
-        { "type": "text", "id": "kicker", "label": "Small heading", "default": "New trending style" },
-        { "type": "text", "id": "heading", "label": "Heading", "default": "African Luxury Elegance." },
-        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop Now" },
+        { "type": "text", "id": "kicker", "label": "Small heading", "default": "The new collection" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "African luxury, worn with grace." },
+        { "type": "text", "id": "button_label", "label": "Button", "default": "Shop the collection" },
         { "type": "url", "id": "button_link", "label": "Link" },
         { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "overlay_word", "label": "Overlay word", "default": "Fashion" }
+        { "type": "text", "id": "overlay_word", "label": "Overlay word", "default": "Cecilia" }
       ]
     }
   ],

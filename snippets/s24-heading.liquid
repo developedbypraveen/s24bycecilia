@@ -1,11 +1,12 @@
 {% comment %}
-  Shared section title used across the S24 homepage mockup.
+  Shared section title used across the S24 homepage.
   Parameters: title, subtitle
 {% endcomment %}
 <div class="s24-heading">
   {%- if title != blank -%}
     <h2 class="s24-heading__title">{{ title }}</h2>
   {%- endif -%}
+  <span class="s24-heading__rule" aria-hidden="true"></span>
   {%- if subtitle != blank -%}
     <p class="s24-heading__subtitle">{{ subtitle }}</p>
   {%- endif -%}

@@ -1,39 +1,64 @@
 /*
  * ------------------------------------------------------------
- * S24 By Cecilia — homepage layout matching the fashion mockup
- * Accents: plum #a7176e  |  gold #cd9a30
+ * S24 By Cecilia — feminine luxury boutique
+ * Rose #8b3d5c  |  champagne #c9a96e  |  ivory #fbf7f3
  * ------------------------------------------------------------
  */
 
 :root {
-  --s24-plum: #a7176e;
-  --s24-gold: #cd9a30;
-  --s24-ink: #1a1216;
-  --s24-cream: #fffdfb;
-  --s24-muted: #6b6568;
-  --s24-line: #ece8e6;
-  --s24-radius: 1.6rem;
+  --s24-plum: #8b3d5c;
+  --s24-plum-deep: #6e2f49;
+  --s24-blush: #f4ebe6;
+  --s24-gold: #c9a96e;
+  --s24-ink: #2c2426;
+  --s24-cream: #fbf7f3;
+  --s24-muted: #7a6f72;
+  --s24-line: #eadfd8;
+  --s24-radius: 0.8rem;
 }
 
 body {
-  letter-spacing: 0.01em;
+  letter-spacing: 0.012em;
+  background: var(--s24-cream);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5,
+.s24-hero__title,
+.s24-heading__title,
+.s24-collection-head .title,
+.s24-promo-card__overlay h3,
+.s24-split__copy h2,
+.s24-lookbook__wide-copy h3,
+.s24-marquee__item,
+.footer .footer-block__heading {
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* Header — logo left, menu centered, utilities right */
 .header-wrapper {
   border-bottom: 1px solid var(--s24-line);
+  background: var(--s24-cream);
+}
+
+.scrolled-past-header .header-wrapper {
+  box-shadow: 0 10px 30px rgba(44, 36, 38, 0.05);
 }
 
 .header__heading-link .h2 {
   color: var(--s24-plum);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 .header__menu-item {
-  letter-spacing: 0.04em;
-  font-size: 1.4rem;
-  text-transform: none;
+  letter-spacing: 0.16em;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .header__menu-item:hover,
@@ -58,7 +83,7 @@ body {
 
 .header__icon--wishlist .cart-count-bubble,
 .header__icon--cart .cart-count-bubble {
-  background: #111;
+  background: var(--s24-plum);
   color: #fff;
 }
 
@@ -83,7 +108,7 @@ body {
 
 /* Top bar — social | fade text | language + currency */
 .utility-bar {
-  border-bottom: 0;
+  border-bottom: 1px solid var(--s24-line);
 }
 
 .utility-bar__grid--3-col {
@@ -97,9 +122,10 @@ body {
 
 .announcement-bar__message,
 .announcement-bar__announcement {
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .s24-topbar-fade {
@@ -154,20 +180,20 @@ body {
   }
 }
 
-/* Pill buttons (mockup) */
+/* Pill buttons */
 .s24-btn,
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  min-height: 4.6rem;
-  padding: 0 2.4rem;
+  min-height: 4.8rem;
+  padding: 0 2.8rem;
   border-radius: 999px;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  font-size: 1.4rem;
-  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -178,7 +204,7 @@ body {
 }
 
 .s24-btn:hover {
-  background: #8c125c;
+  background: var(--s24-plum-deep);
   color: #fff;
 }
 
@@ -229,18 +255,30 @@ body {
 /* Section titles */
 .s24-heading {
   text-align: center;
-  max-width: 56rem;
-  margin: 0 auto 3.6rem;
+  max-width: 58rem;
+  margin: 0 auto 4rem;
 }
 
 .s24-heading__title {
-  margin: 0 0 0.8rem;
-  font-size: clamp(2.8rem, 3vw, 3.6rem);
+  margin: 0 0 1.2rem;
+  font-size: clamp(3.2rem, 4vw, 4.6rem);
+  line-height: 1.15;
+  font-style: italic;
+}
+
+.s24-heading__rule {
+  display: block;
+  width: 4.8rem;
+  height: 0.1rem;
+  margin: 0 auto 1.4rem;
+  background: var(--s24-gold);
 }
 
 .s24-heading__subtitle {
   margin: 0;
   color: var(--s24-muted);
+  font-size: 1.5rem;
+  line-height: 1.6;
 }
 
 .title-wrapper-with-link {
@@ -260,23 +298,42 @@ body {
 
 /* Product cards */
 .card--standard .card__inner {
-  background: #f3f1ef;
+  background: var(--s24-blush);
   border-radius: var(--s24-radius);
   overflow: hidden;
 }
 
 .card__inner .media img {
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
 }
 
 .card-wrapper:hover .card__inner .media img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.card__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-size: 1.8rem;
+  letter-spacing: 0;
+}
+
+.card__information .price {
+  color: var(--s24-muted);
+  letter-spacing: 0.02em;
+}
+
+.quick-add__submit {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 
 .badge {
   border-radius: 999px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 
 /* Split hero — 50/50 content + image slider */
@@ -294,7 +351,7 @@ body {
 .s24-hero--slider {
   position: relative;
   overflow: hidden;
-  background: #f3f3f3;
+  background: var(--s24-blush);
 }
 
 .s24-hero__slide {
@@ -323,24 +380,26 @@ body {
   align-items: center;
   text-align: center;
   order: 2;
-  padding: 4rem 2.4rem 5.6rem;
-  background: #f3f3f3;
+  padding: 4.8rem 2.4rem 5.6rem;
+  background: var(--s24-blush);
 }
 
 .s24-hero__kicker {
-  margin: 0 0 1.4rem;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  font-size: 1.5rem;
+  margin: 0 0 1.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
   font-weight: 500;
-  color: var(--s24-ink);
+  color: var(--s24-plum);
 }
 
 .s24-hero__title {
-  margin: 0 0 2.4rem;
-  font-size: clamp(3.6rem, 5.4vw, 7.2rem);
-  line-height: 0.95;
-  max-width: 12ch;
+  margin: 0 0 2.8rem;
+  font-size: clamp(4rem, 6vw, 7.6rem);
+  line-height: 1.05;
+  max-width: 14ch;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .s24-hero__text {
@@ -357,41 +416,18 @@ body {
 }
 
 .s24-hero__play {
-  width: 4.6rem;
-  height: 4.6rem;
-  border-radius: 50%;
-  border: 1px solid #111;
-  background: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  text-decoration: none;
+  display: none;
 }
 
 .s24-hero__play-icon {
-  width: 0;
-  height: 0;
-  margin-left: 0.3rem;
-  border-top: 0.7rem solid transparent;
-  border-bottom: 0.7rem solid transparent;
-  border-left: 1.1rem solid #111;
-}
-
-.s24-hero__play:hover {
-  background: var(--s24-plum);
-  border-color: var(--s24-plum);
-}
-
-.s24-hero__play:hover .s24-hero__play-icon {
-  border-left-color: #fff;
+  display: none;
 }
 
 .s24-hero__media {
   position: relative;
   min-height: 42rem;
   overflow: hidden;
-  background: #e8e2dc;
+  background: var(--s24-blush);
   border-radius: 0;
   order: 1;
 }
@@ -409,13 +445,15 @@ body {
 .s24-hero__watermark {
   position: absolute;
   left: 50%;
-  bottom: 1.2rem;
+  bottom: 1.6rem;
   transform: translateX(-50%);
-  font-size: clamp(6rem, 11vw, 13rem);
-  font-weight: 700;
+  font-family: var(--font-heading-family);
+  font-size: clamp(5.6rem, 10vw, 12rem);
+  font-weight: 400;
+  font-style: italic;
   line-height: 0.8;
-  color: rgba(255, 255, 255, 0.55);
-  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.62);
+  letter-spacing: -0.02em;
   pointer-events: none;
   white-space: nowrap;
 }
@@ -441,11 +479,11 @@ body {
 }
 
 .s24-hero__arrow {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #111;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--s24-ink);
   font-size: 2.2rem;
   line-height: 1;
 }
@@ -541,6 +579,17 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-collection-head .title {
   margin: 0 0 0.8rem;
   text-align: left;
+  font-style: italic;
+  font-size: clamp(3.2rem, 4vw, 4.4rem);
+}
+
+.s24-collection-head .title::after {
+  content: '';
+  display: block;
+  width: 4.8rem;
+  height: 0.1rem;
+  margin-top: 1.4rem;
+  background: var(--s24-gold);
 }
 
 .s24-collection-head .collection__description,
@@ -563,9 +612,9 @@ body.template-index #MainContent slideshow-component.banner {
   width: 4.4rem;
   height: 4.4rem;
   border-radius: 50%;
-  border: 1px solid #111;
+  border: 1px solid var(--s24-ink);
   background: #fff;
-  color: #111;
+  color: var(--s24-ink);
 }
 
 .s24-slider-nav .slider-button:hover {
@@ -611,8 +660,8 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-promo-card {
   position: relative;
-  min-height: 42rem;
-  border-radius: 2rem;
+  min-height: 44rem;
+  border-radius: 1.2rem;
   overflow: hidden;
   color: #fff;
 }
@@ -624,6 +673,11 @@ body.template-index #MainContent slideshow-component.banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.s24-promo-card:hover img {
+  transform: scale(1.04);
 }
 
 .s24-promo-card__overlay {
@@ -636,24 +690,26 @@ body.template-index #MainContent slideshow-component.banner {
   align-items: center;
   text-align: center;
   padding: 3.2rem 2.4rem;
-  background: rgba(0, 0, 0, 0.22);
+  background: linear-gradient(180deg, rgba(42, 31, 34, 0.08) 0%, rgba(42, 31, 34, 0.42) 100%);
   color: #fff;
 }
 
 .s24-promo-card__overlay p {
   margin: 0 0 1rem;
-  letter-spacing: 0.04em;
-  text-transform: none;
-  font-size: 1.4rem;
-  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  font-weight: 500;
   color: #fff;
 }
 
 .s24-promo-card__overlay h3 {
   margin: 0 0 2.4rem;
-  font-size: clamp(2.8rem, 3vw, 4.2rem);
-  line-height: 1.05;
+  font-size: clamp(3.2rem, 3.4vw, 4.6rem);
+  line-height: 1.1;
   color: #fff;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .s24-promo-card .s24-btn--light {
@@ -735,13 +791,15 @@ body.template-index #MainContent slideshow-component.banner {
   justify-content: center;
   text-align: center;
   padding: 1.6rem;
-  background: rgba(0, 0, 0, 0.28);
+  background: linear-gradient(180deg, rgba(42, 31, 34, 0.12), rgba(42, 31, 34, 0.45));
   color: #fff;
 }
 
 .s24-circle__label {
-  font-weight: 700;
-  font-size: 1.6rem;
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
   line-height: 1.2;
 }
 
@@ -758,10 +816,10 @@ body.template-index #MainContent slideshow-component.banner {
   z-index: 2;
   width: 4.4rem;
   height: 4.4rem;
-  border: 1px solid #d8d4d1;
+  border: 1px solid var(--s24-line);
   border-radius: 50%;
   background: #fff;
-  color: #111;
+  color: var(--s24-ink);
   font-size: 2.2rem;
   line-height: 1;
   cursor: pointer;
@@ -829,9 +887,9 @@ body.template-index #MainContent slideshow-component.banner {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ddd6d2;
+  border: 1px solid var(--s24-line);
   border-radius: 50%;
-  color: #111;
+  color: var(--s24-plum);
   background: #fff;
 }
 
@@ -842,8 +900,9 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-service__copy h3 {
   margin: 0 0 0.4rem;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-family: var(--font-heading-family);
 }
 
 .s24-service__copy p {
@@ -855,36 +914,37 @@ body.template-index #MainContent slideshow-component.banner {
 /* Marquee */
 .s24-marquee {
   overflow: hidden;
-  background: #f4f4f4;
-  color: #111;
-  padding: 3.6rem 0;
+  background: var(--s24-blush);
+  color: var(--s24-ink);
+  padding: 2.8rem 0;
 }
 
 .s24-marquee__track {
   display: flex;
   align-items: center;
-  gap: 6rem;
+  gap: 5rem;
   width: max-content;
-  animation: s24-marquee 32s linear infinite;
+  animation: s24-marquee 36s linear infinite;
 }
 
 .s24-marquee__item {
   flex-shrink: 0;
-  font-size: clamp(3.6rem, 5.5vw, 6.4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.8rem, 4.2vw, 4.8rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.01em;
   line-height: 1;
   white-space: nowrap;
   text-transform: none;
 }
 
 .s24-marquee__item.is-solid {
-  color: #111;
+  color: var(--s24-plum);
 }
 
 .s24-marquee__item.is-outline {
   color: transparent;
-  -webkit-text-stroke: 1.5px #111;
+  -webkit-text-stroke: 1px var(--s24-gold);
 }
 
 .s24-marquee:hover .s24-marquee__track {
@@ -900,8 +960,8 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-split__panel {
   display: grid;
   gap: 0;
-  background: #f3f1ef;
-  border-radius: 2rem;
+  background: var(--s24-blush);
+  border-radius: 1.2rem;
   overflow: hidden;
 }
 
@@ -938,7 +998,9 @@ body.template-index #MainContent slideshow-component.banner {
   text-align: center;
   background: var(--s24-plum);
   color: #fff;
-  font-weight: 700;
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-style: italic;
   font-size: 1.4rem;
   line-height: 1.2;
   margin-bottom: 2rem;
@@ -946,8 +1008,9 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-split__copy h2 {
   margin: 0 0 1.2rem;
-  font-size: clamp(2.8rem, 4vw, 4.4rem);
-  line-height: 1.05;
+  font-size: clamp(3.2rem, 4vw, 4.8rem);
+  line-height: 1.12;
+  font-style: italic;
 }
 
 .s24-split__copy p {
@@ -970,8 +1033,9 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-review {
   background: #fff;
   border-radius: var(--s24-radius);
-  padding: 2.8rem;
-  box-shadow: 0 12px 40px rgba(26, 18, 22, 0.06);
+  padding: 3.2rem 2.8rem;
+  box-shadow: 0 16px 40px rgba(44, 36, 38, 0.05);
+  border: 1px solid var(--s24-line);
 }
 
 .s24-review__stars {
@@ -983,6 +1047,11 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-review__quote {
   margin: 0 0 2.4rem;
   min-height: 8rem;
+  font-family: var(--font-heading-family);
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.45;
+  color: var(--s24-ink);
 }
 
 .s24-review__person {
@@ -998,9 +1067,9 @@ body.template-index #MainContent slideshow-component.banner {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f8eef4;
+  background: #f4e4ea;
   color: var(--s24-plum);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .s24-review__person span {
@@ -1051,8 +1120,10 @@ body.template-index #MainContent slideshow-component.banner {
   position: absolute;
   left: 2rem;
   bottom: 2rem;
-  font-weight: 700;
-  font-size: 2rem;
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2.4rem;
 }
 
 .s24-lookbook__wide {
@@ -1114,11 +1185,12 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 .footer .footer-block__heading {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: none;
-  font-size: 1.6rem;
+  font-size: 2rem;
   margin-bottom: 1.8rem;
   color: var(--s24-ink);
+  font-style: italic;
 }
 
 .footer .footer-block__details-content a {
@@ -1202,4 +1274,21 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-wishlist__card p {
   margin: 0 0 1.2rem;
+}
+
+.s24-ig__item {
+  border-radius: 0.8rem;
+}
+
+.newsletter-form__field-wrapper .field__input {
+  background: #fff;
+}
+
+.price-item--sale {
+  color: var(--s24-plum);
+}
+
+.header__icon .svg-wrapper {
+  width: 2.2rem;
+  height: 2.2rem;
 }
