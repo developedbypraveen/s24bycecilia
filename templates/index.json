@@ -12,17 +12,6 @@
     "s24_hero_e6JjHB": {
       "type": "s24-hero",
       "blocks": {
-        "slide_j3wEpR": {
-          "type": "slide",
-          "settings": {
-            "kicker": "Latest season",
-            "heading": "Stylish women's clothes collection",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/shop-all",
-            "image": "shopify://shop_images/IMG_1134.jpg",
-            "overlay_word": ""
-          }
-        },
         "slide_custom": {
           "type": "slide",
           "settings": {
@@ -36,7 +25,6 @@
         }
       },
       "block_order": [
-        "slide_j3wEpR",
         "slide_custom"
       ],
       "name": "S24 hero",
