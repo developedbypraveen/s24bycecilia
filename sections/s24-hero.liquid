@@ -6,6 +6,35 @@
   .s24-hero-{{ section.id }} {
     --s24-hero-text: {{ section.settings.text_color | default: '#000000' }};
   }
+  .s24-hero--overlay .s24-hero__slide::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+  }
+  .s24-hero--overlay .s24-hero__copy {
+    position: relative;
+    z-index: 2;
+    align-items: flex-start;
+    text-align: left;
+    order: 0;
+    min-height: 52rem;
+    max-width: 70rem;
+    margin-left: auto;
+    padding: 5rem 2.4rem;
+    background: transparent;
+    color: var(--s24-hero-text, #000000);
+  }
+  .s24-hero--overlay .s24-hero__kicker,
+  .s24-hero--overlay .s24-hero__title {
+    color: inherit;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-hero--overlay .s24-hero__copy {
+      min-height: min(78vh, 72rem);
+      padding: 8rem 8vw 8rem 4rem;
+      margin-right: 4vw;
+    }
+  }
 {%- endstyle -%}
 
 <section class="s24-hero s24-hero--slider s24-hero--overlay s24-hero-{{ section.id }}" data-s24-hero data-interval="6000">
