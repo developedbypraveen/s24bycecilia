@@ -31,8 +31,8 @@
         "link_list_786BD8": {
           "type": "link_list",
           "settings": {
-            "heading": "The studio",
-            "menu": "footer"
+            "heading": "Quick Links",
+            "menu": "footer-quick-links"
           }
         },
         "visit": {
