@@ -10,10 +10,10 @@
 {
   "current": {
     "logo": "shopify://shop_images/logo.png",
-    "logo_width": 100,
+    "logo_width": 50,
     "favicon": "shopify://shop_images/logo.png",
-    "type_header_font": "cormorant_garamond_n4",
-    "heading_scale": 125,
+    "type_header_font": "jost_n7",
+    "heading_scale": 115,
     "type_body_font": "jost_n4",
     "body_scale": 100,
     "page_width": 1400,
@@ -24,21 +24,21 @@
     "animations_hover_elements": "vertical-lift",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
-    "buttons_radius": 0,
+    "buttons_radius": 40,
     "buttons_shadow_opacity": 0,
     "buttons_shadow_horizontal_offset": 0,
     "buttons_shadow_vertical_offset": 4,
     "buttons_shadow_blur": 5,
     "variant_pills_border_thickness": 1,
     "variant_pills_border_opacity": 55,
-    "variant_pills_radius": 0,
+    "variant_pills_radius": 40,
     "variant_pills_shadow_opacity": 0,
     "variant_pills_shadow_horizontal_offset": 0,
     "variant_pills_shadow_vertical_offset": 4,
     "variant_pills_shadow_blur": 5,
     "inputs_border_thickness": 1,
     "inputs_border_opacity": 55,
-    "inputs_radius": 0,
+    "inputs_radius": 40,
     "inputs_shadow_opacity": 0,
     "inputs_shadow_horizontal_offset": 0,
     "inputs_shadow_vertical_offset": 4,
@@ -49,7 +49,7 @@
     "card_color_scheme": "scheme-1",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
-    "card_corner_radius": 0,
+    "card_corner_radius": 12,
     "card_shadow_opacity": 0,
     "card_shadow_horizontal_offset": 0,
     "card_shadow_vertical_offset": 4,
@@ -60,7 +60,7 @@
     "collection_card_color_scheme": "scheme-1",
     "collection_card_border_thickness": 0,
     "collection_card_border_opacity": 10,
-    "collection_card_corner_radius": 0,
+    "collection_card_corner_radius": 12,
     "collection_card_shadow_opacity": 0,
     "collection_card_shadow_horizontal_offset": 0,
     "collection_card_shadow_vertical_offset": 4,
@@ -85,7 +85,7 @@
     "text_boxes_shadow_blur": 5,
     "media_border_thickness": 1,
     "media_border_opacity": 5,
-    "media_radius": 0,
+    "media_radius": 12,
     "media_shadow_opacity": 0,
     "media_shadow_horizontal_offset": 0,
     "media_shadow_vertical_offset": 4,
@@ -103,8 +103,8 @@
     "drawer_shadow_horizontal_offset": 0,
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
-    "badge_position": "top left",
-    "badge_corner_radius": 0,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "S24 By Cecilia",
@@ -143,60 +143,75 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "8315608621410374781": {
+        "type": "shopify://apps/pify-size-charts/blocks/size-chart-app-embed/6acea2e6-5389-4b9c-9a1f-ae00732bccb4",
+        "disabled": false,
+        "settings": {
+          "custom_liquid_css": "",
+          "custom_liquid_js": ""
+        }
+      },
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#fbf7f3",
+          "background": "#fffdfb",
           "background_gradient": "",
-          "text": "#2c2426",
-          "button": "#8b3d5c",
+          "text": "#1a1216",
+          "button": "#a7176e",
           "button_label": "#ffffff",
-          "secondary_button_label": "#8b3d5c",
-          "shadow": "#2c2426"
+          "secondary_button_label": "#a7176e",
+          "shadow": "#1a1216"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#f4ebe6",
+          "background": "#f4f4f4",
           "background_gradient": "",
-          "text": "#2c2426",
-          "button": "#8b3d5c",
+          "text": "#1a1216",
+          "button": "#a7176e",
           "button_label": "#ffffff",
-          "secondary_button_label": "#8b3d5c",
-          "shadow": "#2c2426"
+          "secondary_button_label": "#a7176e",
+          "shadow": "#1a1216"
         }
       },
       "scheme-3": {
         "settings": {
-          "background": "#8b3d5c",
+          "background": "#a7176e",
           "background_gradient": "",
           "text": "#ffffff",
-          "button": "#c9a96e",
-          "button_label": "#2a1f22",
+          "button": "#cd9a30",
+          "button_label": "#1a1216",
           "secondary_button_label": "#ffffff",
-          "shadow": "#2c2426"
+          "shadow": "#1a1216"
         }
       },
       "scheme-4": {
         "settings": {
-          "background": "#2a1f22",
+          "background": "#140c10",
           "background_gradient": "",
-          "text": "#fbf7f3",
-          "button": "#c9a96e",
-          "button_label": "#2a1f22",
-          "secondary_button_label": "#c9a96e",
+          "text": "#fffdfb",
+          "button": "#cd9a30",
+          "button_label": "#140c10",
+          "secondary_button_label": "#cd9a30",
           "shadow": "#000000"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#c9a96e",
+          "background": "#cd9a30",
           "background_gradient": "",
-          "text": "#2a1f22",
-          "button": "#8b3d5c",
+          "text": "#140c10",
+          "button": "#a7176e",
           "button_label": "#ffffff",
-          "secondary_button_label": "#2a1f22",
-          "shadow": "#2a1f22"
+          "secondary_button_label": "#140c10",
+          "shadow": "#140c10"
         }
       }
     }
