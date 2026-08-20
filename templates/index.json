@@ -58,8 +58,9 @@
         "banner_2": {
           "type": "banner",
           "settings": {
-            "kicker": "Just arrived",
-            "heading": "New arrivals",
+            "image": "shopify://shop_images/new-arrivel.png",
+            "kicker": "",
+            "heading": "",
             "button_label": "Shop now",
             "button_link": "shopify://collections/new-arrivals"
           }
