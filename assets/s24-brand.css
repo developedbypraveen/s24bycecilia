@@ -73,8 +73,8 @@ h1, h2, h3, h4, h5, h6,
 
 .header__icon--wishlist .svg-wrapper,
 .header__icon--wishlist .icon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 3.6rem;
+  height: 3.6rem;
 }
 
 .header__icon--wishlist.is-active,
@@ -86,6 +86,9 @@ h1, h2, h3, h4, h5, h6,
 .header__icon--cart .cart-count-bubble {
   background: var(--s24-plum);
   color: #fff;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.1rem;
 }
 
 @media screen and (min-width: 990px) {
@@ -1333,9 +1336,16 @@ body.template-index #MainContent slideshow-component.banner {
   color: var(--s24-plum);
 }
 
-.header__icon .svg-wrapper {
-  width: 2.2rem;
-  height: 2.2rem;
+.header__icon .svg-wrapper,
+.header__icon .icon {
+  width: 3.6rem;
+  height: 3.6rem;
+}
+
+.header__icon--cart .svg-wrapper,
+.header__icon--cart .icon {
+  width: 4rem;
+  height: 4rem;
 }
 
 /* ------------------------------------------------------------
