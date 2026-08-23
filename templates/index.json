@@ -9,6 +9,23 @@
  */
 {
   "sections": {
+    "image_banner_bM39BX": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/hero-banner.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "s24_hero_e6JjHB": {
       "type": "s24-hero",
       "blocks": {
@@ -28,6 +45,7 @@
       "block_order": [
         "slide_custom"
       ],
+      "disabled": true,
       "name": "S24 hero",
       "settings": {
         "text_color": "#000000"
@@ -300,6 +318,7 @@
     }
   },
   "order": [
+    "image_banner_bM39BX",
     "s24_hero_e6JjHB",
     "promo_banners",
     "trending",
