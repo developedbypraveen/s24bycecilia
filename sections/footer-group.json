@@ -65,7 +65,6 @@
         "enable_language_selector": true,
         "enable_country_selector": true,
         "show_policy": false,
-        "show_powered_by": true,
         "padding_top": 64,
         "padding_bottom": 28
       }

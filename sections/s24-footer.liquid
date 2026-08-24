@@ -121,8 +121,7 @@
     <div class="s24-ft__bottom">
       <div class="s24-ft__copy">
         <small>
-          &copy; {{ 'now' | date: '%Y' }}, {{ shop.name }}.
-          {%- if section.settings.show_powered_by %} {{ powered_by_link }}{%- endif -%}
+          &copy; {{ 'now' | date: '%Y' }} s24bycecilia. All rights reserved.
         </small>
         {%- if section.settings.show_policy -%}
           <span class="s24-ft__policies">
@@ -214,12 +213,6 @@
       "id": "show_policy",
       "label": "Show policy links",
       "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "show_powered_by",
-      "label": "Show Powered by Shopify",
-      "default": true
     },
     {
       "type": "range",
