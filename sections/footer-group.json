@@ -11,6 +11,21 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "footer_strip": {
+      "type": "s24-marquee",
+      "blocks": {
+        "fs1": { "type": "phrase", "settings": { "text": "Free shipping" } },
+        "fs2": { "type": "phrase", "settings": { "text": "Limited edition" } },
+        "fs3": { "type": "phrase", "settings": { "text": "Fast delivery" } },
+        "fs4": { "type": "phrase", "settings": { "text": "New season" } },
+        "fs5": { "type": "phrase", "settings": { "text": "Shop the latest looks" } }
+      },
+      "block_order": ["fs1", "fs2", "fs3", "fs4", "fs5"],
+      "settings": {
+        "bg_color": "#a61669",
+        "text_color": "#ffffff"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -18,14 +33,8 @@
           "type": "text",
           "settings": {
             "heading": "S24 By Cecilia",
-            "subtext": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p><p>Every piece carries a story of craft, culture, and confidence.</p>"
-          }
-        },
-        "link_list_xC9ncf": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Shop",
-            "menu": "footer"
+            "subtext": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
+            "show_social": true
           }
         },
         "link_list_786BD8": {
@@ -35,37 +44,49 @@
             "menu": "footer-quick-links"
           }
         },
-        "visit": {
-          "type": "text",
+        "instagram_app": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "heading": "Visit",
-            "subtext": "<p>Proudly based in Canada.</p><p>Ready-to-wear ships from the studio. Custom pieces begin with a conversation — tell us your size, your occasion, and your vision.</p>"
+            "title": "Follow us on Instagram",
+            "title_color": "#f5f0f2",
+            "title_size_v2": 16,
+            "alignment": "left",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#f5f0f2",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
           }
         }
       },
       "block_order": [
         "brand",
-        "link_list_xC9ncf",
         "link_list_786BD8",
-        "visit"
+        "instagram_app"
       ],
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our newsletter",
+        "newsletter_heading": "Stay in touch",
+        "newsletter_text": "Subscribe to get special offers and updates.",
         "enable_follow_on_shop": false,
-        "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "payment_enable": true,
+        "show_social": false,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": false,
         "show_policy": true,
         "margin_top": 0,
-        "padding_top": 72,
-        "padding_bottom": 40
+        "padding_top": 64,
+        "padding_bottom": 28
       }
     }
   },
   "order": [
+    "footer_strip",
     "footer"
   ]
 }

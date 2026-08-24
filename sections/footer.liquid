@@ -101,6 +101,9 @@
                     <div class="footer-block__details-content rte">
                       {{ block.settings.subtext }}
                     </div>
+                    {%- if block.settings.show_social and has_social_icons -%}
+                      {%- render 'social-icons', class: 'footer__list-social' -%}
+                    {%- endif -%}
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
@@ -185,6 +188,9 @@
               {%- if section.settings.newsletter_heading != blank -%}
                 <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
               {%- endif -%}
+              {%- if section.settings.newsletter_text != blank -%}
+                <p class="footer__newsletter-text">{{ section.settings.newsletter_text | escape }}</p>
+              {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">
                 <div class="newsletter-form__field-wrapper">
@@ -224,6 +230,9 @@
                       </span>
                     </button>
                   </div>
+                  <button type="submit" class="s24-footer__subscribe" name="commit">
+                    Subscribe
+                  </button>
                   {%- if form.errors -%}
                     <small class="newsletter-form__message form__message" id="ContactFooter-error">
                       <span class="svg-wrapper">
@@ -336,6 +345,12 @@
   </div>
 </footer>
 
+<a href="#MainContent" class="s24-back-top" data-s24-back-top aria-label="Back to top">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M7 11V3M3.5 6.5L7 3l3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
+
 {% schema %}
 {
   "name": "t:sections.footer.name",
@@ -393,6 +408,12 @@
           "id": "subtext",
           "default": "t:sections.footer.blocks.text.settings.subtext.default",
           "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": false,
+          "label": "Show social icons under this block"
         }
       ]
     },
@@ -461,6 +482,12 @@
       "id": "newsletter_heading",
       "default": "t:sections.footer.settings.newsletter_heading.default",
       "label": "t:sections.footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "Subscribe to get special offers and updates."
     },
     {
       "type": "header",

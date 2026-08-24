@@ -365,5 +365,18 @@
     document.querySelectorAll('[data-s24-sale-slider]').forEach(initSaleSlider);
     document.querySelectorAll('[data-s24-popular]').forEach(initPopular);
     initCustomFit();
+
+    const backTop = document.querySelector('[data-s24-back-top]');
+    if (backTop) {
+      const onScroll = () => {
+        backTop.classList.toggle('is-visible', window.scrollY > 480);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      backTop.addEventListener('click', (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   });
 })();
