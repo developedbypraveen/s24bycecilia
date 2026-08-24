@@ -106,22 +106,22 @@
             <input type="hidden" name="contact[tags]" value="contact-form" data-s24-contact-tags>
 
             <div class="s24-contact__row">
-              <div class="field">
+              <div class="s24-contact__field">
+                <label class="s24-contact__field-label" for="S24Contact-name">Full name *</label>
                 <input
-                  class="field__input"
+                  class="s24-contact__input"
                   type="text"
                   id="S24Contact-name"
                   name="contact[Name]"
                   autocomplete="name"
                   value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-                  placeholder="Full name"
                   required
                 >
-                <label class="field__label" for="S24Contact-name">Full name *</label>
               </div>
-              <div class="field field--with-error">
+              <div class="s24-contact__field">
+                <label class="s24-contact__field-label" for="S24Contact-email">Email *</label>
                 <input
-                  class="field__input"
+                  class="s24-contact__input"
                   type="email"
                   id="S24Contact-email"
                   name="contact[email]"
@@ -130,7 +130,6 @@
                   autocapitalize="off"
                   spellcheck="false"
                   value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                  placeholder="Email"
                   aria-required="true"
                   required
                   {% if form.errors contains 'email' %}
@@ -138,7 +137,6 @@
                     aria-describedby="S24Contact-email-error"
                   {% endif %}
                 >
-                <label class="field__label" for="S24Contact-email">Email *</label>
                 {%- if form.errors contains 'email' -%}
                   <small class="s24-contact__field-error" id="S24Contact-email-error">
                     {{ form.errors.translated_fields.email | capitalize }}
@@ -149,21 +147,21 @@
             </div>
 
             <div class="s24-contact__row">
-              <div class="field">
+              <div class="s24-contact__field">
+                <label class="s24-contact__field-label" for="S24Contact-phone">Phone</label>
                 <input
-                  class="field__input"
+                  class="s24-contact__input"
                   type="tel"
                   id="S24Contact-phone"
                   name="contact[Phone]"
                   autocomplete="tel"
                   value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                  placeholder="Phone"
                 >
-                <label class="field__label" for="S24Contact-phone">Phone</label>
               </div>
-              <div class="field s24-contact__select-field">
+              <div class="s24-contact__field">
+                <label class="s24-contact__field-label" for="S24Contact-inquiry">How can we help? *</label>
                 <select
-                  class="field__input s24-contact__select"
+                  class="s24-contact__input s24-contact__select"
                   id="S24Contact-inquiry"
                   name="contact[Inquiry type]"
                   required
@@ -177,15 +175,15 @@
                   <option value="Fabric inquiry">Fabric inquiry</option>
                   <option value="General inquiry">General inquiry</option>
                 </select>
-                <label class="field__label" for="S24Contact-inquiry">How can we help? *</label>
               </div>
             </div>
 
             <div class="s24-contact__booking" data-s24-booking-fields hidden>
               <div class="s24-contact__row">
-                <div class="field s24-contact__select-field">
+                <div class="s24-contact__field">
+                  <label class="s24-contact__field-label" for="S24Contact-service">Service</label>
                   <select
-                    class="field__input s24-contact__select"
+                    class="s24-contact__input s24-contact__select"
                     id="S24Contact-service"
                     name="contact[Service]"
                     data-s24-service
@@ -199,11 +197,11 @@
                     <option value="Full look / styling">Full look / styling</option>
                     <option value="Other">Other</option>
                   </select>
-                  <label class="field__label" for="S24Contact-service">Service</label>
                 </div>
-                <div class="field s24-contact__select-field">
+                <div class="s24-contact__field">
+                  <label class="s24-contact__field-label" for="S24Contact-method">Preferred contact</label>
                   <select
-                    class="field__input s24-contact__select"
+                    class="s24-contact__input s24-contact__select"
                     id="S24Contact-method"
                     name="contact[Preferred contact]"
                   >
@@ -212,24 +210,24 @@
                     <option value="Phone">Phone</option>
                     <option value="Video call">Video call</option>
                   </select>
-                  <label class="field__label" for="S24Contact-method">Preferred contact</label>
                 </div>
               </div>
 
               <div class="s24-contact__row">
-                <div class="field">
+                <div class="s24-contact__field">
+                  <label class="s24-contact__field-label" for="S24Contact-date">Preferred date</label>
                   <input
-                    class="field__input"
+                    class="s24-contact__input"
                     type="date"
                     id="S24Contact-date"
                     name="contact[Preferred date]"
                     data-s24-date
                   >
-                  <label class="field__label" for="S24Contact-date">Preferred date</label>
                 </div>
-                <div class="field s24-contact__select-field">
+                <div class="s24-contact__field">
+                  <label class="s24-contact__field-label" for="S24Contact-time">Preferred time</label>
                   <select
-                    class="field__input s24-contact__select"
+                    class="s24-contact__input s24-contact__select"
                     id="S24Contact-time"
                     name="contact[Preferred time]"
                   >
@@ -239,21 +237,20 @@
                     <option value="Evening">Evening</option>
                     <option value="Flexible">Flexible</option>
                   </select>
-                  <label class="field__label" for="S24Contact-time">Preferred time</label>
                 </div>
               </div>
             </div>
 
-            <div class="field">
+            <div class="s24-contact__field">
+              <label class="s24-contact__field-label" for="S24Contact-message">Message *</label>
               <textarea
-                class="text-area field__input"
+                class="s24-contact__input s24-contact__textarea"
                 rows="6"
                 id="S24Contact-message"
                 name="contact[Message]"
-                placeholder="Tell us more"
+                placeholder="Tell us more about your request"
                 required
               >{% if form.body %}{{ form.body }}{% endif %}</textarea>
-              <label class="field__label" for="S24Contact-message">Message *</label>
             </div>
 
             <div class="s24-contact__actions">
