@@ -13,7 +13,7 @@
       "type": "image-banner",
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/hero-banner.png",
+        "image": "shopify://shop_images/Bold._Beautiful..png",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -51,94 +51,44 @@
         "text_color": "#000000"
       }
     },
-    "promo_banners": {
-      "type": "s24-promo-banners",
-      "blocks": {
-        "banner_1": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/Ready_to_wear_collection.png",
-            "kicker": "",
-            "heading": "",
-            "button_label": "Shop",
-            "button_link": "shopify://collections/ready-to-wear"
-          }
-        },
-        "banner_2": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/new-arrivel.png",
-            "kicker": "",
-            "heading": "",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/new-arrivals"
-          }
-        },
-        "banner_3": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/Two-piece_sets.png",
-            "kicker": "",
-            "heading": "",
-            "button_label": "Shop now",
-            "button_link": "shopify://collections/two-piece-sets"
-          }
-        }
-      },
-      "block_order": [
-        "banner_1",
-        "banner_2",
-        "banner_3"
-      ],
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 12
-      }
-    },
-    "crow_ready_to_wear": {
-      "type": "s24-collection-row",
-      "settings": {
-        "eyebrow": "",
-        "title": "Shop the season",
-        "text": "",
-        "button_label": "See all",
-        "button_link": "shopify://collections/all",
-        "products_to_show": 8,
-        "collection_1": "fabric",
-        "collection_2": "ready-to-wear",
-        "collection_3": "pants",
-        "collection_4": "tops",
-        "collection_5": "two-piece-sets",
-        "padding_top": 48,
-        "padding_bottom": 56
-      }
-    },
     "home_strip": {
       "type": "s24-marquee",
       "blocks": {
         "strip_1": {
           "type": "phrase",
-          "settings": { "text": "Shop the latest looks" }
+          "settings": {
+            "text": "Shop the latest looks"
+          }
         },
         "strip_2": {
           "type": "phrase",
-          "settings": { "text": "Easy returns" }
+          "settings": {
+            "text": "Easy returns"
+          }
         },
         "strip_3": {
           "type": "phrase",
-          "settings": { "text": "Secure payment" }
+          "settings": {
+            "text": "Secure payment"
+          }
         },
         "strip_4": {
           "type": "phrase",
-          "settings": { "text": "Crafted with care" }
+          "settings": {
+            "text": "Crafted with care"
+          }
         },
         "strip_5": {
           "type": "phrase",
-          "settings": { "text": "Free shipping" }
+          "settings": {
+            "text": "Free shipping"
+          }
         },
         "strip_6": {
           "type": "phrase",
-          "settings": { "text": "Limited edition" }
+          "settings": {
+            "text": "Limited edition"
+          }
         }
       },
       "block_order": [
@@ -212,6 +162,69 @@
         "button_link": "shopify://collections/ready-to-wear",
         "padding_top": 40,
         "padding_bottom": 64
+      }
+    },
+    "crow_ready_to_wear": {
+      "type": "s24-collection-row",
+      "settings": {
+        "eyebrow": "",
+        "title": "Shop the season",
+        "text": "",
+        "button_label": "See all",
+        "button_link": "shopify://collections/all",
+        "products_to_show": 8,
+        "collection_1": "fabric",
+        "collection_2": "ready-to-wear",
+        "collection_3": "pants",
+        "collection_4": "tops",
+        "collection_5": "two-piece-sets",
+        "product_list": [],
+        "padding_top": 48,
+        "padding_bottom": 56
+      }
+    },
+    "promo_banners": {
+      "type": "s24-promo-banners",
+      "blocks": {
+        "banner_1": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Ready_to_wear_collection.png",
+            "kicker": "",
+            "heading": "",
+            "button_label": "Shop",
+            "button_link": "shopify://collections/ready-to-wear"
+          }
+        },
+        "banner_2": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/new-arrivel.png",
+            "kicker": "",
+            "heading": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/new-arrivals"
+          }
+        },
+        "banner_3": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Two-piece_sets.png",
+            "kicker": "",
+            "heading": "",
+            "button_label": "Shop now",
+            "button_link": "shopify://collections/two-piece-sets"
+          }
+        }
+      },
+      "block_order": [
+        "banner_1",
+        "banner_2",
+        "banner_3"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 12
       }
     },
     "best_sellers": {
