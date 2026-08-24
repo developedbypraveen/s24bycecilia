@@ -79,30 +79,38 @@
       <ul class="s24-whats__grid" role="list">
         {%- if picked != blank and picked.size > 0 -%}
           {%- for product in picked limit: 4 -%}
-            <li class="s24-whats__item">
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: 'portrait',
-                show_secondary_image: true,
-                show_vendor: false,
-                show_rating: false,
-                section_id: section.id,
-                product_view_context: 'collection'
-              %}
+            <li class="s24-whats__item{% if forloop.index == 2 or forloop.index == 3 %} s24-whats__item--auto{% endif %}">
+              {%- if forloop.index == 2 or forloop.index == 3 -%}
+                {% render 's24-card-auto', card_product: product, section_id: section.id %}
+              {%- else -%}
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: true,
+                  show_vendor: false,
+                  show_rating: false,
+                  section_id: section.id,
+                  product_view_context: 'collection'
+                %}
+              {%- endif -%}
             </li>
           {%- endfor -%}
         {%- elsif collection != blank -%}
           {%- for product in collection.products limit: 4 -%}
-            <li class="s24-whats__item">
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: 'portrait',
-                show_secondary_image: true,
-                show_vendor: false,
-                show_rating: false,
-                section_id: section.id,
-                product_view_context: 'collection'
-              %}
+            <li class="s24-whats__item{% if forloop.index == 2 or forloop.index == 3 %} s24-whats__item--auto{% endif %}">
+              {%- if forloop.index == 2 or forloop.index == 3 -%}
+                {% render 's24-card-auto', card_product: product, section_id: section.id %}
+              {%- else -%}
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: true,
+                  show_vendor: false,
+                  show_rating: false,
+                  section_id: section.id,
+                  product_view_context: 'collection'
+                %}
+              {%- endif -%}
             </li>
           {%- endfor -%}
         {%- else -%}

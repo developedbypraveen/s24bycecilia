@@ -2416,6 +2416,11 @@ body.template-index #MainContent slideshow-component.banner {
   margin: 0.8rem !important;
 }
 
+.s24-whats .s24-card-auto .card__inner,
+.s24-whats .s24-card-auto__frame {
+  border-radius: 1.2rem !important;
+}
+
 /* Custom fit measurements (Size = Custom) */
 .s24-custom-fit {
   margin: 0 0 1.6rem;
