@@ -7,28 +7,7 @@
 {% endcomment %}
 <div class="utility-bar color-{{ section.settings.color_scheme }} gradient header-localization">
   <div class="page-width utility-bar__grid utility-bar__grid--3-col">
-    <ul class="list-unstyled list-social" role="list">
-      <li class="list-social__item">
-        <a href="{{ settings.social_instagram_link | default: 'https://instagram.com' }}" class="link list-social__link" aria-label="Instagram">
-          <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
-        </a>
-      </li>
-      <li class="list-social__item">
-        <a href="{{ settings.social_twitter_link | default: 'https://x.com' }}" class="link list-social__link" aria-label="X">
-          <span class="svg-wrapper">{{ 'icon-twitter.svg' | inline_asset_content }}</span>
-        </a>
-      </li>
-      <li class="list-social__item">
-        <a href="{{ settings.social_facebook_link | default: 'https://facebook.com' }}" class="link list-social__link" aria-label="Facebook">
-          <span class="svg-wrapper">{{ 'icon-facebook.svg' | inline_asset_content }}</span>
-        </a>
-      </li>
-      <li class="list-social__item">
-        <a href="{{ settings.social_pinterest_link | default: 'https://pinterest.com' }}" class="link list-social__link" aria-label="Pinterest">
-          <span class="svg-wrapper">{{ 'icon-pinterest.svg' | inline_asset_content }}</span>
-        </a>
-      </li>
-    </ul>
+    {%- render 'social-icons' -%}
 
     <div
       class="announcement-bar s24-topbar-fade"
