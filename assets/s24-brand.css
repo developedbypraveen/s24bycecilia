@@ -1606,6 +1606,7 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-ft__social {
   display: flex;
   flex-wrap: wrap;
+  justify-content: start;
   gap: 0.8rem;
   margin: 2rem 0 0;
   padding: 0;
