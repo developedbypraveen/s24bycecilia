@@ -201,6 +201,20 @@
         "padding_bottom": 40
       }
     },
+    "whats_new": {
+      "type": "s24-whats-new",
+      "settings": {
+        "title": "What's New",
+        "subtitle": "Fresh arrivals from the S24 studio.",
+        "feature_eyebrow": "New drop",
+        "feature_heading": "The looks everyone is asking for",
+        "feature_text": "Explore the newest ready-to-wear pieces.",
+        "feature_link": "shopify://collections/ready-to-wear",
+        "collection": "ready-to-wear",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "promo_banners": {
       "type": "s24-promo-banners",
       "blocks": {
@@ -419,8 +433,7 @@
     "circle_cats",
     "crow_ready_to_wear",
     "s24_sale_banner_xmALPB",
-    "promo_banners",
-    "best_sellers",
+    "whats_new",
     "lookbook",
     "reviews",
     "services",

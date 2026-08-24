@@ -1,0 +1,213 @@
+{% comment %}
+  What's New — tall feature image left, 2×2 product grid right.
+{% endcomment %}
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .s24-whats-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-whats-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign collection = section.settings.collection
+  assign picked = section.settings.product_list
+  assign feature_url = section.settings.feature_link
+  if feature_url == blank and collection != blank
+    assign feature_url = collection.url
+  endif
+  if feature_url == blank
+    assign feature_url = routes.all_products_collection_url
+  endif
+-%}
+
+<section class="s24-whats s24-whats-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="s24-whats__intro">
+        {%- if section.settings.title != blank -%}
+          <h2 class="s24-whats__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="s24-whats__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="s24-whats__layout">
+      <a class="s24-whats__feature" href="{{ feature_url }}">
+        <span class="s24-whats__feature-media">
+          {%- if section.settings.feature_image != blank -%}
+            {{
+              section.settings.feature_image
+              | image_url: width: 1400
+              | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 750px) 40vw, 100vw', alt: section.settings.feature_heading
+            }}
+          {%- elsif collection.featured_image != blank -%}
+            {{
+              collection.featured_image
+              | image_url: width: 1400
+              | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1400', sizes: '(min-width: 750px) 40vw, 100vw', alt: section.settings.feature_heading
+            }}
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </span>
+        <span class="s24-whats__feature-shade" aria-hidden="true"></span>
+        <span class="s24-whats__feature-copy">
+          {%- if section.settings.feature_eyebrow != blank -%}
+            <span class="s24-whats__feature-eyebrow">{{ section.settings.feature_eyebrow | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.feature_heading != blank -%}
+            <span class="s24-whats__feature-heading">{{ section.settings.feature_heading | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.feature_text != blank -%}
+            <span class="s24-whats__feature-text">{{ section.settings.feature_text | escape }}</span>
+          {%- endif -%}
+        </span>
+      </a>
+
+      <ul class="s24-whats__grid" role="list">
+        {%- if picked != blank and picked.size > 0 -%}
+          {%- for product in picked limit: 4 -%}
+            <li class="s24-whats__item">
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'portrait',
+                show_secondary_image: true,
+                show_vendor: false,
+                show_rating: false,
+                section_id: section.id,
+                product_view_context: 'collection'
+              %}
+            </li>
+          {%- endfor -%}
+        {%- elsif collection != blank -%}
+          {%- for product in collection.products limit: 4 -%}
+            <li class="s24-whats__item">
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'portrait',
+                show_secondary_image: true,
+                show_vendor: false,
+                show_rating: false,
+                section_id: section.id,
+                product_view_context: 'collection'
+              %}
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..4) -%}
+            <li class="s24-whats__item">
+              {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: true %}
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S24 What's New",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What's New"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Fresh arrivals from the S24 studio."
+    },
+    {
+      "type": "header",
+      "content": "Feature panel"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Tall image"
+    },
+    {
+      "type": "text",
+      "id": "feature_eyebrow",
+      "label": "Image eyebrow",
+      "default": "New drop"
+    },
+    {
+      "type": "text",
+      "id": "feature_heading",
+      "label": "Image heading",
+      "default": "The looks everyone is asking for"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_text",
+      "label": "Image text",
+      "default": "Explore the newest ready-to-wear pieces."
+    },
+    {
+      "type": "url",
+      "id": "feature_link",
+      "label": "Image link"
+    },
+    {
+      "type": "header",
+      "content": "Products (2×2)"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Or choose 4 products",
+      "limit": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "S24 What's New"
+    }
+  ]
+}
+{% endschema %}

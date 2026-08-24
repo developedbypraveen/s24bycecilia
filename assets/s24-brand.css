@@ -2238,6 +2238,184 @@ body.template-index #MainContent slideshow-component.banner {
   margin: 0.8rem !important;
 }
 
+/* What's New — tall feature + 2×2 products */
+.s24-whats {
+  background: #fff;
+}
+
+.s24-whats__intro {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto 3.2rem;
+}
+
+.s24-whats__title {
+  margin: 0;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--s24-ink);
+}
+
+.s24-whats__subtitle {
+  margin: 1rem auto 0;
+  max-width: 48rem;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--s24-muted);
+}
+
+.s24-whats__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  align-items: stretch;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-whats__layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.2fr);
+    gap: 1.6rem;
+  }
+}
+
+.s24-whats__feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 1.4rem;
+  min-height: 42rem;
+  text-decoration: none;
+  color: #fff;
+  background: var(--s24-blush);
+}
+
+@media screen and (min-width: 750px) {
+  .s24-whats__feature {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+.s24-whats__feature-media,
+.s24-whats__feature-media img,
+.s24-whats__feature-media svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.s24-whats__feature:hover .s24-whats__feature-media img {
+  transform: scale(1.04);
+}
+
+.s24-whats__feature-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 36, 38, 0.05) 35%, rgba(44, 36, 38, 0.62) 100%);
+  pointer-events: none;
+}
+
+.s24-whats__feature-copy {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.s24-whats__feature-eyebrow {
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.s24-whats__feature-heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 2.8vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.s24-whats__feature-text {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  opacity: 0.92;
+  max-width: 36rem;
+}
+
+.s24-whats__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-whats__grid {
+    gap: 1.6rem;
+  }
+}
+
+.s24-whats__item {
+  min-width: 0;
+}
+
+.s24-whats .product-card-wrapper .card:not(.card--horizontal) .card__inner,
+.s24-whats .product-card-wrapper .card__media,
+.s24-whats .product-card-wrapper .media,
+.s24-whats .card--standard .card__inner {
+  border-radius: 1.2rem !important;
+  overflow: hidden;
+}
+
+.s24-whats .product-card-wrapper .card__heading,
+.s24-whats .product-card-wrapper .price,
+.s24-whats .product-card-wrapper .card__information {
+  text-align: left !important;
+}
+
+.s24-whats .product-card-wrapper .card:not(.card--horizontal) > .card__content > .card__information {
+  text-align: left !important;
+  padding-top: 1.1rem;
+}
+
+.s24-whats .product-card-wrapper .card__heading {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+}
+
+.s24-whats .product-card-wrapper .price,
+.s24-whats .product-card-wrapper .price .price-item {
+  color: var(--s24-plum);
+  font-size: 1.3rem;
+}
+
+.s24-whats .product-card-wrapper .card:not(.card--horizontal) > .card__content > .quick-add,
+.s24-whats .product-card-wrapper .s24-wish-btn {
+  display: none !important;
+}
+
+.s24-whats .card__badge {
+  place-self: start start !important;
+  margin: 0.8rem !important;
+}
+
 /* Custom fit measurements (Size = Custom) */
 .s24-custom-fit {
   margin: 0 0 1.6rem;
