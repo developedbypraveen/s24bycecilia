@@ -26,30 +26,15 @@
         "text_color": "#ffffff"
       }
     },
-    "footer": {
-      "type": "footer",
+    "s24_footer": {
+      "type": "s24-footer",
       "blocks": {
-        "brand": {
-          "type": "text",
-          "settings": {
-            "heading": "S24 By Cecilia",
-            "subtext": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
-            "show_social": true
-          }
-        },
-        "link_list_786BD8": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Quick Links",
-            "menu": "footer-quick-links"
-          }
-        },
         "instagram_app": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
           "settings": {
-            "title": "Follow us on Instagram",
+            "title": "",
             "title_color": "#f5f0f2",
-            "title_size_v2": 16,
+            "title_size_v2": 0,
             "alignment": "left",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 0,
@@ -63,23 +48,21 @@
           }
         }
       },
-      "block_order": [
-        "brand",
-        "link_list_786BD8",
-        "instagram_app"
-      ],
+      "block_order": ["instagram_app"],
       "settings": {
-        "color_scheme": "scheme-4",
-        "newsletter_enable": true,
+        "brand_text": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
+        "show_social": true,
+        "menu_heading": "Quick Links",
+        "menu": "footer-quick-links",
+        "instagram_heading": "Follow us on Instagram",
         "newsletter_heading": "Stay in touch",
         "newsletter_text": "Subscribe to get special offers and updates.",
-        "enable_follow_on_shop": false,
-        "show_social": false,
-        "enable_country_selector": true,
+        "newsletter_button": "Subscribe",
+        "payment_enable": true,
         "enable_language_selector": true,
-        "payment_enable": false,
-        "show_policy": true,
-        "margin_top": 0,
+        "enable_country_selector": true,
+        "show_policy": false,
+        "show_powered_by": true,
         "padding_top": 64,
         "padding_bottom": 28
       }
@@ -87,6 +70,6 @@
   },
   "order": [
     "footer_strip",
-    "footer"
+    "s24_footer"
   ]
 }

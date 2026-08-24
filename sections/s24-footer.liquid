@@ -1,0 +1,347 @@
+{% comment %}
+  S24 footer — 4 columns + bottom bar (copyright | payments | locale).
+{% endcomment %}
+
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .s24-ft-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-ft-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign has_social = false
+  if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_twitter_link != blank or settings.social_tiktok_link != blank or settings.social_pinterest_link != blank
+    assign has_social = true
+  endif
+-%}
+
+<footer class="s24-ft s24-ft-{{ section.id }}">
+  <div class="page-width">
+    <div class="s24-ft__grid">
+      {%- comment -%} Column 1: Logo + content + social {%- endcomment -%}
+      <div class="s24-ft__col s24-ft__col--brand">
+        <a href="{{ routes.root_url }}" class="s24-ft__logo">
+          {%- if section.settings.logo != blank -%}
+            {{
+              section.settings.logo
+              | image_url: width: 360
+              | image_tag: loading: 'lazy', widths: '120, 180, 240, 360', alt: shop.name
+            }}
+          {%- elsif settings.logo != blank -%}
+            {{
+              settings.logo
+              | image_url: width: 360
+              | image_tag: loading: 'lazy', widths: '120, 180, 240, 360', alt: shop.name
+            }}
+          {%- else -%}
+            <span class="s24-ft__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.brand_text != blank -%}
+          <div class="s24-ft__brand-text rte">{{ section.settings.brand_text }}</div>
+        {%- endif -%}
+        {%- if section.settings.show_social and has_social -%}
+          {%- render 'social-icons', class: 's24-ft__social' -%}
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Column 2: Menu {%- endcomment -%}
+      <div class="s24-ft__col s24-ft__col--menu">
+        {%- if section.settings.menu_heading != blank -%}
+          <h2 class="s24-ft__heading">{{ section.settings.menu_heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.menu != blank -%}
+          <ul class="s24-ft__menu list-unstyled">
+            {%- for link in section.settings.menu.links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Column 3: Instagram app {%- endcomment -%}
+      <div class="s24-ft__col s24-ft__col--instagram">
+        {%- if section.settings.instagram_heading != blank -%}
+          <h2 class="s24-ft__heading">{{ section.settings.instagram_heading | escape }}</h2>
+        {%- endif -%}
+        <div class="s24-ft__app">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                <div {{ block.shopify_attributes }}>{% render block %}</div>
+            {%- endcase -%}
+          {%- else -%}
+            {%- if request.design_mode -%}
+              <p class="s24-ft__hint">Add your Instagram app block here (Theme editor → Footer → Add block → Apps).</p>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- comment -%} Column 4: Stay in touch {%- endcomment -%}
+      <div class="s24-ft__col s24-ft__col--newsletter">
+        {%- if section.settings.newsletter_heading != blank -%}
+          <h2 class="s24-ft__heading">{{ section.settings.newsletter_heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.newsletter_text != blank -%}
+          <p class="s24-ft__newsletter-text">{{ section.settings.newsletter_text | escape }}</p>
+        {%- endif -%}
+        {%- form 'customer', id: 'ContactFooterS24', class: 's24-ft__form newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="s24-ft__field field">
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="field__input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              placeholder="Enter your email"
+              required
+            >
+            <label class="field__label" for="NewsletterForm--{{ section.id }}">Enter your email</label>
+          </div>
+          <button type="submit" class="s24-ft__subscribe" name="commit">
+            {{ section.settings.newsletter_button | default: 'Subscribe' | escape }}
+          </button>
+          {%- if form.errors -%}
+            <small class="form__message">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </small>
+          {%- endif -%}
+          {%- if form.posted_successfully? -%}
+            <h3 class="form__message" tabindex="-1" autofocus>{{ 'newsletter.success' | t }}</h3>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+
+    <div class="s24-ft__bottom">
+      <div class="s24-ft__copy">
+        <small>
+          &copy; {{ 'now' | date: '%Y' }}, {{ shop.name }}.
+          {%- if section.settings.show_powered_by %} {{ powered_by_link }}{%- endif -%}
+        </small>
+        {%- if section.settings.show_policy -%}
+          <span class="s24-ft__policies">
+            {%- for policy in shop.policies -%}
+              {%- if policy != blank -%}
+                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          </span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.payment_enable -%}
+        <div class="s24-ft__payments">
+          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+          <ul class="list list-payment" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              <li class="list-payment__item">
+                {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <div class="s24-ft__locale">
+        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+          <localization-form>
+            {%- form 'localization', id: 'FooterCountryFormS24', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="FooterCountryLabelS24">{{ 'localization.country_label' | t }}</h2>
+                {%- render 'country-localization', localPosition: 'FooterCountryS24' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+          <localization-form>
+            {%- form 'localization', id: 'FooterLanguageFormS24', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="FooterLanguageLabelS24">{{ 'localization.language_label' | t }}</h2>
+                {%- render 'language-localization', localPosition: 'FooterLanguageS24' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#MainContent" class="s24-back-top" data-s24-back-top aria-label="Back to top">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+    <path d="M7 11V3M3.5 6.5L7 3l3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
+
+{% schema %}
+{
+  "name": "S24 footer",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1 — Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "Uses theme logo if empty"
+    },
+    {
+      "type": "richtext",
+      "id": "brand_text",
+      "label": "Brand text",
+      "default": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Column 2 — Menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_heading",
+      "label": "Menu heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Column 3 — Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_heading",
+      "label": "Instagram heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add your Instagram / Instafeed app as a block in this section."
+    },
+    {
+      "type": "header",
+      "content": "Column 4 — Stay in touch"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "Stay in touch"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Text",
+      "default": "Subscribe to get special offers and updates."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "label": "Show payment icons (center)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "label": "Show language selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "label": "Show currency / country selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "label": "Show policy links",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powered_by",
+      "label": "Show Powered by Shopify",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "S24 footer"
+    }
+  ]
+}
+{% endschema %}
