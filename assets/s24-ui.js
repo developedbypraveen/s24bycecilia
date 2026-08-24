@@ -153,14 +153,20 @@
 
     let index = 0;
     let timer = null;
+    let animating = false;
+
+    const clearSlideState = (slide) => {
+      slide.classList.remove('is-active', 'is-leaving', 'is-prep');
+      slide.style.removeProperty('transform');
+      slide.style.removeProperty('transition');
+    };
 
     const setBars = (activeIndex) => {
       bars.forEach((bar, i) => {
-        bar.classList.remove('is-active', 'is-done');
+        bar.classList.remove('is-active', 'is-done', 'is-paused');
         const fill = bar.querySelector('.s24-card-auto__bar-fill');
         if (fill) {
           fill.style.animation = 'none';
-          // force reflow so animation can restart
           void fill.offsetWidth;
           fill.style.animation = '';
         }
@@ -170,22 +176,32 @@
     };
 
     const goTo = (nextIndex) => {
+      if (animating || nextIndex === index) return;
+      animating = true;
+
       const current = slides[index];
       const next = slides[nextIndex];
 
-      slides.forEach((slide) => {
-        slide.classList.remove('is-active', 'is-leaving');
-        if (slide !== current && slide !== next) {
-          slide.style.transform = 'translateX(100%)';
-        }
-      });
+      // Park next just off the right edge (no transition), then slide in
+      next.classList.remove('is-active', 'is-leaving');
+      next.classList.add('is-prep');
+      void next.offsetWidth;
 
+      current.classList.remove('is-active');
       current.classList.add('is-leaving');
+
+      next.classList.remove('is-prep');
       next.classList.add('is-active');
 
       window.setTimeout(() => {
-        current.classList.remove('is-leaving');
-      }, 560);
+        clearSlideState(current);
+        // Keep only the active class on the visible slide
+        slides.forEach((slide, i) => {
+          if (i !== nextIndex) clearSlideState(slide);
+        });
+        next.classList.add('is-active');
+        animating = false;
+      }, 580);
 
       index = nextIndex;
       setBars(index);
@@ -195,14 +211,21 @@
       goTo((index + 1) % slides.length);
     };
 
+    // Ensure a clean start
+    slides.forEach((slide, i) => {
+      clearSlideState(slide);
+      if (i === 0) slide.classList.add('is-active');
+    });
     setBars(0);
     timer = window.setInterval(tick, interval);
 
     root.addEventListener(
       'mouseenter',
       () => {
-        if (timer) window.clearInterval(timer);
-        timer = null;
+        if (timer) {
+          window.clearInterval(timer);
+          timer = null;
+        }
         const active = bars[index];
         if (active) active.classList.add('is-paused');
       },
@@ -212,6 +235,7 @@
     root.addEventListener(
       'mouseleave',
       () => {
+        bars.forEach((bar) => bar.classList.remove('is-paused'));
         if (!timer) {
           setBars(index);
           timer = window.setInterval(tick, interval);
