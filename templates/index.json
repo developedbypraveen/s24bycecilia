@@ -183,6 +183,22 @@
         "padding_bottom": 56
       }
     },
+    "sale_banner": {
+      "type": "s24-sale-banner",
+      "settings": {
+        "eyebrow": "Limited time",
+        "heading": "50% OFF",
+        "text": "Selected ready-to-wear styles — while they last.",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections/ready-to-wear",
+        "collection": "ready-to-wear",
+        "offer_bg": "#a61669",
+        "offer_text": "#ffffff",
+        "products_bg": "#f7e9ef",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "promo_banners": {
       "type": "s24-promo-banners",
       "blocks": {
@@ -400,8 +416,7 @@
     "home_strip",
     "circle_cats",
     "crow_ready_to_wear",
-    "promo_banners",
-    "best_sellers",
+    "sale_banner",
     "lookbook",
     "reviews",
     "services",
