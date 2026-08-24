@@ -201,16 +201,24 @@
         "padding_bottom": 40
       }
     },
-    "whats_new": {
+    "s24_whats_new_xQMy6N": {
       "type": "s24-whats-new",
+      "name": "S24 What's New",
       "settings": {
         "title": "What's New",
         "subtitle": "Fresh arrivals from the S24 studio.",
+        "feature_image": "shopify://shop_images/Bold._Beautiful._1.png",
         "feature_eyebrow": "New drop",
         "feature_heading": "The looks everyone is asking for",
         "feature_text": "Explore the newest ready-to-wear pieces.",
-        "feature_link": "shopify://collections/ready-to-wear",
-        "collection": "ready-to-wear",
+        "feature_link": "",
+        "collection": "shop-all",
+        "product_list": [
+          "african-print-multi-pattern-palazzo-pants",
+          "african-print-patchwork-top",
+          "african-print-two-piece-set",
+          "african-print-yellow-scale-ruffle-pants"
+        ],
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -433,7 +441,9 @@
     "circle_cats",
     "crow_ready_to_wear",
     "s24_sale_banner_xmALPB",
-    "whats_new",
+    "s24_whats_new_xQMy6N",
+    "promo_banners",
+    "best_sellers",
     "lookbook",
     "reviews",
     "services",
