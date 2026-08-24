@@ -98,7 +98,7 @@
     "trending": {
       "type": "featured-collection",
       "settings": {
-        "collection": "new-arrivals",
+        "collection": "ready-to-wear",
         "products_to_show": 8,
         "title": "Popular products",
         "heading_size": "h1",
@@ -176,7 +176,7 @@
     "best_sellers": {
       "type": "featured-collection",
       "settings": {
-        "collection": "shop-all",
+        "collection": "",
         "products_to_show": 4,
         "title": "Deal of the week",
         "heading_size": "h1",
