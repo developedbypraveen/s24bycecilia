@@ -308,46 +308,6 @@
         "padding_bottom": 56
       }
     },
-    "reviews": {
-      "type": "s24-reviews",
-      "blocks": {
-        "r1": {
-          "type": "review",
-          "settings": {
-            "quote": "The print, the fit, the way it made me feel — I have never owned anything like this.",
-            "name": "Amaka O.",
-            "role": "Toronto"
-          }
-        },
-        "r2": {
-          "type": "review",
-          "settings": {
-            "quote": "I wore the two-piece to a dinner and spent the night answering “where is this from?”",
-            "name": "Ngozi A.",
-            "role": "Calgary"
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "quote": "Custom sizing that actually listened to my body. Elegant, not costume.",
-            "name": "Sarah K.",
-            "role": "Ottawa"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
-      "settings": {
-        "title": "Our happy clients",
-        "subtitle": "",
-        "padding_top": 48,
-        "padding_bottom": 20
-      }
-    },
     "services": {
       "type": "s24-services",
       "blocks": {
@@ -438,7 +398,6 @@
     "s24_whats_new_xQMy6N",
     "promo_banners",
     "s24_popular_bjhFeQ",
-    "reviews",
     "services",
     "instagram"
   ]
