@@ -1770,30 +1770,67 @@ body.template-index #MainContent slideshow-component.banner {
   gap: 1.2rem;
   align-items: center;
   justify-content: center;
+  --color-foreground: 245, 240, 242;
+  --color-background: 28, 18, 24;
 }
 
 .s24-ft__locale .disclosure__button,
+.s24-ft__locale .disclosure__button.link,
+.s24-ft__locale .disclosure__button.link--text,
 .s24-ft__locale .localization-form__select,
-.s24-ft__locale .localization-form__select .icon-caret,
-.s24-ft__locale .disclosure__button .icon-caret,
+.s24-ft__locale .localization-form__select.link,
+.s24-ft__locale .localization-form__select.link--text,
+.s24-ft__locale .localization-form__select span,
 .s24-ft__locale .caption-large,
 .s24-ft__locale .localization-selector {
-  color: rgba(245, 240, 242, 0.9);
+  color: #f5f0f2 !important;
 }
 
-.s24-ft__locale .disclosure__list-wrapper,
-.s24-ft__locale .disclosure__list {
+.s24-ft__locale .disclosure__button .svg-wrapper,
+.s24-ft__locale .disclosure__button .icon-caret,
+.s24-ft__locale .localization-form__select .icon-caret,
+.s24-ft__locale .disclosure__button svg,
+.s24-ft__locale .localization-form__select svg {
+  color: #f5f0f2 !important;
+}
+
+.s24-ft__locale .disclosure__button svg path,
+.s24-ft__locale .localization-form__select svg path {
+  fill: currentColor;
+}
+
+.s24-ft__locale .disclosure__button:hover,
+.s24-ft__locale .localization-form__select:hover {
+  color: #ffffff !important;
+}
+
+/* Open language/currency menus upward in footer */
+.s24-ft__locale.header-localization:not(.menu-drawer__localization) .disclosure__list-wrapper,
+.s24-ft__locale .disclosure__list-wrapper {
+  bottom: 100%;
+  top: auto !important;
+  right: 0;
+  left: auto;
+  transform: translateY(-0.6rem);
   background: #1c1218;
   color: #f5f0f2;
   border-color: rgba(255, 255, 255, 0.18);
+  z-index: 30;
 }
 
-.s24-ft__locale .disclosure__link {
-  color: rgba(245, 240, 242, 0.9);
+.s24-ft__locale .disclosure__list {
+  background: #1c1218;
+  color: #f5f0f2;
+}
+
+.s24-ft__locale .disclosure__link,
+.s24-ft__locale .disclosure__link.link,
+.s24-ft__locale .disclosure__link.link--text {
+  color: rgba(245, 240, 242, 0.9) !important;
 }
 
 .s24-ft__locale .disclosure__link:hover {
-  color: #fff;
+  color: #fff !important;
 }
 
 .s24-back-top {
