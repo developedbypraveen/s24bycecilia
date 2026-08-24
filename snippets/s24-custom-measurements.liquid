@@ -1,0 +1,110 @@
+{% comment %}
+  Shows measurement fields when the selected size is "Custom".
+  Values are saved as line item properties on the order.
+{% endcomment %}
+{%- liquid
+  assign s24_has_custom_size = false
+  for option in product.options_with_values
+    for value in option.values
+      assign value_down = value.name | downcase | strip
+      if value_down == 'custom'
+        assign s24_has_custom_size = true
+      endif
+    endfor
+  endfor
+-%}
+
+{%- if s24_has_custom_size -%}
+  <div
+    class="s24-custom-fit"
+    data-s24-custom-fit
+    hidden
+  >
+    <p class="s24-custom-fit__title">Made / adjusted to my measurements</p>
+    <p class="s24-custom-fit__note">
+      Custom orders take <strong>15 working days</strong> to make. Enter your measurements in inches.
+    </p>
+
+    <div class="s24-custom-fit__grid">
+      <div class="s24-custom-fit__field">
+        <label class="form__label" for="S24-Bust-{{ section_id }}">Bust (in)</label>
+        <input
+          id="S24-Bust-{{ section_id }}"
+          class="s24-custom-fit__input"
+          type="text"
+          name="properties[Bust]"
+          inputmode="decimal"
+          placeholder="e.g. 36"
+          form="{{ product_form_id }}"
+          data-s24-custom-field
+          disabled
+        >
+      </div>
+      <div class="s24-custom-fit__field">
+        <label class="form__label" for="S24-Waist-{{ section_id }}">Waist (in)</label>
+        <input
+          id="S24-Waist-{{ section_id }}"
+          class="s24-custom-fit__input"
+          type="text"
+          name="properties[Waist]"
+          inputmode="decimal"
+          placeholder="e.g. 28"
+          form="{{ product_form_id }}"
+          data-s24-custom-field
+          disabled
+        >
+      </div>
+      <div class="s24-custom-fit__field">
+        <label class="form__label" for="S24-Hip-{{ section_id }}">Hip (in)</label>
+        <input
+          id="S24-Hip-{{ section_id }}"
+          class="s24-custom-fit__input"
+          type="text"
+          name="properties[Hip]"
+          inputmode="decimal"
+          placeholder="e.g. 38"
+          form="{{ product_form_id }}"
+          data-s24-custom-field
+          disabled
+        >
+      </div>
+      <div class="s24-custom-fit__field">
+        <label class="form__label" for="S24-Shoulder-{{ section_id }}">Shoulder (in)</label>
+        <input
+          id="S24-Shoulder-{{ section_id }}"
+          class="s24-custom-fit__input"
+          type="text"
+          name="properties[Shoulder]"
+          inputmode="decimal"
+          placeholder="e.g. 15"
+          form="{{ product_form_id }}"
+          data-s24-custom-field
+          disabled
+        >
+      </div>
+      <div class="s24-custom-fit__field s24-custom-fit__field--wide">
+        <label class="form__label" for="S24-Length-{{ section_id }}">Dress / garment length (in)</label>
+        <input
+          id="S24-Length-{{ section_id }}"
+          class="s24-custom-fit__input"
+          type="text"
+          name="properties[Dress length]"
+          inputmode="decimal"
+          placeholder="e.g. 40"
+          form="{{ product_form_id }}"
+          data-s24-custom-field
+          disabled
+        >
+      </div>
+    </div>
+
+    <input
+      type="hidden"
+      name="properties[Production time]"
+      value="15 working days (custom fit)"
+      form="{{ product_form_id }}"
+      data-s24-custom-field
+      disabled
+    >
+  </div>
+{%- endif -%}

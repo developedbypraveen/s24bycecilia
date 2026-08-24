@@ -75,8 +75,74 @@
     start();
   }
 
+  function initCustomFit() {
+    const panels = document.querySelectorAll('[data-s24-custom-fit]');
+    if (!panels.length) return;
+
+    function selectedSizeIsCustom() {
+      // Dawn radios / selects for Size option
+      const checked = document.querySelector(
+        'variant-selects input[type="radio"]:checked, variant-radios input[type="radio"]:checked'
+      );
+      if (checked && String(checked.value).toLowerCase().trim() === 'custom') return true;
+
+      const selects = document.querySelectorAll('variant-selects select, .product-form__input select');
+      for (const sel of selects) {
+        const label = (sel.getAttribute('name') || sel.id || '').toLowerCase();
+        const optText = sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].text : '';
+        if (
+          String(sel.value).toLowerCase().trim() === 'custom' ||
+          (label.includes('option') && String(optText).toLowerCase().trim() === 'custom')
+        ) {
+          return true;
+        }
+      }
+
+      // Fallback: fieldset legend Size + checked radio nearby
+      const fieldsets = document.querySelectorAll('fieldset.product-form__input');
+      for (const fs of fieldsets) {
+        const legend = fs.querySelector('legend');
+        if (!legend) continue;
+        if (!/size/i.test(legend.textContent || '')) continue;
+        const c = fs.querySelector('input:checked');
+        if (c && String(c.value).toLowerCase().trim() === 'custom') return true;
+      }
+      return false;
+    }
+
+    function sync() {
+      const isCustom = selectedSizeIsCustom();
+      panels.forEach((panel) => {
+        panel.hidden = !isCustom;
+        panel.querySelectorAll('[data-s24-custom-field]').forEach((field) => {
+          field.disabled = !isCustom;
+          if (isCustom && field.type !== 'hidden') {
+            field.required = true;
+          } else {
+            field.required = false;
+          }
+        });
+      });
+    }
+
+    document.addEventListener('change', (e) => {
+      if (
+        e.target.matches(
+          'variant-selects input, variant-radios input, variant-selects select, .product-form__input input, .product-form__input select'
+        )
+      ) {
+        sync();
+      }
+    });
+
+    // Variant change events from Dawn
+    document.addEventListener('variant:change', sync);
+    sync();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-s24-fade]').forEach(initFadeSlider);
     document.querySelectorAll('[data-s24-hero]').forEach(initHeroSlider);
+    initCustomFit();
   });
 })();

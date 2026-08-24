@@ -60,6 +60,12 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
+        {%- render 's24-custom-measurements',
+          product: product,
+          product_form_id: product_form_id,
+          section_id: section_id
+        -%}
+
         <div class="product-form__buttons">
           {%- liquid
             assign check_against_inventory = true
