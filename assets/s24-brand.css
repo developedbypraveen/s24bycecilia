@@ -3119,6 +3119,7 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-about-quote__text {
   margin: 0;
+  color: currentColor;
 }
 
 .s24-about-quote__text p {
