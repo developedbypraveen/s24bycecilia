@@ -183,14 +183,15 @@
         "padding_bottom": 56
       }
     },
-    "sale_banner": {
+    "s24_sale_banner_xmALPB": {
       "type": "s24-sale-banner",
+      "name": "S24 sale banner",
       "settings": {
         "eyebrow": "Limited time",
         "heading": "50% OFF",
         "text": "Selected ready-to-wear styles — while they last.",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/all",
+        "button_link": "",
         "collection": "",
         "max_products": 24,
         "offer_bg": "#a61669",
@@ -417,7 +418,9 @@
     "home_strip",
     "circle_cats",
     "crow_ready_to_wear",
-    "sale_banner",
+    "s24_sale_banner_xmALPB",
+    "promo_banners",
+    "best_sellers",
     "lookbook",
     "reviews",
     "services",
