@@ -170,6 +170,47 @@
         "padding_bottom": 40
       }
     },
+    "home_strip": {
+      "type": "s24-marquee",
+      "blocks": {
+        "strip_1": {
+          "type": "phrase",
+          "settings": { "text": "Shop the latest looks" }
+        },
+        "strip_2": {
+          "type": "phrase",
+          "settings": { "text": "Easy returns" }
+        },
+        "strip_3": {
+          "type": "phrase",
+          "settings": { "text": "Secure payment" }
+        },
+        "strip_4": {
+          "type": "phrase",
+          "settings": { "text": "Crafted with care" }
+        },
+        "strip_5": {
+          "type": "phrase",
+          "settings": { "text": "Free shipping" }
+        },
+        "strip_6": {
+          "type": "phrase",
+          "settings": { "text": "Limited edition" }
+        }
+      },
+      "block_order": [
+        "strip_1",
+        "strip_2",
+        "strip_3",
+        "strip_4",
+        "strip_5",
+        "strip_6"
+      ],
+      "settings": {
+        "bg_color": "#8b3d5c",
+        "text_color": "#ffffff"
+      }
+    },
     "circle_cats": {
       "type": "s24-circle-categories",
       "blocks": {
@@ -222,10 +263,12 @@
         "cat_sets"
       ],
       "settings": {
-        "title": "",
-        "subtitle": "",
-        "padding_top": 48,
-        "padding_bottom": 40
+        "trust_heading": "Trusted for fit. Loved for colour, fabric, and timeless design.",
+        "trust_text": "From ready-to-wear to custom pieces, every S24 look is made to celebrate presence — thoughtful fabrics, graceful cuts, and finishes that feel as special as the occasion.",
+        "button_label": "Explore Collection",
+        "button_link": "shopify://collections/ready-to-wear",
+        "padding_top": 40,
+        "padding_bottom": 64
       }
     },
     "best_sellers": {
@@ -398,6 +441,7 @@
   "order": [
     "image_banner_bM39BX",
     "s24_hero_e6JjHB",
+    "home_strip",
     "circle_cats",
     "promo_banners",
     "crow_ready_to_wear",

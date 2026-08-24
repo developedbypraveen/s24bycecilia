@@ -1,34 +1,30 @@
 {% comment %}
-  Homepage category circles — image above, label below.
+  Category cards (rounded rectangles) + trust copy and CTA below.
 {% endcomment %}
 
 {%- style -%}
-  .s24-circles-{{ section.id }} {
+  .s24-cats-{{ section.id }} {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
   }
   @media screen and (min-width: 750px) {
-    .s24-circles-{{ section.id }} {
+    .s24-cats-{{ section.id }} {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
 
-<section class="s24-circles s24-circles-{{ section.id }}">
-  {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
-    <div class="page-width s24-circles__intro">
-      {% render 's24-heading', title: section.settings.title, subtitle: section.settings.subtitle %}
-    </div>
-  {%- endif -%}
-
-  <div class="page-width s24-circles__wrap">
-    <ul class="s24-circles__row" role="list">
+<section class="s24-cats s24-cats-{{ section.id }}">
+  <div class="page-width">
+    <ul class="s24-cats__row" role="list">
       {%- for block in section.blocks -%}
         {%- liquid
           assign cat_label = block.settings.label
           assign cat_link = block.settings.link
+          assign cat_count = blank
           if block.settings.collection != blank
+            assign cat_count = block.settings.collection.all_products_count
             if cat_link == blank
               assign cat_link = block.settings.collection.url
             endif
@@ -37,47 +33,86 @@
             endif
           endif
         -%}
-        <li class="s24-circles__item" {{ block.shopify_attributes }}>
-          <a class="s24-circle" href="{{ cat_link | default: routes.all_products_collection_url }}">
-            <span class="s24-circle__media">
+        <li class="s24-cats__item" {{ block.shopify_attributes }}>
+          <a class="s24-cat" href="{{ cat_link | default: routes.all_products_collection_url }}">
+            <span class="s24-cat__media">
               {%- if block.settings.image != blank -%}
                 {{
                   block.settings.image
-                  | image_url: width: 600
-                  | image_tag: loading: 'lazy', widths: '240, 360, 480, 600', sizes: '(min-width: 990px) 160px, 28vw', alt: cat_label
+                  | image_url: width: 900
+                  | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 20vw, 45vw', alt: cat_label
                 }}
               {%- elsif block.settings.collection.featured_image != blank -%}
                 {{
                   block.settings.collection.featured_image
-                  | image_url: width: 600
-                  | image_tag: loading: 'lazy', widths: '240, 360, 480, 600', sizes: '(min-width: 990px) 160px, 28vw', alt: cat_label
+                  | image_url: width: 900
+                  | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(min-width: 990px) 20vw, 45vw', alt: cat_label
                 }}
               {%- else -%}
                 {{ 'collection-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
             </span>
-            {%- if cat_label != blank -%}
-              <span class="s24-circle__label">{{ cat_label | escape }}</span>
-            {%- endif -%}
+            <span class="s24-cat__shade" aria-hidden="true"></span>
+            <span class="s24-cat__meta">
+              {%- if cat_label != blank -%}
+                <span class="s24-cat__label">{{ cat_label | escape }}</span>
+              {%- endif -%}
+              {%- if cat_count != blank -%}
+                <span class="s24-cat__count">{{ cat_count }} {% if cat_count == 1 %}Product{% else %}Products{% endif %}</span>
+              {%- endif -%}
+            </span>
+            <span class="s24-cat__go" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </a>
         </li>
       {%- endfor -%}
     </ul>
+
+    {%- if section.settings.trust_heading != blank or section.settings.trust_text != blank or section.settings.button_label != blank -%}
+      <div class="s24-cats__trust">
+        {%- if section.settings.trust_heading != blank -%}
+          <h2 class="s24-cats__trust-title">{{ section.settings.trust_heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.trust_text != blank -%}
+          <p class="s24-cats__trust-text">{{ section.settings.trust_text | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a class="s24-cats__trust-btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "S24 circle categories",
+  "name": "S24 category cards",
   "tag": "section",
   "class": "section",
   "max_blocks": 8,
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "title", "label": "Heading" },
-    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    {
+      "type": "text",
+      "id": "trust_heading",
+      "label": "Trust heading",
+      "default": "Trusted for fit. Loved for colour, fabric, and timeless design."
+    },
+    {
+      "type": "textarea",
+      "id": "trust_text",
+      "label": "Trust text",
+      "default": "From ready-to-wear to custom pieces, every S24 look is made to celebrate presence — thoughtful fabrics, graceful cuts, and finishes that feel as special as the occasion."
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Explore Collection" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
     { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 40 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 40 }
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Padding bottom", "default": 64 }
   ],
   "blocks": [
     {
@@ -85,7 +120,7 @@
       "name": "Category",
       "settings": [
         { "type": "collection", "id": "collection", "label": "Collection" },
-        { "type": "image_picker", "id": "image", "label": "Circle image" },
+        { "type": "image_picker", "id": "image", "label": "Card image" },
         { "type": "text", "id": "label", "label": "Label", "default": "Tops" },
         { "type": "url", "id": "link", "label": "Link" }
       ]
@@ -93,7 +128,7 @@
   ],
   "presets": [
     {
-      "name": "S24 circle categories",
+      "name": "S24 category cards",
       "blocks": [
         { "type": "category", "settings": { "label": "Fabric" } },
         { "type": "category", "settings": { "label": "Ready-to-Wear" } },

@@ -1,14 +1,41 @@
 {% comment %}
-  Full-width marquee — alternating solid and outline text, scrolling loop.
+  Running strip — plum bar with scrolling phrases (and optional images).
 {% endcomment %}
 
-{%- assign marquee_text = section.settings.text | default: 'Heritage · Elegance · Made to fit' -%}
+{%- style -%}
+  .s24-strip-{{ section.id }} {
+    --s24-strip-bg: {{ section.settings.bg_color }};
+    --s24-strip-fg: {{ section.settings.text_color }};
+  }
+{%- endstyle -%}
 
-<section class="s24-marquee" aria-label="{{ marquee_text | escape }}">
-  <div class="s24-marquee__track">
+<section class="s24-strip s24-strip-{{ section.id }}" aria-label="Highlights">
+  <div class="s24-strip__track">
     {%- for copy in (1..2) -%}
-      {%- for i in (1..6) -%}
-        <span class="s24-marquee__item{% cycle ' is-solid', ' is-outline' %}">{{ marquee_text | escape }}</span>
+      {%- for block in section.blocks -%}
+        <div class="s24-strip__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <span class="s24-strip__thumb">
+              {{
+                block.settings.image
+                | image_url: width: 80
+                | image_tag: loading: 'lazy', widths: '40, 80', alt: ''
+              }}
+            </span>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <span class="s24-strip__text">{{ block.settings.text | escape }}</span>
+          {%- endif -%}
+          <span class="s24-strip__dot" aria-hidden="true"></span>
+        </div>
+      {%- else -%}
+        {%- assign defaults = 'Shop the latest looks|Easy returns|Secure payment|Crafted with care|Free shipping|Limited edition' | split: '|' -%}
+        {%- for phrase in defaults -%}
+          <div class="s24-strip__item">
+            <span class="s24-strip__text">{{ phrase }}</span>
+            <span class="s24-strip__dot" aria-hidden="true"></span>
+          </div>
+        {%- endfor -%}
       {%- endfor -%}
     {%- endfor -%}
   </div>
@@ -16,18 +43,46 @@
 
 {% schema %}
 {
-  "name": "S24 marquee",
+  "name": "S24 running strip",
   "tag": "section",
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
     {
-      "type": "text",
-      "id": "text",
-      "label": "Scrolling text",
-      "default": "Heritage · Elegance · Made to fit"
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#8b3d5c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
     }
   ],
-  "presets": [{ "name": "S24 marquee" }]
+  "blocks": [
+    {
+      "type": "phrase",
+      "name": "Phrase",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Shop the latest looks" },
+        { "type": "image_picker", "id": "image", "label": "Optional thumbnail" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "S24 running strip",
+      "blocks": [
+        { "type": "phrase", "settings": { "text": "Shop the latest looks" } },
+        { "type": "phrase", "settings": { "text": "Easy returns" } },
+        { "type": "phrase", "settings": { "text": "Secure payment" } },
+        { "type": "phrase", "settings": { "text": "Crafted with care" } },
+        { "type": "phrase", "settings": { "text": "Free shipping" } },
+        { "type": "phrase", "settings": { "text": "Limited edition" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
