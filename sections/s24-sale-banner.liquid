@@ -1,5 +1,5 @@
 {% comment %}
-  Sale banner — plum offer left, 4 products on blush right.
+  Sale banner — plum offer left, on-sale products slider on blush right.
 {% endcomment %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
@@ -26,19 +26,22 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign collection = section.settings.collection
-  assign picked = section.settings.product_list
-  assign limit = 4
+  assign source = section.settings.collection
+  if source == blank
+    assign source = collections.all
+  endif
   assign btn_url = section.settings.button_link
-  if btn_url == blank and collection != blank
-    assign btn_url = collection.url
+  if btn_url == blank and section.settings.collection != blank
+    assign btn_url = section.settings.collection.url
   endif
   if btn_url == blank
     assign btn_url = routes.all_products_collection_url
   endif
+  assign sale_count = 0
+  assign max_sale = section.settings.max_products | default: 24
 -%}
 
-<section class="s24-sale s24-sale-{{ section.id }}">
+<section class="s24-sale s24-sale-{{ section.id }}" id="sale-banner">
   <div class="page-width">
     <div class="s24-sale__panel">
       <div class="s24-sale__offer">
@@ -58,44 +61,53 @@
         {%- endif -%}
       </div>
 
-      <div class="s24-sale__products">
-        <ul class="s24-sale__grid" role="list">
-          {%- if picked != blank and picked.size > 0 -%}
-            {%- for product in picked limit: limit -%}
-              <li class="s24-sale__item">
-                {% render 'card-product',
-                  card_product: product,
-                  media_aspect_ratio: 'portrait',
-                  show_secondary_image: true,
-                  show_vendor: false,
-                  show_rating: false,
-                  section_id: section.id,
-                  product_view_context: 'collection'
-                %}
-              </li>
-            {%- endfor -%}
-          {%- elsif collection != blank -%}
-            {%- for product in collection.products limit: limit -%}
-              <li class="s24-sale__item">
-                {% render 'card-product',
-                  card_product: product,
-                  media_aspect_ratio: 'portrait',
-                  show_secondary_image: true,
-                  show_vendor: false,
-                  show_rating: false,
-                  section_id: section.id,
-                  product_view_context: 'collection'
-                %}
-              </li>
-            {%- endfor -%}
-          {%- else -%}
-            {%- for i in (1..4) -%}
-              <li class="s24-sale__item">
-                {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: true %}
-              </li>
-            {%- endfor -%}
-          {%- endif -%}
-        </ul>
+      <div class="s24-sale__products" data-s24-sale-slider data-visible="4">
+        <div class="s24-sale__slider-head">
+          <p class="s24-sale__slider-label">On sale</p>
+          <div class="s24-sale__nav">
+            <button type="button" class="s24-sale__arrow" data-s24-sale-prev aria-label="Previous">‹</button>
+            <button type="button" class="s24-sale__arrow" data-s24-sale-next aria-label="Next">›</button>
+          </div>
+        </div>
+
+        <div class="s24-sale__viewport">
+          <ul class="s24-sale__track" role="list" data-s24-sale-track>
+            {%- paginate source.products by 100 -%}
+              {%- for product in source.products -%}
+                {%- if product.compare_at_price > product.price and sale_count < max_sale -%}
+                  {%- assign sale_count = sale_count | plus: 1 -%}
+                  <li class="s24-sale__item" data-s24-sale-item>
+                    {% render 'card-product',
+                      card_product: product,
+                      media_aspect_ratio: 'portrait',
+                      show_secondary_image: true,
+                      show_vendor: false,
+                      show_rating: false,
+                      section_id: section.id,
+                      product_view_context: 'collection'
+                    %}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endpaginate -%}
+
+            {%- if sale_count == 0 -%}
+              {%- for product in source.products limit: 8 -%}
+                <li class="s24-sale__item" data-s24-sale-item>
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: 'portrait',
+                    show_secondary_image: true,
+                    show_vendor: false,
+                    show_rating: false,
+                    section_id: section.id,
+                    product_view_context: 'collection'
+                  %}
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -140,13 +152,17 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "Product collection"
+      "label": "Scan collection for sale items",
+      "info": "Leave blank to scan all products. Only products with compare-at price higher than price are shown."
     },
     {
-      "type": "product_list",
-      "id": "product_list",
-      "label": "Or choose 4 products",
-      "limit": 4
+      "type": "range",
+      "id": "max_products",
+      "min": 4,
+      "max": 40,
+      "step": 1,
+      "label": "Max sale products in slider",
+      "default": 24
     },
     {
       "type": "color",

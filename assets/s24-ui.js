@@ -245,10 +245,51 @@
     );
   }
 
+  function initSaleSlider(root) {
+    const track = root.querySelector('[data-s24-sale-track]');
+    const items = Array.from(root.querySelectorAll('[data-s24-sale-item]'));
+    const prev = root.querySelector('[data-s24-sale-prev]');
+    const next = root.querySelector('[data-s24-sale-next]');
+    if (!track || items.length === 0) return;
+
+    const gap = 12;
+    let index = 0;
+    let visible = 4;
+
+    const measure = () => {
+      const viewport = root.querySelector('.s24-sale__viewport');
+      if (!viewport) return;
+      visible = window.matchMedia('(min-width: 750px)').matches ? 4 : 2;
+      const width = (viewport.clientWidth - gap * (visible - 1)) / visible;
+      items.forEach((item) => {
+        item.style.flex = `0 0 ${width}px`;
+        item.style.width = `${width}px`;
+        item.style.maxWidth = `${width}px`;
+      });
+      const maxIndex = Math.max(0, items.length - visible);
+      if (index > maxIndex) index = maxIndex;
+      track.style.transform = `translate3d(-${index * (width + gap)}px, 0, 0)`;
+      if (prev) prev.disabled = index <= 0;
+      if (next) next.disabled = index >= maxIndex;
+    };
+
+    const go = (dir) => {
+      const maxIndex = Math.max(0, items.length - visible);
+      index = Math.min(maxIndex, Math.max(0, index + dir));
+      measure();
+    };
+
+    if (prev) prev.addEventListener('click', () => go(-1));
+    if (next) next.addEventListener('click', () => go(1));
+    window.addEventListener('resize', measure);
+    measure();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-s24-fade]').forEach(initFadeSlider);
     document.querySelectorAll('[data-s24-hero]').forEach(initHeroSlider);
     document.querySelectorAll('[data-s24-card-rotate]').forEach(initCardRotate);
+    document.querySelectorAll('[data-s24-sale-slider]').forEach(initSaleSlider);
     initCustomFit();
   });
 })();
