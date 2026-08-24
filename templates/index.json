@@ -296,24 +296,6 @@
         "padding_bottom": 48
       }
     },
-    "lookbook": {
-      "type": "s24-lookbook",
-      "settings": {
-        "title": "",
-        "subtitle": "",
-        "left_image": "shopify://shop_images/Two-piece_sets.png",
-        "left_label": "Men's fashion",
-        "left_link": "shopify://collections/mens",
-        "right_image": "shopify://shop_images/new-arrivel.png",
-        "right_label": "Ready to wear",
-        "right_link": "shopify://collections/ready-to-wear",
-        "wide_heading": "",
-        "wide_button": "Shop now",
-        "wide_link": "",
-        "padding_top": 12,
-        "padding_bottom": 48
-      }
-    },
     "reviews": {
       "type": "s24-reviews",
       "blocks": {
@@ -444,7 +426,6 @@
     "s24_whats_new_xQMy6N",
     "promo_banners",
     "best_sellers",
-    "lookbook",
     "reviews",
     "services",
     "instagram"
