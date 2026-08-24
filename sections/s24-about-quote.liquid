@@ -21,7 +21,7 @@
   <div class="page-width s24-about-quote__inner">
     {%- if section.settings.quote != blank -%}
       <blockquote class="s24-about-quote__text">
-        <p>“{{ section.settings.quote | escape }}”</p>
+        <p>“{{ section.settings.quote | escape | newline_to_br }}”</p>
       </blockquote>
     {%- endif -%}
     {%- if section.settings.attribution != blank -%}
@@ -41,13 +41,13 @@
       "type": "textarea",
       "id": "quote",
       "label": "Quote",
-      "default": "I didn't just move to Canada… elegance has no borders."
+      "default": "I didn't just move to Canada. I carried my dreams, my culture, and my passion with me. Every design I create is a reminder that elegance has no borders."
     },
     {
       "type": "text",
       "id": "attribution",
       "label": "Attribution",
-      "default": "— Cecilia, Founder"
+      "default": "— Cecilia, Founder & Creative Director"
     },
     {
       "type": "color",
