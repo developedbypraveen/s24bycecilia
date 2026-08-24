@@ -1,0 +1,40 @@
+{% comment %} Footer column 2 — menu {% endcomment %}
+
+<div class="s24-ft-col s24-ft-col--menu">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="s24-ft__heading">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+  {%- if section.settings.menu != blank -%}
+    <ul class="s24-ft__menu list-unstyled">
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          <a href="{{ link.url }}">{{ link.title | escape }}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "S24 footer menu",
+  "tag": "section",
+  "class": "s24-ft-col-section",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    }
+  ],
+  "presets": [{ "name": "S24 footer menu" }]
+}
+{% endschema %}

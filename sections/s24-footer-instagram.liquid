@@ -1,0 +1,42 @@
+{% comment %} Footer column 3 — Instagram / Instafeed app {% endcomment %}
+
+<div class="s24-ft-col s24-ft-col--instagram">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="s24-ft__heading">{{ section.settings.heading | escape }}</h2>
+  {%- endif -%}
+  <div class="s24-ft__app">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          <div {{ block.shopify_attributes }}>{% render block %}</div>
+      {%- endcase -%}
+    {%- else -%}
+      {%- if request.design_mode -%}
+        <p class="s24-ft__hint">Add Instafeed app block here (Theme editor → Footer → this section → Add block → Apps).</p>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "S24 footer Instagram",
+  "tag": "section",
+  "class": "s24-ft-col-section",
+  "enabled_on": { "groups": ["footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add your Instafeed / Instagram app as a block in this section."
+    }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "S24 footer Instagram" }]
+}
+{% endschema %}

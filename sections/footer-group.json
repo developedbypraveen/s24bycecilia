@@ -26,8 +26,22 @@
         "text_color": "#ffffff"
       }
     },
-    "s24_footer": {
-      "type": "s24-footer",
+    "footer_brand": {
+      "type": "s24-footer-brand",
+      "settings": {
+        "brand_text": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
+        "show_social": true
+      }
+    },
+    "footer_menu": {
+      "type": "s24-footer-menu",
+      "settings": {
+        "heading": "Quick Links",
+        "menu": "footer-quick-links"
+      }
+    },
+    "footer_instagram": {
+      "type": "s24-footer-instagram",
       "blocks": {
         "instagram_app": {
           "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
@@ -50,26 +64,34 @@
       },
       "block_order": ["instagram_app"],
       "settings": {
-        "brand_text": "<p>African luxury fashion for women who love elegance. Heritage print, modern cut — designed in Canada.</p>",
-        "show_social": true,
-        "menu_heading": "Quick Links",
-        "menu": "footer-quick-links",
-        "instagram_heading": "Follow us on Instagram",
-        "newsletter_heading": "Stay in touch",
-        "newsletter_text": "Subscribe to get special offers and updates.",
-        "newsletter_button": "Subscribe",
+        "heading": "Follow us on Instagram"
+      }
+    },
+    "footer_newsletter": {
+      "type": "s24-footer-newsletter",
+      "settings": {
+        "heading": "Stay in touch",
+        "text": "Subscribe to get special offers and updates.",
+        "button_label": "Subscribe"
+      }
+    },
+    "footer_bar": {
+      "type": "s24-footer-bar",
+      "settings": {
         "payment_enable": true,
         "enable_language_selector": true,
         "enable_country_selector": true,
         "show_policy": false,
-        "show_powered_by": true,
-        "padding_top": 64,
-        "padding_bottom": 28
+        "show_powered_by": true
       }
     }
   },
   "order": [
     "footer_strip",
-    "s24_footer"
+    "footer_brand",
+    "footer_menu",
+    "footer_instagram",
+    "footer_newsletter",
+    "footer_bar"
   ]
 }
