@@ -223,6 +223,43 @@
         "padding_bottom": 56
       }
     },
+    "popular_products": {
+      "type": "s24-popular",
+      "blocks": {
+        "tab_rtw": {
+          "type": "tab",
+          "settings": {
+            "label": "Ready-to-Wear",
+            "collection": "ready-to-wear"
+          }
+        },
+        "tab_tops": {
+          "type": "tab",
+          "settings": {
+            "label": "Tops",
+            "collection": "tops"
+          }
+        },
+        "tab_sets": {
+          "type": "tab",
+          "settings": {
+            "label": "Two-Piece Sets",
+            "collection": "two-piece-sets"
+          }
+        }
+      },
+      "block_order": [
+        "tab_rtw",
+        "tab_tops",
+        "tab_sets"
+      ],
+      "settings": {
+        "title": "Most popular products",
+        "products_to_show": 10,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "promo_banners": {
       "type": "s24-promo-banners",
       "blocks": {
@@ -424,8 +461,8 @@
     "crow_ready_to_wear",
     "s24_sale_banner_xmALPB",
     "s24_whats_new_xQMy6N",
-    "promo_banners",
-    "best_sellers",
+    "popular_products",
+    "lookbook",
     "reviews",
     "services",
     "instagram"

@@ -285,11 +285,85 @@
     measure();
   }
 
+  function initPopular(root) {
+    const tabs = Array.from(root.querySelectorAll('[data-s24-pop-tab]'));
+    const panels = Array.from(root.querySelectorAll('[data-s24-pop-panel]'));
+    const prev = root.querySelector('[data-s24-pop-prev]');
+    const next = root.querySelector('[data-s24-pop-next]');
+    const gap = 16;
+    let index = 0;
+    let visible = 5;
+
+    const activePanel = () => root.querySelector('.s24-pop__panel.is-active');
+
+    const measure = () => {
+      const panel = activePanel();
+      if (!panel) return;
+      const viewport = panel.querySelector('.s24-pop__viewport');
+      const track = panel.querySelector('[data-s24-pop-track]');
+      const items = Array.from(panel.querySelectorAll('[data-s24-pop-item]'));
+      if (!viewport || !track || items.length === 0) return;
+
+      visible = window.matchMedia('(min-width: 990px)').matches
+        ? 5
+        : window.matchMedia('(min-width: 750px)').matches
+          ? 3
+          : 2;
+
+      const width = (viewport.clientWidth - gap * (visible - 1)) / visible;
+      items.forEach((item) => {
+        item.style.flex = `0 0 ${width}px`;
+        item.style.width = `${width}px`;
+        item.style.maxWidth = `${width}px`;
+      });
+
+      const maxIndex = Math.max(0, items.length - visible);
+      if (index > maxIndex) index = maxIndex;
+      track.style.transform = `translate3d(-${index * (width + gap)}px, 0, 0)`;
+      if (prev) prev.disabled = index <= 0;
+      if (next) next.disabled = index >= maxIndex || items.length <= visible;
+    };
+
+    const go = (dir) => {
+      const panel = activePanel();
+      if (!panel) return;
+      const items = panel.querySelectorAll('[data-s24-pop-item]');
+      const maxIndex = Math.max(0, items.length - visible);
+      index = Math.min(maxIndex, Math.max(0, index + dir));
+      measure();
+    };
+
+    const activate = (tabIndex) => {
+      tabs.forEach((tab, i) => {
+        const on = i === tabIndex;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach((panel, i) => {
+        const on = i === tabIndex;
+        panel.classList.toggle('is-active', on);
+        if (on) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      });
+      index = 0;
+      measure();
+    };
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => activate(i));
+    });
+    if (prev) prev.addEventListener('click', () => go(-1));
+    if (next) next.addEventListener('click', () => go(1));
+    window.addEventListener('resize', measure);
+    measure();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-s24-fade]').forEach(initFadeSlider);
     document.querySelectorAll('[data-s24-hero]').forEach(initHeroSlider);
     document.querySelectorAll('[data-s24-card-rotate]').forEach(initCardRotate);
     document.querySelectorAll('[data-s24-sale-slider]').forEach(initSaleSlider);
+    document.querySelectorAll('[data-s24-popular]').forEach(initPopular);
     initCustomFit();
   });
 })();
