@@ -1848,33 +1848,126 @@ body.template-index #MainContent slideshow-component.banner {
   font-size: 1.35rem;
 }
 
-/* First card — auto-rotating product images */
-.s24-card-auto__media {
+/* First card — RTL slide + story progress bars */
+.s24-card-auto__frame {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
-.s24-card-auto__img {
+.s24-card-auto__track {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+}
+
+.s24-card-auto__slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform: translateX(100%);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.s24-card-auto__slide.is-active {
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.s24-card-auto__slide.is-leaving {
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.s24-card-auto__slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.s24-card-auto__img.is-active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.s24-card-auto__link {
   display: block;
+}
+
+.s24-card-auto__bars {
   position: absolute;
-  inset: 0;
-  z-index: 1;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 0.45rem;
+  width: min(72%, 18rem);
+  pointer-events: none;
+}
+
+.s24-card-auto__bar {
+  flex: 1;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+}
+
+.s24-card-auto__bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: #fff;
+}
+
+.s24-card-auto__bar.is-done .s24-card-auto__bar-fill {
+  width: 100%;
+  background: #fff;
+}
+
+.s24-card-auto__bar.is-active .s24-card-auto__bar-fill {
+  background: var(--s24-plum);
+  animation: s24-card-bar-fill var(--s24-card-interval, 3.2s) linear forwards;
+}
+
+.s24-card-auto__bar.is-paused .s24-card-auto__bar-fill {
+  animation-play-state: paused;
+}
+
+.s24-card-auto__pill {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: var(--s24-plum);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.s24-card-auto__pill--muted {
+  background: #2c2426;
+}
+
+@keyframes s24-card-bar-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s24-card-auto__slide {
+    transition: none;
+  }
+
+  .s24-card-auto__bar.is-active .s24-card-auto__bar-fill {
+    animation: none;
+    width: 100%;
+  }
 }
 
 /* Rest of cards — secondary image on hover (default Dawn) */

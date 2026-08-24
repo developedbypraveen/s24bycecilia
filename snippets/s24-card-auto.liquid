@@ -1,16 +1,57 @@
 {% comment %}
-  Product card with auto-rotating images (first grid item).
+  First grid card — RTL auto-slide + Instagram-style progress bars.
   Accepts: card_product, section_id
 {% endcomment %}
 {%- if card_product and card_product != empty -%}
+  {%- liquid
+    assign image_count = 0
+    for media in card_product.media limit: 6
+      if media.media_type == 'image'
+        assign image_count = image_count | plus: 1
+      endif
+    endfor
+    if image_count == 0 and card_product.featured_media
+      assign image_count = 1
+    endif
+
+    assign sale_pct = 0
+    if card_product.compare_at_price > card_product.price and card_product.compare_at_price > 0
+      assign sale_pct = card_product.compare_at_price | minus: card_product.price | times: 100.0 | divided_by: card_product.compare_at_price | round
+    endif
+  -%}
+
   <div class="card-wrapper product-card-wrapper s24-card-auto underline-links-hover">
     <div class="card card--{{ settings.card_style }}{% if card_product.featured_media %} card--media{% endif %}">
       <div class="card__inner ratio" style="--ratio-percent: 125%;">
-        <a href="{{ card_product.url }}" class="s24-card-auto__link full-unstyled-link" aria-label="{{ card_product.title | escape }}">
-          <div class="card__media">
-            <div class="media media--transparent s24-card-auto__media" data-s24-card-rotate>
-              {%- for media in card_product.media limit: 6 -%}
-                {%- if media.media_type == 'image' -%}
+        <div class="card__media s24-card-auto__frame" data-s24-card-rotate data-interval="3200">
+          {%- if image_count > 1 -%}
+            <div class="s24-card-auto__bars" aria-hidden="true">
+              {%- for i in (1..image_count) -%}
+                <span class="s24-card-auto__bar{% if forloop.first %} is-active{% endif %}" data-s24-card-bar>
+                  <span class="s24-card-auto__bar-fill"></span>
+                </span>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- if sale_pct > 0 -%}
+            <span class="s24-card-auto__pill">{{ sale_pct }}% OFF</span>
+          {%- elsif card_product.available == false -%}
+            <span class="s24-card-auto__pill s24-card-auto__pill--muted">
+              {{- 'products.product.sold_out' | t -}}
+            </span>
+          {%- endif -%}
+
+          <div class="s24-card-auto__track">
+            {%- assign slide_i = 0 -%}
+            {%- for media in card_product.media limit: 6 -%}
+              {%- if media.media_type == 'image' -%}
+                <a
+                  href="{{ card_product.url }}"
+                  class="s24-card-auto__slide{% if slide_i == 0 %} is-active{% endif %}"
+                  data-s24-card-rotate-img
+                  aria-label="{{ card_product.title | escape }}"
+                >
                   <img
                     src="{{ media | image_url: width: 720 }}"
                     srcset="
@@ -22,36 +63,27 @@
                     alt="{{ media.alt | default: card_product.title | escape }}"
                     width="{{ media.width }}"
                     height="{{ media.height }}"
-                    class="s24-card-auto__img{% if forloop.first %} is-active{% endif %}"
-                    {% unless forloop.first %}loading="lazy"{% endunless %}
-                    data-s24-card-rotate-img
+                    {% unless slide_i == 0 %}loading="lazy"{% endunless %}
                   >
-                {%- endif -%}
-              {%- else -%}
-                {%- if card_product.featured_media -%}
-                  <img
-                    src="{{ card_product.featured_media | image_url: width: 720 }}"
-                    alt="{{ card_product.title | escape }}"
-                    width="{{ card_product.featured_media.width }}"
-                    height="{{ card_product.featured_media.height }}"
-                    class="s24-card-auto__img is-active"
-                    data-s24-card-rotate-img
-                  >
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-          </div>
-        </a>
-        <div class="card__content">
-          <div class="card__badge {{ settings.badge_position }}">
-            {%- if card_product.available == false -%}
-              <span class="badge color-{{ settings.sold_out_badge_color_scheme }}">
-                {{- 'products.product.sold_out' | t -}}
-              </span>
-            {%- elsif card_product.compare_at_price > card_product.price -%}
-              <span class="badge color-{{ settings.sale_badge_color_scheme }}">
-                {{- 'products.product.on_sale' | t -}}
-              </span>
+                </a>
+                {%- assign slide_i = slide_i | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            {%- if slide_i == 0 and card_product.featured_media -%}
+              <a
+                href="{{ card_product.url }}"
+                class="s24-card-auto__slide is-active"
+                data-s24-card-rotate-img
+                aria-label="{{ card_product.title | escape }}"
+              >
+                <img
+                  src="{{ card_product.featured_media | image_url: width: 720 }}"
+                  alt="{{ card_product.title | escape }}"
+                  width="{{ card_product.featured_media.width }}"
+                  height="{{ card_product.featured_media.height }}"
+                >
+              </a>
             {%- endif -%}
           </div>
         </div>

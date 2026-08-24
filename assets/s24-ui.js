@@ -142,17 +142,83 @@
 
   function initCardRotate(root) {
     const slides = Array.from(root.querySelectorAll('[data-s24-card-rotate-img]'));
+    const bars = Array.from(root.querySelectorAll('[data-s24-card-bar]'));
     if (slides.length < 2) return;
 
-    let index = 0;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
 
-    window.setInterval(() => {
-      slides[index].classList.remove('is-active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('is-active');
-    }, 2800);
+    const interval = Number(root.getAttribute('data-interval') || 3200);
+    root.style.setProperty('--s24-card-interval', `${interval}ms`);
+
+    let index = 0;
+    let timer = null;
+
+    const setBars = (activeIndex) => {
+      bars.forEach((bar, i) => {
+        bar.classList.remove('is-active', 'is-done');
+        const fill = bar.querySelector('.s24-card-auto__bar-fill');
+        if (fill) {
+          fill.style.animation = 'none';
+          // force reflow so animation can restart
+          void fill.offsetWidth;
+          fill.style.animation = '';
+        }
+        if (i < activeIndex) bar.classList.add('is-done');
+        if (i === activeIndex) bar.classList.add('is-active');
+      });
+    };
+
+    const goTo = (nextIndex) => {
+      const current = slides[index];
+      const next = slides[nextIndex];
+
+      slides.forEach((slide) => {
+        slide.classList.remove('is-active', 'is-leaving');
+        if (slide !== current && slide !== next) {
+          slide.style.transform = 'translateX(100%)';
+        }
+      });
+
+      current.classList.add('is-leaving');
+      next.classList.add('is-active');
+
+      window.setTimeout(() => {
+        current.classList.remove('is-leaving');
+      }, 560);
+
+      index = nextIndex;
+      setBars(index);
+    };
+
+    const tick = () => {
+      goTo((index + 1) % slides.length);
+    };
+
+    setBars(0);
+    timer = window.setInterval(tick, interval);
+
+    root.addEventListener(
+      'mouseenter',
+      () => {
+        if (timer) window.clearInterval(timer);
+        timer = null;
+        const active = bars[index];
+        if (active) active.classList.add('is-paused');
+      },
+      { passive: true }
+    );
+
+    root.addEventListener(
+      'mouseleave',
+      () => {
+        if (!timer) {
+          setBars(index);
+          timer = window.setInterval(tick, interval);
+        }
+      },
+      { passive: true }
+    );
   }
 
   document.addEventListener('DOMContentLoaded', () => {
