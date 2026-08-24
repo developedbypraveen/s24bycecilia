@@ -74,12 +74,6 @@
                   </ul>
                 {%- endif -%}
 
-              {%- when '@app' -%}
-                {%- if section.settings.instagram_heading != blank -%}
-                  <h2 class="s24-ft__heading">{{ section.settings.instagram_heading | escape }}</h2>
-                {%- endif -%}
-                <div class="s24-ft__app">{% render block %}</div>
-
               {%- when 'newsletter' -%}
                 {%- if block.settings.heading != blank -%}
                   <h2 class="s24-ft__heading">{{ block.settings.heading | escape }}</h2>
@@ -194,13 +188,6 @@
   "enabled_on": { "groups": ["footer"] },
   "settings": [
     {
-      "type": "text",
-      "id": "instagram_heading",
-      "label": "Instagram column heading",
-      "default": "Follow us on Instagram",
-      "info": "Shown above the Instagram / Instafeed app block"
-    },
-    {
       "type": "header",
       "content": "Bottom bar"
     },
@@ -284,7 +271,7 @@
     {
       "type": "menu",
       "name": "Menu",
-      "limit": 2,
+      "limit": 3,
       "settings": [
         {
           "type": "text",
@@ -299,9 +286,6 @@
           "default": "footer"
         }
       ]
-    },
-    {
-      "type": "@app"
     },
     {
       "type": "newsletter",
@@ -334,7 +318,14 @@
       "name": "S24 footer",
       "blocks": [
         { "type": "brand" },
-        { "type": "menu" },
+        {
+          "type": "menu",
+          "settings": { "heading": "Quick Links" }
+        },
+        {
+          "type": "menu",
+          "settings": { "heading": "Information" }
+        },
         { "type": "newsletter" }
       ]
     }
