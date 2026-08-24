@@ -1773,8 +1773,27 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 .s24-ft__locale .disclosure__button,
-.s24-ft__locale .localization-form__select {
-  color: rgba(245, 240, 242, 0.85);
+.s24-ft__locale .localization-form__select,
+.s24-ft__locale .localization-form__select .icon-caret,
+.s24-ft__locale .disclosure__button .icon-caret,
+.s24-ft__locale .caption-large,
+.s24-ft__locale .localization-selector {
+  color: rgba(245, 240, 242, 0.9);
+}
+
+.s24-ft__locale .disclosure__list-wrapper,
+.s24-ft__locale .disclosure__list {
+  background: #1c1218;
+  color: #f5f0f2;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.s24-ft__locale .disclosure__link {
+  color: rgba(245, 240, 242, 0.9);
+}
+
+.s24-ft__locale .disclosure__link:hover {
+  color: #fff;
 }
 
 .s24-back-top {

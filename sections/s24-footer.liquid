@@ -7,6 +7,7 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
 {{ 'component-localization-form.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .s24-ft-{{ section.id }} {
@@ -147,23 +148,23 @@
         </div>
       {%- endif -%}
 
-      <div class="s24-ft__locale">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryFormS24', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="FooterCountryLabelS24">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'FooterCountryS24' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+      <div class="s24-ft__locale header-localization">
+        {%- if section.settings.enable_language_selector and localization.available_languages.size >= 1 -%}
           <localization-form>
             {%- form 'localization', id: 'FooterLanguageFormS24', class: 'localization-form' -%}
               <div>
                 <h2 class="visually-hidden" id="FooterLanguageLabelS24">{{ 'localization.language_label' | t }}</h2>
                 {%- render 'language-localization', localPosition: 'FooterLanguageS24' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+        {%- if section.settings.enable_country_selector and localization.available_countries.size >= 1 -%}
+          <localization-form>
+            {%- form 'localization', id: 'FooterCountryFormS24', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="FooterCountryLabelS24">{{ 'localization.country_label' | t }}</h2>
+                {%- render 'country-localization', localPosition: 'FooterCountryS24' -%}
               </div>
             {%- endform -%}
           </localization-form>
