@@ -1717,7 +1717,7 @@ body.template-index #MainContent slideshow-component.banner {
   border-radius: 0;
 }
 
-/* Homepage collection rows — 4 across, 2 rows (8 products) */
+/* Homepage product grid — design match: 4×2, rounded media, plum badges */
 .s24-crow {
   background: #fff;
 }
@@ -1770,24 +1770,19 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-crow__more {
   flex-shrink: 0;
   align-self: flex-end;
-  min-height: auto;
   padding: 0 0 0.2rem;
   white-space: nowrap;
-  border: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  color: var(--s24-ink) !important;
+  color: var(--s24-ink);
   font-size: 1.35rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-decoration: none;
-  border-bottom: 1px solid currentColor !important;
-  border-radius: 0 !important;
+  border-bottom: 1px solid currentColor;
   transition: color 0.2s ease;
 }
 
 .s24-crow__more:hover {
-  color: var(--s24-plum) !important;
+  color: var(--s24-plum);
 }
 
 .s24-crow__grid {
@@ -1801,13 +1796,6 @@ body.template-index #MainContent slideshow-component.banner {
 
 .s24-crow__item {
   min-width: 0;
-}
-
-.s24-crow__item .card,
-.s24-crow__item .card__inner,
-.s24-crow__item .card__media,
-.s24-crow__item .media {
-  border-radius: 1rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -1826,12 +1814,80 @@ body.template-index #MainContent slideshow-component.banner {
   .s24-crow__text {
     display: none;
   }
-
-  .s24-crow__more {
-    align-self: flex-end;
-  }
 }
 
+/* Card look inside this section only */
+.s24-crow .product-card-wrapper .card:not(.card--horizontal) .card__inner,
+.s24-crow .product-card-wrapper .card__media,
+.s24-crow .product-card-wrapper .media,
+.s24-crow .card--standard .card__inner {
+  border-radius: 1.2rem !important;
+  overflow: hidden;
+}
+
+.s24-crow .product-card-wrapper .card__heading,
+.s24-crow .product-card-wrapper .price,
+.s24-crow .product-card-wrapper .card__information {
+  text-align: left !important;
+}
+
+.s24-crow .product-card-wrapper .card:not(.card--horizontal) > .card__content > .card__information {
+  text-align: left !important;
+  padding-top: 1.2rem;
+}
+
+.s24-crow .product-card-wrapper .card__heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+}
+
+.s24-crow .product-card-wrapper .price,
+.s24-crow .product-card-wrapper .price .price-item {
+  color: var(--s24-plum);
+  font-size: 1.35rem;
+}
+
+/* No image swap / auto-scroll on hover */
+.s24-crow .media.media--hover-effect > img + img,
+.s24-crow .card-wrapper:hover .media.media--hover-effect > img + img {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+.s24-crow .card-wrapper:hover .media.media--hover-effect > img:first-child,
+.s24-crow .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.s24-crow .card-wrapper:hover .card__inner .media img,
+.s24-crow .product-card-wrapper:hover .card__inner .media img {
+  transform: none !important;
+}
+
+/* Plum sale badges — top left */
+.s24-crow .badge,
+.s24-crow .card__badge .badge {
+  background: var(--s24-plum) !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 0.4rem !important;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.45rem 0.7rem;
+}
+
+.s24-crow .card__badge {
+  place-self: start start !important;
+  margin: 1rem !important;
+}
+
+.s24-crow .product-card-wrapper .card:not(.card--horizontal) > .card__content > .quick-add,
+.s24-crow .product-card-wrapper .s24-wish-btn {
+  display: none !important;
+}
 
 /* Custom fit measurements (Size = Custom) */
 .s24-custom-fit {

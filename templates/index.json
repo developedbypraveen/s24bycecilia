@@ -98,76 +98,19 @@
     "crow_ready_to_wear": {
       "type": "s24-collection-row",
       "settings": {
-        "collection": "ready-to-wear",
         "eyebrow": "",
         "title": "Shop the season",
-        "text": "New ready-to-wear looks — African luxury you can order today.",
+        "text": "",
         "button_label": "See all",
-        "button_link": "shopify://collections/ready-to-wear",
+        "button_link": "shopify://collections/all",
         "products_to_show": 8,
-        "color_scheme": "scheme-1",
+        "collection_1": "fabric",
+        "collection_2": "ready-to-wear",
+        "collection_3": "pants",
+        "collection_4": "tops",
+        "collection_5": "two-piece-sets",
         "padding_top": 48,
         "padding_bottom": 56
-      }
-    },
-    "crow_fabric": {
-      "type": "s24-collection-row",
-      "settings": {
-        "collection": "fabric",
-        "eyebrow": "By the yard",
-        "title": "Fabric",
-        "text": "Authentic Ankara, Adire, Vlisco, and woven cloth for the makers and dreamers. Choose your print, choose your yards.",
-        "button_label": "Read more",
-        "button_link": "shopify://collections/fabric",
-        "products_to_show": 4,
-        "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 24
-      }
-    },
-    "crow_accessories": {
-      "type": "s24-collection-row",
-      "settings": {
-        "collection": "accessories",
-        "eyebrow": "The finishing touch",
-        "title": "Accessories",
-        "text": "Bags, earrings, and caps that complete the look — handcrafted details with the same S24 soul.",
-        "button_label": "Read more",
-        "button_link": "shopify://collections/accessories",
-        "products_to_show": 4,
-        "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 24
-      }
-    },
-    "crow_tops": {
-      "type": "s24-collection-row",
-      "settings": {
-        "collection": "tops",
-        "eyebrow": "Statement layers",
-        "title": "Tops",
-        "text": "Bold prints and clean cuts for women and men — pieces that style alone or layered, day to night.",
-        "button_label": "Read more",
-        "button_link": "shopify://collections/tops",
-        "products_to_show": 4,
-        "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 24
-      }
-    },
-    "crow_pants": {
-      "type": "s24-collection-row",
-      "settings": {
-        "collection": "pants",
-        "eyebrow": "From the ground up",
-        "title": "Pants",
-        "text": "Statement bottoms with heritage fabric and modern ease — including custom fit when standard sizing is not enough.",
-        "button_label": "Read more",
-        "button_link": "shopify://collections/pants",
-        "products_to_show": 4,
-        "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 40
       }
     },
     "home_strip": {
@@ -445,10 +388,6 @@
     "circle_cats",
     "crow_ready_to_wear",
     "promo_banners",
-    "crow_fabric",
-    "crow_accessories",
-    "crow_tops",
-    "crow_pants",
     "best_sellers",
     "lookbook",
     "reviews",

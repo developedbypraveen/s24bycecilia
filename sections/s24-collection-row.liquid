@@ -1,13 +1,10 @@
 {% comment %}
-  Homepage collection row — heading + copy left, Read more right, 4 products desktop.
+  Homepage product grid — 4×2 (8 products), mixed from multiple collections.
 {% endcomment %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
-{{ 'quick-add.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .s24-crow-{{ section.id }} {
@@ -23,18 +20,21 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign collection = section.settings.collection
-  assign limit = section.settings.products_to_show | default: 4
+  assign limit = section.settings.products_to_show | default: 8
   assign more_url = section.settings.button_link
-  if more_url == blank and collection != blank
-    assign more_url = collection.url
-  endif
   if more_url == blank
     assign more_url = routes.all_products_collection_url
   endif
+
+  assign col_a = section.settings.collection_1
+  assign col_b = section.settings.collection_2
+  assign col_c = section.settings.collection_3
+  assign col_d = section.settings.collection_4
+  assign col_e = section.settings.collection_5
+  assign picked = section.settings.product_list
 -%}
 
-<section class="s24-crow s24-crow-{{ section.id }} color-{{ section.settings.color_scheme }}">
+<section class="s24-crow s24-crow--grid s24-crow-{{ section.id }}">
   <div class="page-width">
     <div class="s24-crow__head">
       <div class="s24-crow__copy">
@@ -49,34 +49,84 @@
         {%- endif -%}
       </div>
       {%- if section.settings.button_label != blank -%}
-        <a class="s24-crow__more s24-btn s24-btn--outline" href="{{ more_url }}">
+        <a class="s24-crow__more" href="{{ more_url }}">
           {{ section.settings.button_label | escape }}
         </a>
       {%- endif -%}
     </div>
 
     <ul class="s24-crow__grid" role="list">
-      {%- if collection != blank and collection.products_count > 0 -%}
-        {%- for product in collection.products limit: limit -%}
+      {%- if picked != blank and picked.size > 0 -%}
+        {%- for product in picked limit: limit -%}
           <li class="s24-crow__item">
             {% render 'card-product',
               card_product: product,
               media_aspect_ratio: 'portrait',
-              show_secondary_image: true,
+              show_secondary_image: false,
               show_vendor: false,
               show_rating: false,
               section_id: section.id,
-              quick_add: 'standard',
+              lazy_load: true,
               product_view_context: 'collection'
             %}
           </li>
         {%- endfor -%}
       {%- else -%}
-        {%- for i in (1..8) -%}
-          <li class="s24-crow__item">
-            {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id %}
-          </li>
+        {%- liquid
+          assign shown = 0
+          assign used_ids = '|'
+        -%}
+        {%- for pass in (0..11) -%}
+          {%- if shown >= limit -%}{% break %}{%- endif -%}
+          {%- for col in (1..5) -%}
+            {%- if shown >= limit -%}{% break %}{%- endif -%}
+            {%- liquid
+              case col
+                when 1
+                  assign source = col_a
+                when 2
+                  assign source = col_b
+                when 3
+                  assign source = col_c
+                when 4
+                  assign source = col_d
+                when 5
+                  assign source = col_e
+              endcase
+              assign product = blank
+              if source != blank and source.products_count > pass
+                assign product = source.products[pass]
+              endif
+            -%}
+            {%- if product != blank -%}
+              {%- assign id_token = product.id | append: '|' -%}
+              {%- unless used_ids contains id_token -%}
+                {%- assign used_ids = used_ids | append: id_token -%}
+                {%- assign shown = shown | plus: 1 -%}
+                <li class="s24-crow__item">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: 'portrait',
+                    show_secondary_image: false,
+                    show_vendor: false,
+                    show_rating: false,
+                    section_id: section.id,
+                    lazy_load: true,
+                    product_view_context: 'collection'
+                  %}
+                </li>
+              {%- endunless -%}
+            {%- endif -%}
+          {%- endfor -%}
         {%- endfor -%}
+
+        {%- if shown == 0 -%}
+          {%- for i in (1..8) -%}
+            <li class="s24-crow__item">
+              {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: false %}
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
       {%- endif -%}
     </ul>
   </div>
@@ -84,44 +134,36 @@
 
 {% schema %}
 {
-  "name": "S24 collection row",
+  "name": "S24 product grid",
   "tag": "section",
   "class": "section",
   "settings": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Shop the edit"
+      "label": "Eyebrow"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "Ready-to-Wear"
+      "default": "Shop the season"
     },
     {
       "type": "textarea",
       "id": "text",
-      "label": "Supporting text",
-      "default": "Pieces you can order today — African luxury cut for everyday elegance."
+      "label": "Supporting text"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Button label",
+      "label": "Link label",
       "default": "See all"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link",
-      "info": "Defaults to the selected collection"
+      "label": "Link URL"
     },
     {
       "type": "range",
@@ -133,10 +175,43 @@
       "default": 8
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
+      "type": "header",
+      "content": "Mixed collections"
+    },
+    {
+      "type": "paragraph",
+      "content": "Products are mixed round-robin from these collections (8 total, 4 per row). Or pick products manually below."
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection 1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection 2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collection 3"
+    },
+    {
+      "type": "collection",
+      "id": "collection_4",
+      "label": "Collection 4"
+    },
+    {
+      "type": "collection",
+      "id": "collection_5",
+      "label": "Collection 5"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Or choose products manually",
+      "limit": 12
     },
     {
       "type": "range",
@@ -156,12 +231,12 @@
       "step": 4,
       "unit": "px",
       "label": "Padding bottom",
-      "default": 48
+      "default": 56
     }
   ],
   "presets": [
     {
-      "name": "S24 collection row"
+      "name": "S24 product grid"
     }
   ]
 }
