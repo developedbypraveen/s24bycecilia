@@ -1679,6 +1679,15 @@ body.template-index #MainContent slideshow-component.banner {
   text-align: center;
 }
 
+.product-card-wrapper .card__heading,
+.product-card-wrapper .card__heading a,
+.collection .card__heading,
+.collection .card__heading a,
+.s24-card-auto .card__heading,
+.s24-card-auto .card__heading a {
+  color: #111111 !important;
+}
+
 .card--standard .card__inner,
 .card__inner .card__media,
 .card .card__inner .card__media,
@@ -2587,7 +2596,7 @@ body.template-index #MainContent slideshow-component.banner {
   font-size: 1.4rem;
   font-weight: 500;
   margin: 0 0 0.35rem;
-  color: var(--s24-plum);
+  color: #111111;
 }
 
 .s24-pop .product-card-wrapper .price,
