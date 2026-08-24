@@ -22,6 +22,7 @@
     "about_story": {
       "type": "s24-about-story",
       "settings": {
+        "image": "shopify://shop_images/IMG_4565.jpg",
         "image_right": false,
         "kicker": "Meet Cecilia",
         "heading": "Fashion has never been just about clothing for me",
@@ -35,6 +36,7 @@
     "about_canada": {
       "type": "s24-about-story",
       "settings": {
+        "image": "shopify://shop_images/IMG_4562.jpg",
         "image_right": true,
         "kicker": "A new chapter",
         "heading": "Rebuilding the dream in Canada",
@@ -59,6 +61,7 @@
     "about_vision": {
       "type": "s24-about-story",
       "settings": {
+        "image": "shopify://shop_images/Bold._Beautiful._1.png",
         "image_right": false,
         "kicker": "Our vision",
         "heading": "Everyday luxury with African heritage at its heart",
@@ -94,7 +97,11 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
         "kicker": "Why S24 By Cecilia",
         "heading": "What every piece carries with it",
