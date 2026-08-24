@@ -144,11 +144,15 @@
                   {{- 'products.product.sold_out' | t -}}
                 </span>
               {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+                {%- liquid
+                  assign sale_save = card_product.compare_at_price | minus: card_product.price
+                  assign sale_pct = sale_save | times: 100.0 | divided_by: card_product.compare_at_price | round
+                -%}
                 <span
                   id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                  class="badge badge--bottom-left badge--sale-pct color-{{ settings.sale_badge_color_scheme }}"
                 >
-                  {{- 'products.product.on_sale' | t -}}
+                  {{- sale_pct -}}% OFF
                 </span>
               {%- endif -%}
             </div>
@@ -568,11 +572,15 @@
                 {{- 'products.product.sold_out' | t -}}
               </span>
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+              {%- liquid
+                assign sale_save = card_product.compare_at_price | minus: card_product.price
+                assign sale_pct = sale_save | times: 100.0 | divided_by: card_product.compare_at_price | round
+              -%}
               <span
                 id="Badge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                class="badge badge--bottom-left badge--sale-pct color-{{ settings.sale_badge_color_scheme }}"
               >
-                {{- 'products.product.on_sale' | t -}}
+                {{- sale_pct -}}% OFF
               </span>
             {%- endif -%}
           </div>

@@ -1990,17 +1990,19 @@ body.template-index #MainContent slideshow-component.banner {
   opacity: 1;
 }
 
-/* Plum sale badges — top left */
+/* Plum sale badges — top left, pill % OFF */
 .s24-crow .badge,
-.s24-crow .card__badge .badge {
+.s24-crow .card__badge .badge,
+.badge.badge--sale-pct {
   background: var(--s24-plum) !important;
   color: #fff !important;
   border: 0 !important;
-  border-radius: 0.4rem !important;
-  letter-spacing: 0.08em;
-  font-size: 1rem;
+  border-radius: 999px !important;
+  letter-spacing: 0.06em;
+  font-size: 1.05rem;
   font-weight: 600;
-  padding: 0.45rem 0.7rem;
+  padding: 0.5rem 0.9rem;
+  line-height: 1;
 }
 
 .s24-crow .card__badge {
