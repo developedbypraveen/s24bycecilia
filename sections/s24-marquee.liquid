@@ -1,5 +1,5 @@
 {% comment %}
-  Running strip — plum bar with scrolling phrases (and optional images).
+  Running strip — seamless infinite scroll.
 {% endcomment %}
 
 {%- style -%}
@@ -10,34 +10,38 @@
 {%- endstyle -%}
 
 <section class="s24-strip s24-strip-{{ section.id }}" aria-label="Highlights">
-  <div class="s24-strip__track">
-    {%- for copy in (1..2) -%}
-      {%- for block in section.blocks -%}
-        <div class="s24-strip__item" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
-            <span class="s24-strip__thumb">
-              {{
-                block.settings.image
-                | image_url: width: 80
-                | image_tag: loading: 'lazy', widths: '40, 80', alt: ''
-              }}
-            </span>
-          {%- endif -%}
-          {%- if block.settings.text != blank -%}
-            <span class="s24-strip__text">{{ block.settings.text | escape }}</span>
-          {%- endif -%}
-          <span class="s24-strip__dot" aria-hidden="true"></span>
+  <div class="s24-strip__viewport">
+    <div class="s24-strip__track">
+      {%- for copy in (1..4) -%}
+        <div class="s24-strip__group" aria-hidden="{% if copy > 1 %}true{% else %}false{% endif %}">
+          {%- for block in section.blocks -%}
+            <div class="s24-strip__item"{% if copy == 1 %} {{ block.shopify_attributes }}{% endif %}>
+              {%- if block.settings.image != blank -%}
+                <span class="s24-strip__thumb">
+                  {{
+                    block.settings.image
+                    | image_url: width: 80
+                    | image_tag: loading: 'lazy', widths: '40, 80', alt: ''
+                  }}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <span class="s24-strip__text">{{ block.settings.text | escape }}</span>
+              {%- endif -%}
+              <span class="s24-strip__dot" aria-hidden="true"></span>
+            </div>
+          {%- else -%}
+            {%- assign defaults = 'Shop the latest looks|Easy returns|Secure payment|Crafted with care|Free shipping|Limited edition' | split: '|' -%}
+            {%- for phrase in defaults -%}
+              <div class="s24-strip__item">
+                <span class="s24-strip__text">{{ phrase }}</span>
+                <span class="s24-strip__dot" aria-hidden="true"></span>
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
         </div>
-      {%- else -%}
-        {%- assign defaults = 'Shop the latest looks|Easy returns|Secure payment|Crafted with care|Free shipping|Limited edition' | split: '|' -%}
-        {%- for phrase in defaults -%}
-          <div class="s24-strip__item">
-            <span class="s24-strip__text">{{ phrase }}</span>
-            <span class="s24-strip__dot" aria-hidden="true"></span>
-          </div>
-        {%- endfor -%}
       {%- endfor -%}
-    {%- endfor -%}
+    </div>
   </div>
 </section>
 

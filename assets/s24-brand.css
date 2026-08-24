@@ -924,7 +924,7 @@ body.template-index #MainContent slideshow-component.banner {
   color: #fff;
 }
 
-/* Running strip */
+/* Running strip — seamless infinite scroll */
 .s24-strip {
   overflow: hidden;
   background: var(--s24-strip-bg, var(--s24-plum));
@@ -932,23 +932,34 @@ body.template-index #MainContent slideshow-component.banner {
   padding: 1.2rem 0;
 }
 
+.s24-strip__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
 .s24-strip__track {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: s24-strip 32s linear infinite;
+  flex-wrap: nowrap;
+  animation: s24-strip 40s linear infinite;
+  will-change: transform;
 }
 
-.s24-strip:hover .s24-strip__track {
-  animation-play-state: paused;
+.s24-strip__group {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .s24-strip__item {
   display: inline-flex;
   align-items: center;
   gap: 1.4rem;
-  padding: 0 1.4rem;
+  padding: 0 1.6rem;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .s24-strip__text {
@@ -985,8 +996,8 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 @keyframes s24-strip {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-25%, 0, 0); }
 }
 
 /* Services */
