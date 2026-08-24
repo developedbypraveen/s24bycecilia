@@ -2938,6 +2938,74 @@ body.template-index #MainContent slideshow-component.banner {
   }
 }
 
+
+/* S24 pillars */
+.s24-pillars__intro {
+  max-width: 56rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.s24-pillars__kicker {
+  margin: 0 0 1rem;
+  color: var(--s24-plum);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.s24-pillars__heading {
+  margin: 0;
+  color: var(--s24-ink);
+  font-size: clamp(2.4rem, 3.2vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.s24-pillars__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-pillars__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.2rem;
+  }
+}
+
+.s24-pillars__item {
+  padding-top: 0.4rem;
+  border-top: 2px solid var(--s24-plum);
+}
+
+.s24-pillars__index {
+  display: block;
+  margin-bottom: 1.4rem;
+  color: var(--s24-gold);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.s24-pillars__title {
+  margin: 0 0 1rem;
+  color: var(--s24-ink);
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.s24-pillars__text {
+  margin: 0;
+  color: var(--s24-muted);
+  font-size: 1.4rem;
+  line-height: 1.65;
+}
+
 /* About page */
 .s24-about-hero {
   background:
