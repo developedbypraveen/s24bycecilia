@@ -72,7 +72,7 @@
           </li>
         {%- endfor -%}
       {%- else -%}
-        {%- for i in (1..4) -%}
+        {%- for i in (1..8) -%}
           <li class="s24-crow__item">
             {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id %}
           </li>
@@ -115,7 +115,7 @@
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Read more"
+      "default": "See all"
     },
     {
       "type": "url",
@@ -127,10 +127,10 @@
       "type": "range",
       "id": "products_to_show",
       "min": 4,
-      "max": 8,
+      "max": 12,
       "step": 1,
       "label": "Products to show",
-      "default": 4
+      "default": 8
     },
     {
       "type": "color_scheme",

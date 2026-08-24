@@ -1,14 +1,14 @@
 /*
  * ------------------------------------------------------------
  * S24 By Cecilia — feminine luxury boutique
- * Rose #8b3d5c  |  champagne #c9a96e  |  ivory #fbf7f3
- * Asset bump: 2026-08-20-hero-copy
+ * Rose #a61669  |  champagne #c9a96e  |  ivory #fbf7f3
+ * Asset bump: 2026-08-24-plum
  * ------------------------------------------------------------
  */
 
 :root {
-  --s24-plum: #8b3d5c;
-  --s24-plum-deep: #6e2f49;
+  --s24-plum: #a61669;
+  --s24-plum-deep: #7e124f;
   --s24-blush: #f4ebe6;
   --s24-gold: #c9a96e;
   --s24-ink: #2c2426;
@@ -1717,23 +1717,27 @@ body.template-index #MainContent slideshow-component.banner {
   border-radius: 0;
 }
 
-/* Homepage collection rows */
+/* Homepage collection rows — 4 across, 2 rows (8 products) */
+.s24-crow {
+  background: #fff;
+}
+
 .s24-crow__head {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 2.4rem 3.2rem;
-  margin-bottom: 3.2rem;
+  gap: 1.6rem 3.2rem;
+  margin-bottom: 2.8rem;
 }
 
 .s24-crow__copy {
   flex: 1;
   min-width: 0;
-  max-width: 56rem;
+  max-width: 64rem;
 }
 
 .s24-crow__eyebrow {
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.6rem;
   font-size: 1.15rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1742,36 +1746,48 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 .s24-crow__title {
-  margin: 0 0 1.2rem;
-  font-size: clamp(3rem, 4vw, 4.4rem);
-  line-height: 1.1;
-  font-style: italic;
+  margin: 0;
+  font-size: clamp(2.6rem, 3.4vw, 3.8rem);
+  line-height: 1.15;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
   color: var(--s24-ink);
 }
 
 .s24-crow__title::after {
-  content: '';
-  display: block;
-  width: 4.8rem;
-  height: 0.1rem;
-  margin-top: 1.4rem;
-  background: var(--s24-gold);
+  display: none;
 }
 
 .s24-crow__text {
-  margin: 0;
-  max-width: 44rem;
-  font-size: 1.5rem;
+  margin: 0.8rem 0 0;
+  max-width: 48rem;
+  font-size: 1.45rem;
   line-height: 1.55;
   color: var(--s24-muted, #6b5f62);
 }
 
 .s24-crow__more {
   flex-shrink: 0;
-  align-self: center;
-  min-height: 4.4rem;
-  padding: 0 2.4rem;
+  align-self: flex-end;
+  min-height: auto;
+  padding: 0 0 0.2rem;
   white-space: nowrap;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--s24-ink) !important;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  transition: color 0.2s ease;
+}
+
+.s24-crow__more:hover {
+  color: var(--s24-plum) !important;
 }
 
 .s24-crow__grid {
@@ -1780,28 +1796,39 @@ body.template-index #MainContent slideshow-component.banner {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 1.2rem;
+  gap: 2.4rem 1.2rem;
 }
 
 .s24-crow__item {
   min-width: 0;
 }
 
+.s24-crow__item .card,
+.s24-crow__item .card__inner,
+.s24-crow__item .card__media,
+.s24-crow__item .media {
+  border-radius: 1rem;
+}
+
 @media screen and (min-width: 750px) {
   .s24-crow__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2.8rem 2rem;
+    gap: 2.8rem 1.6rem;
   }
 }
 
 @media screen and (max-width: 749px) {
   .s24-crow__head {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .s24-crow__text {
+    display: none;
   }
 
   .s24-crow__more {
-    align-self: flex-start;
+    align-self: flex-end;
   }
 }
 
