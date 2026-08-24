@@ -1,0 +1,447 @@
+{% comment %}
+  S24 Contact / Book appointment — branded layout + multi-option form.
+{% endcomment %}
+
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .s24-contact-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-contact-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign has_social = false
+  if settings.social_facebook_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_twitter_link != blank or settings.social_tiktok_link != blank or settings.social_pinterest_link != blank
+    assign has_social = true
+  endif
+-%}
+
+<section class="s24-contact s24-contact-{{ section.id }}" data-s24-contact>
+  <div class="page-width">
+    <div class="s24-contact__grid">
+      <aside class="s24-contact__aside">
+        {%- if section.settings.aside_kicker != blank -%}
+          <p class="s24-contact__kicker">{{ section.settings.aside_kicker | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.aside_heading != blank -%}
+          <h2 class="s24-contact__aside-title">{{ section.settings.aside_heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.aside_text != blank -%}
+          <div class="s24-contact__aside-text rte">{{ section.settings.aside_text }}</div>
+        {%- endif -%}
+
+        <ul class="s24-contact__details list-unstyled">
+          {%- if section.settings.email != blank -%}
+            <li>
+              <span class="s24-contact__label">Email</span>
+              <a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.phone != blank -%}
+            <li>
+              <span class="s24-contact__label">Phone</span>
+              <a href="tel:{{ section.settings.phone | replace: ' ', '' | replace: '-', '' | escape }}">
+                {{- section.settings.phone | escape -}}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.location != blank -%}
+            <li>
+              <span class="s24-contact__label">Location</span>
+              <span>{{ section.settings.location | escape }}</span>
+            </li>
+          {%- endif -%}
+          {%- if section.settings.hours != blank -%}
+            <li>
+              <span class="s24-contact__label">Hours</span>
+              <span>{{ section.settings.hours | escape }}</span>
+            </li>
+          {%- endif -%}
+        </ul>
+
+        {%- if section.settings.show_social and has_social -%}
+          <div class="s24-contact__social">
+            <p class="s24-contact__label">Follow us</p>
+            {%- render 'social-icons' -%}
+          </div>
+        {%- endif -%}
+      </aside>
+
+      <div class="s24-contact__form-wrap">
+        {%- if section.settings.form_heading != blank -%}
+          <h2 class="s24-contact__form-title">{{ section.settings.form_heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.form_text != blank -%}
+          <p class="s24-contact__form-intro">{{ section.settings.form_text | escape }}</p>
+        {%- endif -%}
+
+        {%- form 'contact', id: 'S24ContactForm', class: 's24-contact__form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="s24-contact__success" tabindex="-1" autofocus>
+              <p>{{ section.settings.success_message | default: 'Thank you. We received your message and will get back to you soon.' | escape }}</p>
+            </div>
+          {%- else -%}
+            {%- if form.errors -%}
+              <div class="s24-contact__errors" role="alert" tabindex="-1" autofocus>
+                <p>{{ 'templates.contact.form.error_heading' | t }}</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="#S24Contact-email">
+                      {{ form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email }}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            {%- endif -%}
+
+            <input type="hidden" name="contact[tags]" value="contact-form" data-s24-contact-tags>
+
+            <div class="s24-contact__row">
+              <div class="field">
+                <input
+                  class="field__input"
+                  type="text"
+                  id="S24Contact-name"
+                  name="contact[Name]"
+                  autocomplete="name"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  placeholder="Full name"
+                  required
+                >
+                <label class="field__label" for="S24Contact-name">Full name *</label>
+              </div>
+              <div class="field field--with-error">
+                <input
+                  class="field__input"
+                  type="email"
+                  id="S24Contact-email"
+                  name="contact[email]"
+                  autocomplete="email"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  placeholder="Email"
+                  aria-required="true"
+                  required
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="S24Contact-email-error"
+                  {% endif %}
+                >
+                <label class="field__label" for="S24Contact-email">Email *</label>
+                {%- if form.errors contains 'email' -%}
+                  <small class="s24-contact__field-error" id="S24Contact-email-error">
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </small>
+                {%- endif -%}
+              </div>
+            </div>
+
+            <div class="s24-contact__row">
+              <div class="field">
+                <input
+                  class="field__input"
+                  type="tel"
+                  id="S24Contact-phone"
+                  name="contact[Phone]"
+                  autocomplete="tel"
+                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                  placeholder="Phone"
+                >
+                <label class="field__label" for="S24Contact-phone">Phone</label>
+              </div>
+              <div class="field s24-contact__select-field">
+                <select
+                  class="field__input s24-contact__select"
+                  id="S24Contact-inquiry"
+                  name="contact[Inquiry type]"
+                  required
+                  data-s24-inquiry
+                >
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="Book a custom appointment">Book a custom appointment</option>
+                  <option value="Custom / made-to-fit order">Custom / made-to-fit order</option>
+                  <option value="Styling consultation">Styling consultation</option>
+                  <option value="Product or sizing question">Product or sizing question</option>
+                  <option value="Fabric inquiry">Fabric inquiry</option>
+                  <option value="General inquiry">General inquiry</option>
+                </select>
+                <label class="field__label" for="S24Contact-inquiry">How can we help? *</label>
+              </div>
+            </div>
+
+            <div class="s24-contact__booking" data-s24-booking-fields hidden>
+              <div class="s24-contact__row">
+                <div class="field s24-contact__select-field">
+                  <select
+                    class="field__input s24-contact__select"
+                    id="S24Contact-service"
+                    name="contact[Service]"
+                    data-s24-service
+                  >
+                    <option value="" selected>Select a service</option>
+                    <option value="Custom dress">Custom dress</option>
+                    <option value="Pants">Pants</option>
+                    <option value="Two-piece set">Two-piece set</option>
+                    <option value="Top">Top</option>
+                    <option value="Kaftan">Kaftan</option>
+                    <option value="Full look / styling">Full look / styling</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <label class="field__label" for="S24Contact-service">Service</label>
+                </div>
+                <div class="field s24-contact__select-field">
+                  <select
+                    class="field__input s24-contact__select"
+                    id="S24Contact-method"
+                    name="contact[Preferred contact]"
+                  >
+                    <option value="" selected>Select preference</option>
+                    <option value="Email">Email</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Video call">Video call</option>
+                  </select>
+                  <label class="field__label" for="S24Contact-method">Preferred contact</label>
+                </div>
+              </div>
+
+              <div class="s24-contact__row">
+                <div class="field">
+                  <input
+                    class="field__input"
+                    type="date"
+                    id="S24Contact-date"
+                    name="contact[Preferred date]"
+                    data-s24-date
+                  >
+                  <label class="field__label" for="S24Contact-date">Preferred date</label>
+                </div>
+                <div class="field s24-contact__select-field">
+                  <select
+                    class="field__input s24-contact__select"
+                    id="S24Contact-time"
+                    name="contact[Preferred time]"
+                  >
+                    <option value="" selected>Select a time</option>
+                    <option value="Morning">Morning</option>
+                    <option value="Afternoon">Afternoon</option>
+                    <option value="Evening">Evening</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                  <label class="field__label" for="S24Contact-time">Preferred time</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <textarea
+                class="text-area field__input"
+                rows="6"
+                id="S24Contact-message"
+                name="contact[Message]"
+                placeholder="Tell us more"
+                required
+              >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <label class="field__label" for="S24Contact-message">Message *</label>
+            </div>
+
+            <div class="s24-contact__actions">
+              <button type="submit" class="s24-btn" data-s24-submit>
+                {{ section.settings.button_label | default: 'Send message' | escape }}
+              </button>
+              <p class="s24-contact__note">
+                {{ section.settings.form_note | default: 'We typically reply within 1–2 business days.' | escape }}
+              </p>
+            </div>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-s24-contact]');
+    if (!root) return;
+
+    var inquiry = root.querySelector('[data-s24-inquiry]');
+    var booking = root.querySelector('[data-s24-booking-fields]');
+    var tags = root.querySelector('[data-s24-contact-tags]');
+    var submit = root.querySelector('[data-s24-submit]');
+    var dateInput = root.querySelector('[data-s24-date]');
+
+    if (dateInput) {
+      var today = new Date();
+      var yyyy = today.getFullYear();
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
+      var dd = String(today.getDate()).padStart(2, '0');
+      dateInput.min = yyyy + '-' + mm + '-' + dd;
+    }
+
+    function syncInquiry() {
+      if (!inquiry || !booking) return;
+      var value = inquiry.value || '';
+      var needsBooking =
+        value === 'Book a custom appointment' ||
+        value === 'Custom / made-to-fit order' ||
+        value === 'Styling consultation';
+
+      booking.hidden = !needsBooking;
+
+      if (tags) {
+        var tag = 'contact-form';
+        if (value === 'Book a custom appointment') tag = 'contact-form, appointment';
+        else if (value === 'Custom / made-to-fit order') tag = 'contact-form, custom-order';
+        else if (value === 'Styling consultation') tag = 'contact-form, styling';
+        else if (value === 'Fabric inquiry') tag = 'contact-form, fabric';
+        tags.value = tag;
+      }
+
+      if (submit) {
+        submit.textContent = needsBooking
+          ? {{ section.settings.booking_button_label | default: 'Request appointment' | json }}
+          : {{ section.settings.button_label | default: 'Send message' | json }};
+      }
+    }
+
+    if (inquiry) {
+      inquiry.addEventListener('change', syncInquiry);
+      syncInquiry();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "S24 contact",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left column"
+    },
+    {
+      "type": "text",
+      "id": "aside_kicker",
+      "label": "Kicker",
+      "default": "Get in touch"
+    },
+    {
+      "type": "text",
+      "id": "aside_heading",
+      "label": "Heading",
+      "default": "Book an appointment or send a message"
+    },
+    {
+      "type": "richtext",
+      "id": "aside_text",
+      "label": "Text",
+      "default": "<p>Whether you need a made-to-fit custom piece, a styling conversation, or help with an order — we would love to hear from you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "hello@s24bycecilia.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "Canada"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Hours",
+      "default": "Mon–Sat · by appointment"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Form"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form heading",
+      "default": "Send a request"
+    },
+    {
+      "type": "textarea",
+      "id": "form_text",
+      "label": "Form intro",
+      "default": "Choose what you need below. For custom appointments, add your preferred date and time."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Default button",
+      "default": "Send message"
+    },
+    {
+      "type": "text",
+      "id": "booking_button_label",
+      "label": "Booking button",
+      "default": "Request appointment"
+    },
+    {
+      "type": "text",
+      "id": "form_note",
+      "label": "Form note",
+      "default": "We typically reply within 1–2 business days."
+    },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you. We received your message and will get back to you soon."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "presets": [{ "name": "S24 contact" }]
+}
+{% endschema %}

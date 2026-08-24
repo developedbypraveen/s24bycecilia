@@ -3210,3 +3210,187 @@ body.template-index #MainContent slideshow-component.banner {
   }
 }
 
+/* Contact / booking page */
+.s24-contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.6rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 990px) {
+  .s24-contact__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 5.6rem;
+  }
+}
+
+.s24-contact__kicker,
+.s24-contact__label {
+  margin: 0 0 0.6rem;
+  color: var(--s24-plum);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.s24-contact__aside-title,
+.s24-contact__form-title {
+  margin: 0 0 1.4rem;
+  color: var(--s24-ink);
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.s24-contact__aside-text,
+.s24-contact__aside-text p,
+.s24-contact__form-intro {
+  color: var(--s24-muted);
+  font-size: 1.5rem;
+  line-height: 1.65;
+}
+
+.s24-contact__aside-text p {
+  margin: 0 0 1.2rem;
+}
+
+.s24-contact__details {
+  margin: 2.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.s24-contact__details a,
+.s24-contact__details span:not(.s24-contact__label) {
+  display: block;
+  color: var(--s24-ink);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.s24-contact__details a:hover {
+  color: var(--s24-plum);
+}
+
+.s24-contact__social {
+  margin-top: 2.8rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--s24-line);
+}
+
+.s24-contact__social .list-social {
+  margin-top: 1rem;
+  justify-content: start;
+}
+
+.s24-contact__form-wrap {
+  background: #fff;
+  border: 1px solid var(--s24-line);
+  padding: 2.4rem 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-contact__form-wrap {
+    padding: 3.2rem;
+  }
+}
+
+.s24-contact__form-intro {
+  margin: -0.4rem 0 2.4rem;
+}
+
+.s24-contact__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .s24-contact__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.s24-contact__form .field {
+  margin-bottom: 1.2rem;
+}
+
+.s24-contact__form .s24-contact__row .field {
+  margin-bottom: 0;
+}
+
+.s24-contact__form .field__input,
+.s24-contact__form .text-area {
+  border-radius: 0;
+  border-color: var(--s24-line);
+  background: var(--s24-cream);
+}
+
+.s24-contact__select {
+  appearance: none;
+  padding-right: 3.2rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--s24-ink) 50%),
+    linear-gradient(135deg, var(--s24-ink) 50%, transparent 50%);
+  background-position: calc(100% - 1.6rem) calc(50% - 0.2rem), calc(100% - 1.1rem) calc(50% - 0.2rem);
+  background-size: 0.5rem 0.5rem, 0.5rem 0.5rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.s24-contact__select-field .field__label {
+  top: calc(1rem + var(--inputs-border-width));
+}
+
+.s24-contact__booking {
+  margin: 0 0 1.2rem;
+  padding: 1.6rem;
+  background: rgba(166, 22, 105, 0.04);
+  border: 1px solid rgba(166, 22, 105, 0.12);
+}
+
+.s24-contact__booking[hidden] {
+  display: none !important;
+}
+
+.s24-contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.s24-contact__note {
+  margin: 0;
+  color: var(--s24-muted);
+  font-size: 1.3rem;
+}
+
+.s24-contact__success {
+  padding: 2rem;
+  background: rgba(166, 22, 105, 0.08);
+  border: 1px solid rgba(166, 22, 105, 0.18);
+  color: var(--s24-ink);
+  font-size: 1.5rem;
+}
+
+.s24-contact__errors {
+  margin-bottom: 1.6rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid #c44;
+  color: #8a1f1f;
+  font-size: 1.4rem;
+}
+
+.s24-contact__field-error {
+  display: block;
+  margin-top: 0.6rem;
+  color: #8a1f1f;
+  font-size: 1.25rem;
+}
+
