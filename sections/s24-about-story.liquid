@@ -1,0 +1,130 @@
+{% comment %}
+  About founder / brand story — image + copy split.
+{% endcomment %}
+
+{%- style -%}
+  .s24-about-story-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-about-story-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="s24-about-story s24-about-story-{{ section.id }}{% if section.settings.image_right %} s24-about-story--flip{% endif %}">
+  <div class="page-width">
+    <div class="s24-about-story__grid">
+      <div class="s24-about-story__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag:
+              loading: 'lazy',
+              widths: '500, 800, 1100, 1400',
+              sizes: '(min-width: 990px) 48vw, 100vw',
+              alt: section.settings.heading
+          }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg s24-about-story__placeholder' }}
+        {%- endif -%}
+      </div>
+
+      <div class="s24-about-story__copy">
+        {%- if section.settings.kicker != blank -%}
+          <p class="s24-about-story__kicker">{{ section.settings.kicker | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="s24-about-story__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="s24-about-story__text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a
+            class="s24-btn"
+            href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S24 about story",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_right",
+      "label": "Image on the right",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Meet Cecilia"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From Nigeria to Canada — elegance without borders"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Story",
+      "default": "<p>S24 By Cecilia was born from a journey. Founder Cecilia brought the richness of African print and craftsmanship to Canada in 2014 — not as nostalgia, but as living luxury for women who dress with intention.</p><p>Every piece is designed to honour heritage while fitting the modern wardrobe: ready-to-wear for everyday elegance, and custom orders when the occasion calls for something uniquely yours.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 40
+    }
+  ],
+  "presets": [{ "name": "S24 about story" }]
+}
+{% endschema %}

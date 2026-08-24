@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero": {
+      "type": "s24-about-hero",
+      "settings": {
+        "kicker": "Our story",
+        "heading": "About S24 By Cecilia",
+        "text": "African luxury fashion for women who love elegance — heritage print, modern cut, designed in Canada.",
+        "padding_top": 72,
+        "padding_bottom": 36
+      }
+    },
+    "about_story": {
+      "type": "s24-about-story",
+      "settings": {
+        "image_right": false,
+        "kicker": "Meet Cecilia",
+        "heading": "From Nigeria to Canada — elegance without borders",
+        "text": "<p>S24 By Cecilia was born from a journey. Founder Cecilia brought the richness of African print and craftsmanship to Canada in 2014 — not as nostalgia, but as living luxury for women who dress with intention.</p><p>Every piece is designed to honour heritage while fitting the modern wardrobe: ready-to-wear for everyday elegance, and custom orders when the occasion calls for something uniquely yours.</p>",
+        "button_label": "Shop the collection",
+        "button_link": "shopify://collections/all",
+        "padding_top": 28,
+        "padding_bottom": 48
+      }
+    },
+    "about_quote": {
+      "type": "s24-about-quote",
+      "settings": {
+        "quote": "I didn't just move to Canada… elegance has no borders.",
+        "attribution": "— Cecilia, Founder",
+        "bg_color": "#a61669",
+        "text_color": "#ffffff",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "about_pillars": {
+      "type": "s24-pillars",
+      "blocks": {
+        "p1": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Heritage, made modern",
+            "text": "African print and craftsmanship, cut for the way you live now — bold, refined, and ready to wear."
+          }
+        },
+        "p2": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Designed with intention",
+            "text": "Each silhouette balances ease and presence, so you feel elegant from the first fitting to the last occasion."
+          }
+        },
+        "p3": {
+          "type": "pillar",
+          "settings": {
+            "heading": "Made for you",
+            "text": "Ready-to-wear for everyday luxury, plus custom orders when you want a piece that is truly yours."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "kicker": "Why S24 By Cecilia",
+        "heading": "Clothing that feels as unique as you",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 40
+      }
+    },
+    "about_craft": {
+      "type": "s24-about-story",
+      "settings": {
+        "image_right": true,
+        "kicker": "The craft",
+        "heading": "Print, silhouette, and the art of showing up",
+        "text": "<p>We believe fashion should carry culture with confidence. Our collections celebrate vivid print, thoughtful construction, and silhouettes that move with you — from two-piece sets and pants to tops and custom dresses.</p><p>Whether you shop ready-to-wear or commission a custom look, the goal is the same: clothing you remember wearing.</p>",
+        "button_label": "Explore custom orders",
+        "button_link": "shopify://collections/custom-orders",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    },
+    "about_cta": {
+      "type": "s24-about-cta",
+      "settings": {
+        "heading": "Ready to find your next piece?",
+        "text": "Explore ready-to-wear, or book a conversation about a custom order made for you.",
+        "button_label_1": "Shop now",
+        "button_link_1": "shopify://collections/all",
+        "button_label_2": "Book appointment",
+        "button_link_2": "shopify://pages/contact",
+        "padding_top": 48,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "about_hero",
+    "about_story",
+    "about_quote",
+    "about_pillars",
+    "about_craft",
+    "about_cta"
+  ]
+}
