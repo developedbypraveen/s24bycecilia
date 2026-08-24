@@ -1,0 +1,73 @@
+{% comment %}
+  Product card with auto-rotating images (first grid item).
+  Accepts: card_product, section_id
+{% endcomment %}
+{%- if card_product and card_product != empty -%}
+  <div class="card-wrapper product-card-wrapper s24-card-auto underline-links-hover">
+    <div class="card card--{{ settings.card_style }}{% if card_product.featured_media %} card--media{% endif %}">
+      <div class="card__inner ratio" style="--ratio-percent: 125%;">
+        <a href="{{ card_product.url }}" class="s24-card-auto__link full-unstyled-link" aria-label="{{ card_product.title | escape }}">
+          <div class="card__media">
+            <div class="media media--transparent s24-card-auto__media" data-s24-card-rotate>
+              {%- for media in card_product.media limit: 6 -%}
+                {%- if media.media_type == 'image' -%}
+                  <img
+                    src="{{ media | image_url: width: 720 }}"
+                    srcset="
+                      {{ media | image_url: width: 360 }} 360w,
+                      {{ media | image_url: width: 533 }} 533w,
+                      {{ media | image_url: width: 720 }} 720w
+                    "
+                    sizes="(min-width: 990px) 22vw, 45vw"
+                    alt="{{ media.alt | default: card_product.title | escape }}"
+                    width="{{ media.width }}"
+                    height="{{ media.height }}"
+                    class="s24-card-auto__img{% if forloop.first %} is-active{% endif %}"
+                    {% unless forloop.first %}loading="lazy"{% endunless %}
+                    data-s24-card-rotate-img
+                  >
+                {%- endif -%}
+              {%- else -%}
+                {%- if card_product.featured_media -%}
+                  <img
+                    src="{{ card_product.featured_media | image_url: width: 720 }}"
+                    alt="{{ card_product.title | escape }}"
+                    width="{{ card_product.featured_media.width }}"
+                    height="{{ card_product.featured_media.height }}"
+                    class="s24-card-auto__img is-active"
+                    data-s24-card-rotate-img
+                  >
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        </a>
+        <div class="card__content">
+          <div class="card__badge {{ settings.badge_position }}">
+            {%- if card_product.available == false -%}
+              <span class="badge color-{{ settings.sold_out_badge_color_scheme }}">
+                {{- 'products.product.sold_out' | t -}}
+              </span>
+            {%- elsif card_product.compare_at_price > card_product.price -%}
+              <span class="badge color-{{ settings.sale_badge_color_scheme }}">
+                {{- 'products.product.on_sale' | t -}}
+              </span>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__information">
+          <h3 class="card__heading h5">
+            <a href="{{ card_product.url }}" class="full-unstyled-link">
+              {{ card_product.title | escape }}
+            </a>
+          </h3>
+          <div class="card-information">
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}

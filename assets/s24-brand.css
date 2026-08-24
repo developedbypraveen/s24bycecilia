@@ -1848,22 +1848,42 @@ body.template-index #MainContent slideshow-component.banner {
   font-size: 1.35rem;
 }
 
-/* No image swap / auto-scroll on hover */
-.s24-crow .media.media--hover-effect > img + img,
-.s24-crow .card-wrapper:hover .media.media--hover-effect > img + img {
-  display: none !important;
-  opacity: 0 !important;
+/* First card — auto-rotating product images */
+.s24-card-auto__media {
+  position: absolute;
+  inset: 0;
 }
 
-.s24-crow .card-wrapper:hover .media.media--hover-effect > img:first-child,
-.s24-crow .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
-  opacity: 1 !important;
-  transform: none !important;
+.s24-card-auto__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-.s24-crow .card-wrapper:hover .card__inner .media img,
-.s24-crow .product-card-wrapper:hover .card__inner .media img {
-  transform: none !important;
+.s24-card-auto__img.is-active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.s24-card-auto__link {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Rest of cards — secondary image on hover (default Dawn) */
+.s24-crow__item:not(.s24-crow__item--auto) .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+  opacity: 0;
+}
+
+.s24-crow__item:not(.s24-crow__item--auto) .card-wrapper:hover .media.media--hover-effect > img + img {
+  opacity: 1;
 }
 
 /* Plum sale badges — top left */

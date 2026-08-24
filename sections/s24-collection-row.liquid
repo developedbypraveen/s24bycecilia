@@ -1,5 +1,6 @@
 {% comment %}
   Homepage product grid — 4×2 (8 products), mixed from multiple collections.
+  First card: auto-rotating images. Other cards: secondary image on hover.
 {% endcomment %}
 
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
@@ -58,17 +59,21 @@
     <ul class="s24-crow__grid" role="list">
       {%- if picked != blank and picked.size > 0 -%}
         {%- for product in picked limit: limit -%}
-          <li class="s24-crow__item">
-            {% render 'card-product',
-              card_product: product,
-              media_aspect_ratio: 'portrait',
-              show_secondary_image: false,
-              show_vendor: false,
-              show_rating: false,
-              section_id: section.id,
-              lazy_load: true,
-              product_view_context: 'collection'
-            %}
+          <li class="s24-crow__item{% if forloop.first %} s24-crow__item--auto{% endif %}">
+            {%- if forloop.first -%}
+              {% render 's24-card-auto', card_product: product, section_id: section.id %}
+            {%- else -%}
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'portrait',
+                show_secondary_image: true,
+                show_vendor: false,
+                show_rating: false,
+                section_id: section.id,
+                lazy_load: true,
+                product_view_context: 'collection'
+              %}
+            {%- endif -%}
           </li>
         {%- endfor -%}
       {%- else -%}
@@ -102,18 +107,26 @@
               {%- assign id_token = product.id | append: '|' -%}
               {%- unless used_ids contains id_token -%}
                 {%- assign used_ids = used_ids | append: id_token -%}
+                {%- assign is_first = false -%}
+                {%- if shown == 0 -%}
+                  {%- assign is_first = true -%}
+                {%- endif -%}
                 {%- assign shown = shown | plus: 1 -%}
-                <li class="s24-crow__item">
-                  {% render 'card-product',
-                    card_product: product,
-                    media_aspect_ratio: 'portrait',
-                    show_secondary_image: false,
-                    show_vendor: false,
-                    show_rating: false,
-                    section_id: section.id,
-                    lazy_load: true,
-                    product_view_context: 'collection'
-                  %}
+                <li class="s24-crow__item{% if is_first %} s24-crow__item--auto{% endif %}">
+                  {%- if is_first -%}
+                    {% render 's24-card-auto', card_product: product, section_id: section.id %}
+                  {%- else -%}
+                    {% render 'card-product',
+                      card_product: product,
+                      media_aspect_ratio: 'portrait',
+                      show_secondary_image: true,
+                      show_vendor: false,
+                      show_rating: false,
+                      section_id: section.id,
+                      lazy_load: true,
+                      product_view_context: 'collection'
+                    %}
+                  {%- endif -%}
                 </li>
               {%- endunless -%}
             {%- endif -%}
@@ -123,7 +136,7 @@
         {%- if shown == 0 -%}
           {%- for i in (1..8) -%}
             <li class="s24-crow__item">
-              {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: false %}
+              {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: true %}
             </li>
           {%- endfor -%}
         {%- endif -%}
@@ -180,7 +193,7 @@
     },
     {
       "type": "paragraph",
-      "content": "Products are mixed round-robin from these collections (8 total, 4 per row). Or pick products manually below."
+      "content": "Products are mixed round-robin from these collections (8 total, 4 per row). First product auto-rotates images; others swap on hover."
     },
     {
       "type": "collection",
