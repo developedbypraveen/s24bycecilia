@@ -769,58 +769,77 @@ body.template-index #MainContent slideshow-component.banner {
   color: #fff;
 }
 
-/* Circle categories */
+/* Circle categories — design layout: circle + label below */
+.s24-circles {
+  background: #fff;
+}
+
 .s24-circles__intro {
-  padding: 0 0 3.6rem;
+  padding: 0 0 2.4rem;
   text-align: center;
 }
 
-.s24-circles-slider {
-  position: relative;
+.s24-circles__wrap {
   width: 100%;
-  --desktop-margin-left-first-item: 0rem;
 }
 
 .s24-circles__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.4rem;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 1.2rem;
+  justify-items: center;
   margin: 0;
   padding: 0;
   list-style: none;
   width: 100%;
 }
 
-.s24-circles__item {
-  flex: 1 1 14rem;
-  max-width: 22rem;
+@media screen and (min-width: 750px) {
+  .s24-circles__row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2.4rem 2rem;
+  }
 }
 
-@media screen and (min-width: 990px) {
-  .s24-circles__row {
-    flex-wrap: nowrap;
-  }
-
-  .s24-circles__item {
-    flex: 1 1 0;
-    width: auto;
-    max-width: none;
-  }
+.s24-circles__item {
+  width: 100%;
+  max-width: 16rem;
 }
 
 .s24-circle {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  text-decoration: none;
+  color: var(--s24-ink);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.s24-circle:hover {
+  color: var(--s24-plum);
+}
+
+.s24-circle:hover .s24-circle__media {
+  box-shadow: 0 0 0 2px var(--s24-plum);
+}
+
+.s24-circle__media {
   display: block;
   width: 100%;
+  max-width: 14rem;
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
-  text-decoration: none;
-  color: #fff;
+  background: var(--s24-blush);
+  transition: box-shadow 0.2s ease, transform 0.25s ease;
 }
 
-.s24-circle__media,
+.s24-circle:hover .s24-circle__media {
+  transform: scale(1.03);
+}
+
 .s24-circle__media img,
 .s24-circle__media svg {
   width: 100%;
@@ -830,61 +849,16 @@ body.template-index #MainContent slideshow-component.banner {
   display: block;
 }
 
-.s24-circle__overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.6rem;
-  background: linear-gradient(180deg, rgba(42, 31, 34, 0.12), rgba(42, 31, 34, 0.45));
-  color: #fff;
-}
-
 .s24-circle__label {
+  display: block;
+  width: 100%;
+  text-align: center;
   font-family: var(--font-heading-family);
-  font-weight: 400;
-  font-style: italic;
-  font-size: 2rem;
-  line-height: 1.2;
-}
-
-.s24-circle__count {
-  margin-top: 0.4rem;
-  font-size: 1.2rem;
-  font-weight: 400;
-  opacity: 0.95;
-}
-
-.s24-circles__arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 2;
-  width: 4.4rem;
-  height: 4.4rem;
-  border: 1px solid var(--s24-line);
-  border-radius: 50%;
-  background: #fff;
-  color: var(--s24-ink);
-  font-size: 2.2rem;
-  line-height: 1;
-  cursor: pointer;
-  transform: translateY(-50%);
-}
-
-.s24-circles__arrow--prev {
-  left: 0.8rem;
-}
-
-.s24-circles__arrow--next {
-  right: 0.8rem;
-}
-
-.s24-circles__arrow:hover {
-  border-color: var(--s24-plum);
-  color: var(--s24-plum);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-transform: none;
 }
 
 /* Services */
@@ -1465,54 +1439,6 @@ body.template-index #MainContent slideshow-component.banner {
 .s24-promo-card__overlay h3 {
   font-size: clamp(2.2rem, 2.4vw, 3.2rem);
   margin-bottom: 1.4rem;
-}
-
-.s24-circles-slider.page-width {
-  max-width: none;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-@media screen and (min-width: 750px) {
-  .s24-circles-slider.page-width {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
-  }
-}
-
-.s24-circles__row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem;
-}
-
-@media screen and (min-width: 750px) {
-  .s24-circles__row {
-    grid-template-columns: repeat(4, 1fr);
-    flex-wrap: nowrap;
-  }
-
-  .s24-circles__item {
-    max-width: none;
-    flex: none;
-    width: auto;
-  }
-}
-
-.s24-circle {
-  border-radius: 0;
-}
-
-.s24-circle__overlay {
-  justify-content: flex-end;
-  align-items: flex-start;
-  text-align: left;
-  padding: 2rem;
-  background: linear-gradient(180deg, rgba(42, 31, 34, 0) 40%, rgba(42, 31, 34, 0.55) 100%);
-}
-
-.s24-circles__arrow {
-  display: none;
 }
 
 .s24-featured:not(.slider-component-desktop) .s24-collection-head {
