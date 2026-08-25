@@ -80,7 +80,6 @@
     if (!panels.length) return;
 
     function selectedSizeIsCustom() {
-      // Dawn radios / selects for Size option
       const checked = document.querySelector(
         'variant-selects input[type="radio"]:checked, variant-radios input[type="radio"]:checked'
       );
@@ -98,7 +97,6 @@
         }
       }
 
-      // Fallback: fieldset legend Size + checked radio nearby
       const fieldsets = document.querySelectorAll('fieldset.product-form__input');
       for (const fs of fieldsets) {
         const legend = fs.querySelector('legend');
@@ -110,6 +108,33 @@
       return false;
     }
 
+    function getVisibleCustomFields(form) {
+      const fields = [];
+      panels.forEach((panel) => {
+        if (panel.hidden) return;
+        panel.querySelectorAll('[data-s24-custom-field]').forEach((field) => {
+          if (field.disabled || field.type === 'hidden') return;
+          if (form && field.form && field.form !== form) return;
+          fields.push(field);
+        });
+      });
+      return fields;
+    }
+
+    function clearFieldErrors(fields) {
+      fields.forEach((field) => {
+        field.classList.remove('is-error');
+        field.removeAttribute('aria-invalid');
+      });
+      panels.forEach((panel) => {
+        const err = panel.querySelector('[data-s24-custom-error]');
+        if (err) {
+          err.hidden = true;
+          err.textContent = '';
+        }
+      });
+    }
+
     function sync() {
       const isCustom = selectedSizeIsCustom();
       panels.forEach((panel) => {
@@ -118,12 +143,55 @@
           field.disabled = !isCustom;
           if (isCustom && field.type !== 'hidden') {
             field.required = true;
+            field.setAttribute('aria-required', 'true');
           } else {
             field.required = false;
+            field.removeAttribute('aria-required');
+            field.classList.remove('is-error');
+            field.removeAttribute('aria-invalid');
+            if (field.type !== 'hidden') field.value = '';
           }
         });
+        const err = panel.querySelector('[data-s24-custom-error]');
+        if (err && !isCustom) {
+          err.hidden = true;
+          err.textContent = '';
+        }
       });
     }
+
+    window.s24ValidateCustomFit = function (form) {
+      if (!selectedSizeIsCustom()) {
+        return { ok: true };
+      }
+
+      const fields = getVisibleCustomFields(form);
+      clearFieldErrors(fields);
+
+      const empty = fields.filter((field) => !String(field.value || '').trim());
+      if (!empty.length) {
+        return { ok: true };
+      }
+
+      empty.forEach((field) => {
+        field.classList.add('is-error');
+        field.setAttribute('aria-invalid', 'true');
+      });
+
+      const message = 'Please fill in all custom measurement fields before adding to cart.';
+      panels.forEach((panel) => {
+        if (panel.hidden) return;
+        const err = panel.querySelector('[data-s24-custom-error]');
+        if (err) {
+          err.hidden = false;
+          err.textContent = message;
+        }
+        panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      empty[0].focus();
+      return { ok: false, message };
+    };
 
     document.addEventListener('change', (e) => {
       if (
@@ -135,7 +203,21 @@
       }
     });
 
-    // Variant change events from Dawn
+    document.addEventListener('input', (e) => {
+      if (!e.target.matches('[data-s24-custom-field]')) return;
+      e.target.classList.remove('is-error');
+      e.target.removeAttribute('aria-invalid');
+      const panel = e.target.closest('[data-s24-custom-fit]');
+      const err = panel && panel.querySelector('[data-s24-custom-error]');
+      if (err) {
+        const stillEmpty = getVisibleCustomFields().some((field) => !String(field.value || '').trim());
+        if (!stillEmpty) {
+          err.hidden = true;
+          err.textContent = '';
+        }
+      }
+    });
+
     document.addEventListener('variant:change', sync);
     sync();
   }

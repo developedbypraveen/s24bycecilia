@@ -21,6 +21,14 @@ if (!customElements.get('product-form')) {
         evt.preventDefault();
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
+        if (typeof window.s24ValidateCustomFit === 'function') {
+          const customFit = window.s24ValidateCustomFit(this.form);
+          if (!customFit.ok) {
+            this.handleErrorMessage(customFit.message);
+            return;
+          }
+        }
+
         this.handleErrorMessage();
 
         this.submitButton.setAttribute('aria-disabled', true);
