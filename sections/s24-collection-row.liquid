@@ -33,6 +33,52 @@
   assign col_d = section.settings.collection_4
   assign col_e = section.settings.collection_5
   assign picked = section.settings.product_list
+  assign sort_order = section.settings.sort_by_price | default: 'price-asc'
+
+  assign crow_products = ''
+  if picked != blank and picked.size > 0
+    assign crow_products = picked
+  else
+    if col_a != blank
+      assign crow_products = col_a.products
+    endif
+    if col_b != blank
+      if crow_products == blank
+        assign crow_products = col_b.products
+      else
+        assign crow_products = crow_products | concat: col_b.products
+      endif
+    endif
+    if col_c != blank
+      if crow_products == blank
+        assign crow_products = col_c.products
+      else
+        assign crow_products = crow_products | concat: col_c.products
+      endif
+    endif
+    if col_d != blank
+      if crow_products == blank
+        assign crow_products = col_d.products
+      else
+        assign crow_products = crow_products | concat: col_d.products
+      endif
+    endif
+    if col_e != blank
+      if crow_products == blank
+        assign crow_products = col_e.products
+      else
+        assign crow_products = crow_products | concat: col_e.products
+      endif
+    endif
+  endif
+
+  if crow_products != blank
+    if sort_order == 'price-desc'
+      assign crow_products = crow_products | sort: 'price' | reverse
+    else
+      assign crow_products = crow_products | sort: 'price'
+    endif
+  endif
 -%}
 
 <section class="s24-crow s24-crow--grid s24-crow-{{ section.id }}">
@@ -57,89 +103,45 @@
     </div>
 
     <ul class="s24-crow__grid" role="list">
-      {%- if picked != blank and picked.size > 0 -%}
-        {%- for product in picked limit: limit -%}
-          <li class="s24-crow__item{% if forloop.first %} s24-crow__item--auto{% endif %}">
-            {%- if forloop.first -%}
-              {% render 's24-card-auto', card_product: product, section_id: section.id %}
-            {%- else -%}
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: 'portrait',
-                show_secondary_image: true,
-                show_vendor: false,
-                show_rating: false,
-                section_id: section.id,
-                lazy_load: true,
-                product_view_context: 'collection'
-              %}
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
-      {%- else -%}
+      {%- if crow_products != blank and crow_products.size > 0 -%}
         {%- liquid
           assign shown = 0
           assign used_ids = '|'
         -%}
-        {%- for pass in (0..11) -%}
+        {%- for product in crow_products -%}
           {%- if shown >= limit -%}{% break %}{%- endif -%}
-          {%- for col in (1..5) -%}
-            {%- if shown >= limit -%}{% break %}{%- endif -%}
-            {%- liquid
-              case col
-                when 1
-                  assign source = col_a
-                when 2
-                  assign source = col_b
-                when 3
-                  assign source = col_c
-                when 4
-                  assign source = col_d
-                when 5
-                  assign source = col_e
-              endcase
-              assign product = blank
-              if source != blank and source.products_count > pass
-                assign product = source.products[pass]
-              endif
-            -%}
-            {%- if product != blank -%}
-              {%- assign id_token = product.id | append: '|' -%}
-              {%- unless used_ids contains id_token -%}
-                {%- assign used_ids = used_ids | append: id_token -%}
-                {%- assign is_first = false -%}
-                {%- if shown == 0 -%}
-                  {%- assign is_first = true -%}
-                {%- endif -%}
-                {%- assign shown = shown | plus: 1 -%}
-                <li class="s24-crow__item{% if is_first %} s24-crow__item--auto{% endif %}">
-                  {%- if is_first -%}
-                    {% render 's24-card-auto', card_product: product, section_id: section.id %}
-                  {%- else -%}
-                    {% render 'card-product',
-                      card_product: product,
-                      media_aspect_ratio: 'portrait',
-                      show_secondary_image: true,
-                      show_vendor: false,
-                      show_rating: false,
-                      section_id: section.id,
-                      lazy_load: true,
-                      product_view_context: 'collection'
-                    %}
-                  {%- endif -%}
-                </li>
-              {%- endunless -%}
+          {%- assign id_token = product.id | append: '|' -%}
+          {%- unless used_ids contains id_token -%}
+            {%- assign used_ids = used_ids | append: id_token -%}
+            {%- assign is_first = false -%}
+            {%- if shown == 0 -%}
+              {%- assign is_first = true -%}
             {%- endif -%}
-          {%- endfor -%}
-        {%- endfor -%}
-
-        {%- if shown == 0 -%}
-          {%- for i in (1..8) -%}
-            <li class="s24-crow__item">
-              {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: true %}
+            {%- assign shown = shown | plus: 1 -%}
+            <li class="s24-crow__item{% if is_first %} s24-crow__item--auto{% endif %}">
+              {%- if is_first -%}
+                {% render 's24-card-auto', card_product: product, section_id: section.id %}
+              {%- else -%}
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: true,
+                  show_vendor: false,
+                  show_rating: false,
+                  section_id: section.id,
+                  lazy_load: true,
+                  product_view_context: 'collection'
+                %}
+              {%- endif -%}
             </li>
-          {%- endfor -%}
-        {%- endif -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..8) -%}
+          <li class="s24-crow__item">
+            {% render 'card-product', media_aspect_ratio: 'portrait', section_id: section.id, show_secondary_image: true %}
+          </li>
+        {%- endfor -%}
       {%- endif -%}
     </ul>
   </div>
@@ -188,12 +190,23 @@
       "default": 8
     },
     {
+      "type": "select",
+      "id": "sort_by_price",
+      "label": "Sort products",
+      "options": [
+        { "value": "price-asc", "label": "Price: low to high (group same price)" },
+        { "value": "price-desc", "label": "Price: high to low" }
+      ],
+      "default": "price-asc",
+      "info": "Products with the same price are shown next to each other."
+    },
+    {
       "type": "header",
       "content": "Mixed collections"
     },
     {
       "type": "paragraph",
-      "content": "Products are mixed round-robin from these collections (8 total, 4 per row). First product auto-rotates images; others swap on hover."
+      "content": "Products are taken from these collections, sorted by price, then shown (4 per row). First product auto-rotates images; others swap on hover."
     },
     {
       "type": "collection",
@@ -224,7 +237,8 @@
       "type": "product_list",
       "id": "product_list",
       "label": "Or choose products manually",
-      "limit": 12
+      "limit": 12,
+      "info": "If set, these products are used instead of collections, still sorted by price."
     },
     {
       "type": "range",

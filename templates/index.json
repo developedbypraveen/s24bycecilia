@@ -173,6 +173,7 @@
         "button_label": "See all",
         "button_link": "shopify://collections/fabric",
         "products_to_show": 8,
+        "sort_by_price": "price-asc",
         "collection_1": "fabric",
         "collection_2": "",
         "collection_3": "",
