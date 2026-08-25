@@ -17,6 +17,17 @@
         "color_scheme": "scheme-1"
       }
     },
+    "sub_collections": {
+      "type": "s24-sub-collections",
+      "settings": {
+        "heading": "Shop by category",
+        "text": "",
+        "menu": "",
+        "show_count": true,
+        "padding_top": 24,
+        "padding_bottom": 8
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -41,6 +52,7 @@
   },
   "order": [
     "banner",
+    "sub_collections",
     "product-grid"
   ]
 }
