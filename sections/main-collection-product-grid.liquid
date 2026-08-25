@@ -2,6 +2,23 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+{%- if section.settings.default_sort_price -%}
+  <script>
+    (function () {
+      try {
+        if (window.Shopify && Shopify.designMode) return;
+        var params = new URLSearchParams(window.location.search);
+        if (params.has('sort_by')) return;
+        params.set('sort_by', 'price-ascending');
+        var query = params.toString();
+        window.location.replace(
+          window.location.pathname + (query ? '?' + query : '') + window.location.hash
+        );
+      } catch (e) {}
+    })();
+  </script>
+{%- endif -%}
+
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -386,6 +403,13 @@
       "id": "enable_sorting",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "default_sort_price",
+      "default": true,
+      "label": "Default sort by price (low to high)",
+      "info": "Same-priced products appear together. Customers can still change the sort dropdown."
     },
     {
       "type": "header",
