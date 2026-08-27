@@ -49,8 +49,8 @@
           "type": "s24_accordion",
           "settings": {
             "heading": "",
-            "heading_size": "h2",
             "description_label": "Description",
+            "heading_size": "h2",
             "care_label": "Care",
             "style_label": "How to Style",
             "fabric_label": "Fabric",
@@ -77,7 +77,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "small",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail",
