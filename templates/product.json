@@ -49,8 +49,8 @@
           "type": "s24_accordion",
           "settings": {
             "heading": "",
-            "heading_size": "h2",
             "description_label": "Description",
+            "heading_size": "h2",
             "care_label": "Care",
             "style_label": "How to Style",
             "fabric_label": "Fabric",

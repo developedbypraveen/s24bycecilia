@@ -168,18 +168,23 @@
       "type": "s24-collection-row",
       "settings": {
         "eyebrow": "",
-        "title": "Shop the season",
+        "title": "Ankara fabric",
         "text": "",
         "button_label": "See all",
         "button_link": "shopify://collections/fabric",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "sort_by_price": "price-asc",
-        "collection_1": "fabric",
+        "collection_1": "",
         "collection_2": "",
         "collection_3": "",
         "collection_4": "",
         "collection_5": "",
-        "product_list": [],
+        "product_list": [
+          "handmade-adire-fabric-4-5-yards",
+          "african-ankara-big-wax-100-percent-cotton",
+          "tribal-ankara-wax-100-percent-cotton",
+          "phoenix-hi-target-big-wax-100-percent-cotton"
+        ],
         "padding_top": 48,
         "padding_bottom": 56
       }
