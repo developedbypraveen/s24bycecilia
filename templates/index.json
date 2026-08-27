@@ -172,14 +172,19 @@
         "text": "",
         "button_label": "See all",
         "button_link": "shopify://collections/fabric",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "sort_by_price": "price-asc",
-        "collection_1": "fabric",
+        "collection_1": "",
         "collection_2": "",
         "collection_3": "",
         "collection_4": "",
         "collection_5": "",
-        "product_list": [],
+        "product_list": [
+          "african-ankara-big-wax-100-percent-cotton",
+          "adire-4-5-yards-pure-cotton",
+          "big-ankara-wax-100-percent-cotton",
+          "handmade-adire-fabric-4-5-yards"
+        ],
         "padding_top": 48,
         "padding_bottom": 56
       }
