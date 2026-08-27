@@ -283,8 +283,6 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {% comment %} S24 By Cecilia brand layer — plum #a61669 + gold #cd9a30 {% endcomment %}
-    {{ 's24-brand.css' | asset_url | stylesheet_tag }}
     <script src="{{ 's24-ui.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 's24-wishlist.js' | asset_url }}" defer="defer"></script>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -325,6 +323,8 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% comment %} S24 brand layer last so it wins over Dawn component CSS {% endcomment %}
+    {{ 's24-brand.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="gradient template-{{ template.name }}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
