@@ -45,15 +45,12 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "s24_accordion": {
           "type": "s24_accordion",
           "settings": {
             "heading": "",
             "heading_size": "h2",
+            "description_label": "Description",
             "care_label": "Care",
             "style_label": "How to Style",
             "fabric_label": "Fabric",
@@ -74,7 +71,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "s24_accordion",
         "share"
       ],

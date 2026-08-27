@@ -36,17 +36,28 @@
     assign fallback_count = fallback_count | plus: 1
   endif
 
+  assign include_description = include_description | default: true, allow_false: true
+  assign description_text = product.description
+  assign has_description = false
+  if include_description and description_text != blank
+    assign has_description = true
+  endif
+
   assign accordion_count = 0
   if from_list
     assign accordion_count = list_count
   else
     assign accordion_count = fallback_count
   endif
+  if has_description
+    assign accordion_count = accordion_count | plus: 1
+  endif
 
   assign first_open = open_first
   if first_open == nil
     assign first_open = true
   endif
+  assign label_description = description_label | default: 'Description'
 -%}
 
 {%- if accordion_count > 0 -%}
@@ -56,6 +67,17 @@
     {%- endif -%}
 
     <div class="s24-pdp-accordion__list">
+      {%- if has_description -%}
+        {%- render 's24-product-accordion-row',
+          title: label_description,
+          content: description_text,
+          index: 'description',
+          group: accordion_group,
+          open: first_open
+        -%}
+        {%- assign first_open = false -%}
+      {%- endif -%}
+
       {%- if from_list -%}
         {%- liquid
           assign single_title = accordion_source.title.value | default: accordion_source.title | default: accordion_source.heading.value | default: accordion_source.heading

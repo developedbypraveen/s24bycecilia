@@ -20,6 +20,8 @@
     section: section,
     heading: section.settings.heading,
     heading_size: section.settings.heading_size,
+    include_description: true,
+    description_label: section.settings.description_label,
     care_label: section.settings.care_label,
     style_label: section.settings.style_label,
     fabric_label: section.settings.fabric_label,
@@ -44,13 +46,19 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Shows one accordion row per product metafield. Preferred: custom.product_accordions (list of metaobjects with Title + Content). Fallback: custom.care_info, custom.how_to_style, custom.fabric_info."
+      "content": "First row is the product description. Extra rows come from custom.product_accordions. Fallback: custom.care_info, custom.how_to_style, custom.fabric_info."
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "Product details"
+    },
+    {
+      "type": "text",
+      "id": "description_label",
+      "label": "Description title",
+      "default": "Description"
     },
     {
       "type": "select",
