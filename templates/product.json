@@ -49,6 +49,17 @@
           "type": "description",
           "settings": {}
         },
+        "s24_accordion": {
+          "type": "s24_accordion",
+          "settings": {
+            "heading": "",
+            "heading_size": "h2",
+            "care_label": "Care",
+            "style_label": "How to Style",
+            "fabric_label": "Fabric",
+            "open_first": true
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -64,6 +75,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "s24_accordion",
         "share"
       ],
       "settings": {

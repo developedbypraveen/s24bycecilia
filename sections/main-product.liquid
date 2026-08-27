@@ -198,6 +198,20 @@
                       {{ product.description }}
                     </div>
                   {%- endif -%}
+                {%- when 's24_accordion' -%}
+                  <div class="quick-add-hidden">
+                    {%- render 's24-product-accordion',
+                      product: product,
+                      section: section,
+                      block: block,
+                      heading: block.settings.heading,
+                      heading_size: block.settings.heading_size,
+                      care_label: block.settings.care_label,
+                      style_label: block.settings.style_label,
+                      fabric_label: block.settings.fabric_label,
+                      open_first: block.settings.open_first
+                    -%}
+                  </div>
                 {%- when 'sku' -%}
                   <p
                     class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -953,6 +967,57 @@
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1
+    },
+    {
+      "type": "s24_accordion",
+      "name": "S24 Accordion",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Each accordion row comes from a product metafield with a title and content. Preferred metafield: custom.product_accordions (list of metaobjects). Fallback: custom.care_info, custom.how_to_style, custom.fabric_info."
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        },
+        {
+          "type": "text",
+          "id": "care_label",
+          "label": "Care title (fallback metafield)",
+          "default": "Care"
+        },
+        {
+          "type": "text",
+          "id": "style_label",
+          "label": "Style title (fallback metafield)",
+          "default": "How to Style"
+        },
+        {
+          "type": "text",
+          "id": "fabric_label",
+          "label": "Fabric title (fallback metafield)",
+          "default": "Fabric"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_first",
+          "label": "Open first accordion by default",
+          "default": true
+        }
+      ]
     },
     {
       "type": "share",

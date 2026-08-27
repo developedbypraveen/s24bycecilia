@@ -1,0 +1,53 @@
+{%- liquid
+  assign row_title = title
+  assign row_id = group | append: '-' | append: index
+  assign is_richtext = false
+-%}
+
+{%- if item != blank -%}
+  {%- liquid
+    assign row_title = item.title.value | default: item.heading.value | default: item.name.value | default: item.title | default: item.heading | default: item.name
+  -%}
+  {%- if item.content.type == 'rich_text_field' -%}
+    {%- capture row_body -%}{{ item.content | metafield_tag }}{%- endcapture -%}
+    {%- assign is_richtext = true -%}
+  {%- elsif item.body.type == 'rich_text_field' -%}
+    {%- capture row_body -%}{{ item.body | metafield_tag }}{%- endcapture -%}
+    {%- assign is_richtext = true -%}
+  {%- elsif item.text.type == 'rich_text_field' -%}
+    {%- capture row_body -%}{{ item.text | metafield_tag }}{%- endcapture -%}
+    {%- assign is_richtext = true -%}
+  {%- else -%}
+    {%- liquid
+      assign row_body = item.content.value | default: item.body.value | default: item.text.value | default: item.content | default: item.body | default: item.text
+    -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign row_body = content -%}
+{%- endif -%}
+
+{%- if row_title != blank and row_body != blank -%}
+  <div class="s24-pdp-accordion__item product__accordion accordion">
+    <details
+      id="Details-{{ row_id }}"
+      name="s24-pdp-accordion-{{ group }}"
+      {% if open %}
+        open
+      {% endif %}
+    >
+      <summary>
+        <div class="summary__title">
+          <h3 class="h4 accordion__title">{{ row_title | escape }}</h3>
+        </div>
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </summary>
+      <div class="accordion__content rte" id="ProductAccordion-{{ row_id }}">
+        {%- if is_richtext or row_body contains '<' -%}
+          {{ row_body }}
+        {%- else -%}
+          {{ row_body | newline_to_br }}
+        {%- endif -%}
+      </div>
+    </details>
+  </div>
+{%- endif -%}

@@ -3862,3 +3862,68 @@ body.template-index #MainContent slideshow-component.banner {
   color: var(--s24-plum);
 }
 
+/* ── PDP product accordion (metafield title + content) ── */
+.s24-pdp-accordion {
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.s24-pdp-accordion__heading {
+  margin: 0 0 1.2rem;
+  font-size: clamp(1.8rem, 2.2vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--s24-ink);
+}
+
+.s24-pdp-accordion__list {
+  border-top: 1px solid var(--s24-line);
+}
+
+.s24-pdp-accordion__item.accordion {
+  margin: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--s24-line);
+}
+
+.s24-pdp-accordion__item summary {
+  padding: 1.4rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.s24-pdp-accordion__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.s24-pdp-accordion__item .accordion__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--s24-ink);
+}
+
+.s24-pdp-accordion__item summary:hover .accordion__title {
+  color: var(--s24-plum);
+}
+
+.s24-pdp-accordion__item .icon-caret {
+  color: var(--s24-plum);
+}
+
+.s24-pdp-accordion__item .accordion__content {
+  padding: 0 0 1.6rem;
+  font-size: 1.45rem;
+  line-height: 1.65;
+  color: var(--s24-ink);
+}
+
+.s24-pdp-accordion__item .accordion__content p:first-child {
+  margin-top: 0;
+}
+
+.s24-pdp-accordion__item .accordion__content p:last-child {
+  margin-bottom: 0;
+}
+

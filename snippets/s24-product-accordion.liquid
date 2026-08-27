@@ -1,0 +1,124 @@
+{%- comment -%}
+  Product details accordion.
+
+  Primary source: product metafield custom.product_accordions
+    Type: list of metaobjects (or JSON) — each entry needs title + content.
+
+  Fallback: custom.care_info, custom.how_to_style, custom.fabric_info
+    with labels from the section/block settings.
+{%- endcomment -%}
+
+{%- liquid
+  assign accordion_group = block.id | default: section.id
+  assign accordion_source = product.metafields.custom.product_accordions.value
+  if accordion_source == blank
+    assign accordion_source = product.metafields.custom.accordions.value
+  endif
+
+  assign from_list = false
+  assign list_count = 0
+  if accordion_source != blank
+    assign from_list = true
+    assign list_count = accordion_source.size | default: 1
+  endif
+
+  assign care_info = product.metafields.custom.care_info.value
+  assign how_to_style = product.metafields.custom.how_to_style.value
+  assign fabric_info = product.metafields.custom.fabric_info.value
+  assign fallback_count = 0
+  if care_info != blank
+    assign fallback_count = fallback_count | plus: 1
+  endif
+  if how_to_style != blank
+    assign fallback_count = fallback_count | plus: 1
+  endif
+  if fabric_info != blank
+    assign fallback_count = fallback_count | plus: 1
+  endif
+
+  assign accordion_count = 0
+  if from_list
+    assign accordion_count = list_count
+  else
+    assign accordion_count = fallback_count
+  endif
+
+  assign first_open = open_first
+  if first_open == nil
+    assign first_open = true
+  endif
+-%}
+
+{%- if accordion_count > 0 -%}
+  <div class="s24-pdp-accordion{% if class != blank %} {{ class }}{% endif %}"{% if block %} {{ block.shopify_attributes }}{% endif %}>
+    {%- if heading != blank -%}
+      <h2 class="s24-pdp-accordion__heading {{ heading_size }}">{{ heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="s24-pdp-accordion__list">
+      {%- if from_list -%}
+        {%- liquid
+          assign single_title = accordion_source.title.value | default: accordion_source.title | default: accordion_source.heading.value | default: accordion_source.heading
+          assign is_single = false
+          if single_title != blank
+            assign is_single = true
+          endif
+        -%}
+
+        {%- if is_single -%}
+          {%- render 's24-product-accordion-row',
+            item: accordion_source,
+            index: 0,
+            group: accordion_group,
+            open: first_open
+          -%}
+        {%- else -%}
+          {%- for item in accordion_source -%}
+            {%- render 's24-product-accordion-row',
+              item: item,
+              index: forloop.index0,
+              group: accordion_group,
+              open: first_open
+            -%}
+            {%- assign first_open = false -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- liquid
+          assign label_care = care_label | default: 'Care'
+          assign label_style = style_label | default: 'How to Style'
+          assign label_fabric = fabric_label | default: 'Fabric'
+        -%}
+        {%- if care_info != blank -%}
+          {%- render 's24-product-accordion-row',
+            title: label_care,
+            content: care_info,
+            index: 0,
+            group: accordion_group,
+            open: first_open
+          -%}
+          {%- assign first_open = false -%}
+        {%- endif -%}
+        {%- if how_to_style != blank -%}
+          {%- render 's24-product-accordion-row',
+            title: label_style,
+            content: how_to_style,
+            index: 1,
+            group: accordion_group,
+            open: first_open
+          -%}
+          {%- assign first_open = false -%}
+        {%- endif -%}
+        {%- if fabric_info != blank -%}
+          {%- render 's24-product-accordion-row',
+            title: label_fabric,
+            content: fabric_info,
+            index: 2,
+            group: accordion_group,
+            open: first_open
+          -%}
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
