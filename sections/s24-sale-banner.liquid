@@ -22,6 +22,7 @@
   }
   .s24-sale-{{ section.id }} .s24-sale__products {
     background: {{ section.settings.products_bg }};
+    --s24-sale-visible: {{ section.settings.products_visible | default: 4 }};
   }
 {%- endstyle -%}
 
@@ -60,7 +61,11 @@
         {%- endif -%}
       </div>
 
-      <div class="s24-sale__products" data-s24-sale-slider data-visible="4">
+      <div
+        class="s24-sale__products"
+        data-s24-sale-slider
+        data-visible="{{ section.settings.products_visible | default: 4 }}"
+      >
         <div class="s24-sale__slider-head">
           <p class="s24-sale__slider-label">On sale</p>
           <div class="s24-sale__nav">
@@ -155,8 +160,18 @@
     },
     {
       "type": "range",
+      "id": "products_visible",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Products visible",
+      "info": "How many products show at once on desktop. Mobile shows up to 2.",
+      "default": 4
+    },
+    {
+      "type": "range",
       "id": "max_products",
-      "min": 4,
+      "min": 2,
       "max": 40,
       "step": 1,
       "label": "Max sale products in slider",

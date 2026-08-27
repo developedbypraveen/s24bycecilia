@@ -2458,17 +2458,16 @@ body.template-index #MainContent slideshow-component.banner {
 }
 
 .s24-sale__item {
-  flex: 0 0 calc((100% - 3.6rem) / 4);
+  flex: 0 0 calc((100% - (var(--s24-sale-visible, 4) - 1) * 1.2rem) / var(--s24-sale-visible, 4));
   width: calc((100vw - 8rem) / 2);
   max-width: 22rem;
-  min-width: 14rem;
+  min-width: 12rem;
 }
 
 @media screen and (min-width: 750px) {
   .s24-sale__item {
-    width: calc((100% - 3.6rem) / 4);
+    width: calc((100% - (var(--s24-sale-visible, 4) - 1) * 1.2rem) / var(--s24-sale-visible, 4));
     max-width: none;
-    /* JS sets exact width from viewport */
   }
 }
 

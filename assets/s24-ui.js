@@ -336,12 +336,15 @@
 
     const gap = 12;
     let index = 0;
-    let visible = 4;
+    const desktopVisible = Math.max(1, parseInt(root.dataset.visible, 10) || 4);
+    let visible = desktopVisible;
 
     const measure = () => {
       const viewport = root.querySelector('.s24-sale__viewport');
       if (!viewport) return;
-      visible = window.matchMedia('(min-width: 750px)').matches ? 4 : 2;
+      visible = window.matchMedia('(min-width: 750px)').matches
+        ? desktopVisible
+        : Math.min(desktopVisible, 2);
       const width = (viewport.clientWidth - gap * (visible - 1)) / visible;
       items.forEach((item) => {
         item.style.flex = `0 0 ${width}px`;
@@ -440,12 +443,37 @@
     measure();
   }
 
+  function initPdpTabs(root) {
+    const tabs = Array.from(root.querySelectorAll('[data-s24-pdp-tab]'));
+    const panels = Array.from(root.querySelectorAll('.s24-pdp-tabs__panel'));
+    if (tabs.length === 0 || panels.length === 0) return;
+
+    const activate = (key) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.s24PdpTab === key;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.id.includes(`-${key}-`);
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activate(tab.dataset.s24PdpTab));
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-s24-fade]').forEach(initFadeSlider);
     document.querySelectorAll('[data-s24-hero]').forEach(initHeroSlider);
     document.querySelectorAll('[data-s24-card-rotate]').forEach(initCardRotate);
     document.querySelectorAll('[data-s24-sale-slider]').forEach(initSaleSlider);
     document.querySelectorAll('[data-s24-popular]').forEach(initPopular);
+    document.querySelectorAll('[data-s24-pdp-tabs]').forEach(initPdpTabs);
     initCustomFit();
 
     const backTop = document.querySelector('[data-s24-back-top]');

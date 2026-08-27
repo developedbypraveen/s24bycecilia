@@ -199,6 +199,7 @@
         "button_label": "Shop Now",
         "button_link": "",
         "collection": "",
+        "products_visible": 4,
         "max_products": 24,
         "offer_bg": "#a61669",
         "offer_text": "#ffffff",
