@@ -76,8 +76,9 @@
 
         <div class="s24-sale__viewport">
           <ul class="s24-sale__track" role="list" data-s24-sale-track>
-            {%- paginate source.products by 100 -%}
-              {%- for product in source.products -%}
+            {%- paginate source.products by 250 -%}
+              {%- assign priced_products = source.products | sort: 'price' -%}
+              {%- for product in priced_products -%}
                 {%- if product.compare_at_price > product.price and sale_count < max_sale -%}
                   {%- assign sale_count = sale_count | plus: 1 -%}
                   <li class="s24-sale__item" data-s24-sale-item>
@@ -93,23 +94,23 @@
                   </li>
                 {%- endif -%}
               {%- endfor -%}
-            {%- endpaginate -%}
 
-            {%- if sale_count == 0 -%}
-              {%- for product in source.products limit: 8 -%}
-                <li class="s24-sale__item" data-s24-sale-item>
-                  {% render 'card-product',
-                    card_product: product,
-                    media_aspect_ratio: 'portrait',
-                    show_secondary_image: true,
-                    show_vendor: false,
-                    show_rating: false,
-                    section_id: section.id,
-                    product_view_context: 'collection'
-                  %}
-                </li>
-              {%- endfor -%}
-            {%- endif -%}
+              {%- if sale_count == 0 -%}
+                {%- for product in priced_products limit: 8 -%}
+                  <li class="s24-sale__item" data-s24-sale-item>
+                    {% render 'card-product',
+                      card_product: product,
+                      media_aspect_ratio: 'portrait',
+                      show_secondary_image: true,
+                      show_vendor: false,
+                      show_rating: false,
+                      section_id: section.id,
+                      product_view_context: 'collection'
+                    %}
+                  </li>
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endpaginate -%}
           </ul>
         </div>
       </div>
