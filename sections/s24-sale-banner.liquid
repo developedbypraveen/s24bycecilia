@@ -20,6 +20,20 @@
     background: {{ section.settings.offer_bg }};
     color: {{ section.settings.offer_text }};
   }
+  .s24-sale-{{ section.id }} .s24-sale__eyebrow {
+    font-size: {{ section.settings.eyebrow_size | default: 12 }}px;
+  }
+  .s24-sale-{{ section.id }} .s24-sale__heading {
+    font-size: {{ section.settings.heading_size | default: 64 | times: 0.72 | round }}px;
+  }
+  .s24-sale-{{ section.id }} .s24-sale__text {
+    font-size: {{ section.settings.text_size | default: 15 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-sale-{{ section.id }} .s24-sale__heading {
+      font-size: {{ section.settings.heading_size | default: 64 }}px;
+    }
+  }
   .s24-sale-{{ section.id }} .s24-sale__products {
     background: {{ section.settings.products_bg }};
     --s24-sale-visible: {{ section.settings.products_visible | default: 4 }};
@@ -147,6 +161,40 @@
       "id": "button_label",
       "label": "Button label",
       "default": "Shop Now"
+    },
+    {
+      "type": "header",
+      "content": "Offer font sizes"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 96,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading font size",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Supporting text font size",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Eyebrow font size",
+      "default": 12
     },
     {
       "type": "url",
