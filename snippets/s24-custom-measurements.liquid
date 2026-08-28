@@ -1,6 +1,15 @@
 {% comment %}
-  Shows measurement fields when the selected size is "Custom".
-  Values are saved as line item properties on the order.
+  Custom measurement fields when Size = Custom.
+
+  Fields shown depend on the product:
+  1. Optional metafield custom.custom_fit_fields
+     Comma list: bust,waist,hip,shoulder,length
+     Example for a skirt: waist,hip,length
+  2. Otherwise product type / title:
+     Skirt  -> Waist, Hip, Dress / garment length
+     Bottom -> Waist, Hip, Dress / garment length
+     Top    -> Bust, Waist, Shoulder, Dress / garment length
+     Dress / other -> all fields
 {% endcomment %}
 {%- liquid
   assign s24_has_custom_size = false
@@ -12,12 +21,73 @@
       endif
     endfor
   endfor
+
+  assign show_bust = false
+  assign show_waist = false
+  assign show_hip = false
+  assign show_shoulder = false
+  assign show_length = false
+  assign fit_group = 'full'
+
+  assign type_key = product.type | downcase | strip
+  assign title_key = product.title | downcase
+  assign tag_blob = product.tags | join: ' ' | downcase
+
+  if type_key contains 'skirt' or title_key contains 'skirt' or tag_blob contains 'skirt'
+    assign fit_group = 'skirt'
+  elsif type_key contains 'pant' or type_key contains 'bottom' or type_key contains 'trouser' or type_key contains 'short' or title_key contains 'pant' or title_key contains 'palazzo' or title_key contains 'dungaree'
+    assign fit_group = 'bottom'
+  elsif type_key contains 'top' or type_key contains 'blouse' or type_key contains 'shirt' or type_key contains 'tee' or title_key contains ' top'
+    assign fit_group = 'top'
+  elsif type_key contains 'dress' or type_key contains 'gown' or type_key contains 'kaftan' or type_key contains 'set'
+    assign fit_group = 'dress'
+  endif
+
+  assign override = product.metafields.custom.custom_fit_fields.value
+  if override == blank
+    assign override = product.metafields.custom.custom_fit_fields
+  endif
+
+  if override != blank
+    assign override_blob = override | join: ',' | downcase | strip
+    if override_blob contains 'bust'
+      assign show_bust = true
+    endif
+    if override_blob contains 'waist'
+      assign show_waist = true
+    endif
+    if override_blob contains 'hip'
+      assign show_hip = true
+    endif
+    if override_blob contains 'shoulder'
+      assign show_shoulder = true
+    endif
+    if override_blob contains 'length'
+      assign show_length = true
+    endif
+  elsif fit_group == 'skirt' or fit_group == 'bottom'
+    assign show_waist = true
+    assign show_hip = true
+    assign show_length = true
+  elsif fit_group == 'top'
+    assign show_bust = true
+    assign show_waist = true
+    assign show_shoulder = true
+    assign show_length = true
+  else
+    assign show_bust = true
+    assign show_waist = true
+    assign show_hip = true
+    assign show_shoulder = true
+    assign show_length = true
+  endif
 -%}
 
 {%- if s24_has_custom_size -%}
   <div
     class="s24-custom-fit"
     data-s24-custom-fit
+    data-fit-group="{{ fit_group }}"
     hidden
   >
     <p class="s24-custom-fit__title">Made / adjusted to my measurements</p>
@@ -28,76 +98,90 @@
     <p class="s24-custom-fit__error" data-s24-custom-error hidden role="alert"></p>
 
     <div class="s24-custom-fit__grid">
-      <div class="s24-custom-fit__field">
-        <label class="form__label" for="S24-Bust-{{ section_id }}">Bust (in)</label>
-        <input
-          id="S24-Bust-{{ section_id }}"
-          class="s24-custom-fit__input"
-          type="text"
-          name="properties[Bust]"
-          inputmode="decimal"
-          placeholder="e.g. 36"
-          form="{{ product_form_id }}"
-          data-s24-custom-field
-          disabled
-        >
-      </div>
-      <div class="s24-custom-fit__field">
-        <label class="form__label" for="S24-Waist-{{ section_id }}">Waist (in)</label>
-        <input
-          id="S24-Waist-{{ section_id }}"
-          class="s24-custom-fit__input"
-          type="text"
-          name="properties[Waist]"
-          inputmode="decimal"
-          placeholder="e.g. 28"
-          form="{{ product_form_id }}"
-          data-s24-custom-field
-          disabled
-        >
-      </div>
-      <div class="s24-custom-fit__field">
-        <label class="form__label" for="S24-Hip-{{ section_id }}">Hip (in)</label>
-        <input
-          id="S24-Hip-{{ section_id }}"
-          class="s24-custom-fit__input"
-          type="text"
-          name="properties[Hip]"
-          inputmode="decimal"
-          placeholder="e.g. 38"
-          form="{{ product_form_id }}"
-          data-s24-custom-field
-          disabled
-        >
-      </div>
-      <div class="s24-custom-fit__field">
-        <label class="form__label" for="S24-Shoulder-{{ section_id }}">Shoulder (in)</label>
-        <input
-          id="S24-Shoulder-{{ section_id }}"
-          class="s24-custom-fit__input"
-          type="text"
-          name="properties[Shoulder]"
-          inputmode="decimal"
-          placeholder="e.g. 15"
-          form="{{ product_form_id }}"
-          data-s24-custom-field
-          disabled
-        >
-      </div>
-      <div class="s24-custom-fit__field s24-custom-fit__field--wide">
-        <label class="form__label" for="S24-Length-{{ section_id }}">Dress / garment length (in)</label>
-        <input
-          id="S24-Length-{{ section_id }}"
-          class="s24-custom-fit__input"
-          type="text"
-          name="properties[Dress length]"
-          inputmode="decimal"
-          placeholder="e.g. 40"
-          form="{{ product_form_id }}"
-          data-s24-custom-field
-          disabled
-        >
-      </div>
+      {%- if show_bust -%}
+        <div class="s24-custom-fit__field">
+          <label class="form__label" for="S24-Bust-{{ section_id }}">Bust (in)</label>
+          <input
+            id="S24-Bust-{{ section_id }}"
+            class="s24-custom-fit__input"
+            type="text"
+            name="properties[Bust]"
+            inputmode="decimal"
+            placeholder="e.g. 36"
+            form="{{ product_form_id }}"
+            data-s24-custom-field
+            disabled
+          >
+        </div>
+      {%- endif -%}
+
+      {%- if show_waist -%}
+        <div class="s24-custom-fit__field">
+          <label class="form__label" for="S24-Waist-{{ section_id }}">Waist (in)</label>
+          <input
+            id="S24-Waist-{{ section_id }}"
+            class="s24-custom-fit__input"
+            type="text"
+            name="properties[Waist]"
+            inputmode="decimal"
+            placeholder="e.g. 28"
+            form="{{ product_form_id }}"
+            data-s24-custom-field
+            disabled
+          >
+        </div>
+      {%- endif -%}
+
+      {%- if show_hip -%}
+        <div class="s24-custom-fit__field">
+          <label class="form__label" for="S24-Hip-{{ section_id }}">Hip (in)</label>
+          <input
+            id="S24-Hip-{{ section_id }}"
+            class="s24-custom-fit__input"
+            type="text"
+            name="properties[Hip]"
+            inputmode="decimal"
+            placeholder="e.g. 38"
+            form="{{ product_form_id }}"
+            data-s24-custom-field
+            disabled
+          >
+        </div>
+      {%- endif -%}
+
+      {%- if show_shoulder -%}
+        <div class="s24-custom-fit__field">
+          <label class="form__label" for="S24-Shoulder-{{ section_id }}">Shoulder (in)</label>
+          <input
+            id="S24-Shoulder-{{ section_id }}"
+            class="s24-custom-fit__input"
+            type="text"
+            name="properties[Shoulder]"
+            inputmode="decimal"
+            placeholder="e.g. 15"
+            form="{{ product_form_id }}"
+            data-s24-custom-field
+            disabled
+          >
+        </div>
+      {%- endif -%}
+
+      {%- if show_length -%}
+        <div class="s24-custom-fit__field s24-custom-fit__field--wide">
+          <label class="form__label" for="S24-Length-{{ section_id }}">Dress / garment length (in)</label>
+          <input
+            id="S24-Length-{{ section_id }}"
+            class="s24-custom-fit__input"
+            type="text"
+            name="properties[Dress length]"
+            inputmode="decimal"
+            placeholder="e.g. 40"
+            form="{{ product_form_id }}"
+            data-s24-custom-field
+            disabled
+          >
+        </div>
+      {%- endif -%}
     </div>
 
     <input
