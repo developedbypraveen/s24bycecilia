@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "policy_hero": {
+      "type": "s24-about-hero",
+      "settings": {
+        "kicker": "S24bycecilia",
+        "heading": "Return & Refund Policy",
+        "text": "How returns, exchanges, store credit, and refunds work for ready-to-wear and custom orders.",
+        "padding_top": 72,
+        "padding_bottom": 28
+      }
+    },
+    "policy_body": {
+      "type": "s24-policy",
+      "blocks": {
+        "eligible": {
+          "type": "article",
+          "settings": {
+            "heading": "What can be returned",
+            "text": "<p>Ready-to-wear pieces purchased from S24bycecilia may be returned within <strong>14 days of the delivery date</strong>.</p><p>To be accepted, the item must be:</p><ul><li>Unworn, unwashed, and unused</li><li>Returned with all original tags still attached</li><li>Returned in the original packaging</li></ul><p>We inspect every return. Items that have been worn, washed, altered, or returned without tags or original packaging may be refused.</p>"
+          }
+        },
+        "how": {
+          "type": "article",
+          "settings": {
+            "heading": "How to start a return",
+            "text": "<p>Do not send an item back until we approve the return. To begin:</p><ol><li>Email <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a> within 14 days of delivery.</li><li>Include your order number, the item you want to return, and whether you want a refund, exchange, or store credit.</li><li>Wait for our confirmation, then ship the item with tracking to:</li></ol><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6</p><p>Keep your shipping receipt until the refund, exchange, or store credit is complete. You can also write to us on the <a href=\"/pages/contact\">contact page</a>.</p>"
+          }
+        },
+        "custom": {
+          "type": "article",
+          "settings": {
+            "heading": "Custom and made-to-fit orders",
+            "text": "<p>Custom and made-to-fit pieces are made especially for you. <strong>They cannot be returned, exchanged, or refunded.</strong></p><p>A custom order also <strong>cannot be cancelled after payment</strong>. Please check your measurements carefully before you pay. If you need help, contact us before you place the order.</p>"
+          }
+        },
+        "sale": {
+          "type": "article",
+          "settings": {
+            "heading": "Sale items and gift cards",
+            "text": "<p>Sale and clearance items cannot be returned or exchanged.</p><p>Gift cards cannot be refunded or exchanged for cash.</p>"
+          }
+        },
+        "options": {
+          "type": "article",
+          "settings": {
+            "heading": "Refund, exchange, or store credit",
+            "text": "<p>For an approved ready-to-wear return, you may choose a refund, an exchange, or store credit.</p><ul><li><strong>Refund:</strong> paid back to the same card or payment method you used at checkout, within <strong>5 business days</strong> after we receive and inspect the return.</li><li><strong>Exchange:</strong> we will confirm if the new size or colour is in stock, then ship it after we receive and inspect your original item. If it is not in stock, we will refund you to the same payment method.</li><li><strong>Store credit:</strong> applied to your S24bycecilia account after we receive and inspect the return.</li></ul><p>Your bank may take extra time to show a refund on your statement.</p>"
+          }
+        },
+        "shipping": {
+          "type": "article",
+          "settings": {
+            "heading": "Return shipping",
+            "text": "<p>For a normal return, the customer pays return shipping.</p><p>If we sent the wrong item, or the item arrived damaged, S24bycecilia pays the return shipping.</p><p>Original shipping is refunded only when the return is our error (wrong or damaged item). It is not refunded on a normal change-of-mind return.</p>"
+          }
+        },
+        "damaged": {
+          "type": "article",
+          "settings": {
+            "heading": "Damaged or wrong items",
+            "text": "<p>If your order arrives damaged or is not what you ordered, email <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a> within <strong>48 hours of delivery</strong>.</p><p>Include your order number, a short description, and clear photos of the item and packaging. We will <strong>replace</strong> the item. Please keep the item and packaging until we confirm next steps.</p>"
+          }
+        },
+        "cancel": {
+          "type": "article",
+          "settings": {
+            "heading": "Cancellations",
+            "text": "<p>Custom and made-to-fit orders cannot be cancelled after payment.</p><p>For ready-to-wear, email us as soon as possible with your order number. If the order has not yet shipped, we will cancel it and refund you to the same payment method.</p>"
+          }
+        },
+        "international": {
+          "type": "article",
+          "settings": {
+            "heading": "International returns",
+            "text": "<p>We accept returns from outside Canada, subject to the same 14-day ready-to-wear rules above.</p><p>The customer pays return shipping, customs, and any duties or taxes on the return. Please use a tracked service. We cannot complete your refund, exchange, or store credit until the parcel arrives in Brandon and is inspected.</p>"
+          }
+        },
+        "contact": {
+          "type": "article",
+          "settings": {
+            "heading": "Questions",
+            "text": "<p>For returns, exchanges, store credit, or anything about your order:</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "eligible",
+        "how",
+        "custom",
+        "sale",
+        "options",
+        "shipping",
+        "damaged",
+        "cancel",
+        "international",
+        "contact"
+      ],
+      "settings": {
+        "updated": "Last updated: September 8, 2026",
+        "intro": "<p>This is the return and refund policy for S24bycecilia, based in Brandon, Manitoba, Canada. Please read it before you shop, especially if you are ordering a custom or made-to-fit piece.</p>",
+        "padding_top": 12,
+        "padding_bottom": 48
+      }
+    },
+    "policy_cta": {
+      "type": "s24-about-cta",
+      "settings": {
+        "heading": "Need help with an order?",
+        "text": "Email the studio and we will help with a return, exchange, or store credit.",
+        "button_label_1": "Contact us",
+        "button_link_1": "shopify://pages/contact",
+        "button_label_2": "Shop the collection",
+        "button_link_2": "shopify://collections/all",
+        "padding_top": 24,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "policy_hero",
+    "policy_body",
+    "policy_cta"
+  ]
+}

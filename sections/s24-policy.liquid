@@ -1,0 +1,106 @@
+{% comment %}
+  Legal / policy page body — intro + stacked articles.
+{% endcomment %}
+
+{{ 's24-brand.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .s24-policy-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .s24-policy-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="s24-policy s24-policy-{{ section.id }}">
+  <div class="page-width s24-policy__inner">
+    {%- if section.settings.updated != blank -%}
+      <p class="s24-policy__updated">{{ section.settings.updated | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.intro != blank -%}
+      <div class="s24-policy__intro rte">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="s24-policy__articles">
+        {%- for block in section.blocks -%}
+          <article class="s24-policy__article" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="s24-policy__heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="s24-policy__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "S24 policy",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "updated",
+      "label": "Last updated",
+      "default": "Last updated: September 8, 2026"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "S24 policy" }]
+}
+{% endschema %}

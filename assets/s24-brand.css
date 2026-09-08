@@ -3936,3 +3936,91 @@ body.template-index #MainContent slideshow-component.banner {
   margin-bottom: 0;
 }
 
+/* Policy pages */
+.s24-policy__inner {
+  max-width: 76rem;
+  margin: 0 auto;
+}
+
+.s24-policy__updated {
+  margin: 0 0 2.4rem;
+  color: var(--s24-muted);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.s24-policy__intro {
+  margin: 0 0 3.6rem;
+  padding-bottom: 3.6rem;
+  border-bottom: 1px solid var(--s24-line);
+  color: var(--s24-ink);
+  font-size: 1.7rem;
+  line-height: 1.65;
+}
+
+.s24-policy__intro p:first-child {
+  margin-top: 0;
+}
+
+.s24-policy__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.s24-policy__articles {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.s24-policy__article {
+  padding-bottom: 3.2rem;
+  border-bottom: 1px solid var(--s24-line);
+}
+
+.s24-policy__article:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.s24-policy__heading {
+  margin: 0 0 1.2rem;
+  color: var(--s24-ink);
+  font-size: clamp(2rem, 2.4vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.s24-policy__text {
+  color: var(--s24-ink);
+  font-size: 1.55rem;
+  line-height: 1.7;
+}
+
+.s24-policy__text p,
+.s24-policy__text ul,
+.s24-policy__text ol {
+  margin: 0 0 1.2rem;
+}
+
+.s24-policy__text p:last-child,
+.s24-policy__text ul:last-child,
+.s24-policy__text ol:last-child {
+  margin-bottom: 0;
+}
+
+.s24-policy__text ul,
+.s24-policy__text ol {
+  padding-left: 1.6rem;
+}
+
+.s24-policy__text li + li {
+  margin-top: 0.6rem;
+}
+
+.s24-policy__text a {
+  color: var(--s24-plum);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
