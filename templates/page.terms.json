@@ -31,7 +31,7 @@
           "type": "article",
           "settings": {
             "heading": "Orders",
-            "text": "<p>When you place and pay for an order, we accept it and <strong>we will not refuse or cancel it</strong>.</p><p>If you need to change a <strong>ready-to-wear</strong> order that has not yet shipped, email us as soon as possible. <strong>Custom and made-to-fit orders cannot be cancelled after payment.</strong></p>"
+            "text": "<p>We may <strong>refuse or cancel an order</strong>, including if an item is unavailable, there is an error in the price or details, or we cannot fulfill the order. If we cancel after you have paid, we will refund you to the same payment method.</p><p>If you need to change a <strong>ready-to-wear</strong> order that has not yet shipped, email us as soon as possible. <strong>Custom and made-to-fit orders cannot be cancelled by the customer after payment.</strong></p>"
           }
         },
         "prices": {
