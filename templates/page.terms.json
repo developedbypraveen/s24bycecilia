@@ -1,0 +1,117 @@
+{
+  "sections": {
+    "policy_hero": {
+      "type": "s24-about-hero",
+      "settings": {
+        "kicker": "S24bycecilia",
+        "heading": "Terms of Service",
+        "text": "The terms that apply when you use this website and place an order with S24bycecilia.",
+        "padding_top": 72,
+        "padding_bottom": 28
+      }
+    },
+    "policy_body": {
+      "type": "s24-policy",
+      "blocks": {
+        "agree": {
+          "type": "article",
+          "settings": {
+            "heading": "Agreement",
+            "text": "<p>By using s24bycecilia.com or placing an order, you agree to these Terms of Service, our <a href=\"/pages/privacy-policy\">Privacy Policy</a>, <a href=\"/pages/shipping-policy\">Shipping Policy</a>, and <a href=\"/pages/return-and-refund-policy\">Return &amp; Refund Policy</a>.</p><p>If you do not agree, please do not use the site or place an order.</p>"
+          }
+        },
+        "store": {
+          "type": "article",
+          "settings": {
+            "heading": "The store",
+            "text": "<p>This website is operated by S24bycecilia, Brandon, Manitoba, Canada.</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p>"
+          }
+        },
+        "orders": {
+          "type": "article",
+          "settings": {
+            "heading": "Orders",
+            "text": "<p>When you place and pay for an order, we accept it and <strong>we will not refuse or cancel it</strong>.</p><p>If you need to change a <strong>ready-to-wear</strong> order that has not yet shipped, email us as soon as possible. <strong>Custom and made-to-fit orders cannot be cancelled after payment.</strong></p>"
+          }
+        },
+        "prices": {
+          "type": "article",
+          "settings": {
+            "heading": "Prices and payment",
+            "text": "<p>All prices are in <strong>Canadian dollars (CAD)</strong> unless marked otherwise. Taxes and shipping are shown at checkout where they apply.</p><p>We do not change prices without updating them on the website. The price you pay is the price shown at checkout when you complete the order. That price will not be changed after you pay.</p><p>Payment is processed by <strong>PayPal</strong>.</p>"
+          }
+        },
+        "custom": {
+          "type": "article",
+          "settings": {
+            "heading": "Custom measurements",
+            "text": "<p>For custom and made-to-fit orders, <strong>you are responsible for the measurements you send</strong>. If the numbers are wrong, we are not able to remake, refund, or exchange the piece, except where the garment is faulty or not as described.</p><p>Please check your measurements carefully, or contact us before you pay if you need help.</p>"
+          }
+        },
+        "use": {
+          "type": "article",
+          "settings": {
+            "heading": "Use of the website",
+            "text": "<p>You agree to use this site only for lawful shopping and enquiries. You must not misuse the site, attempt to access it without permission, or copy our content for commercial use without our consent.</p>"
+          }
+        },
+        "ip": {
+          "type": "article",
+          "settings": {
+            "heading": "Intellectual property",
+            "text": "<p>Designs, photographs, logos, and text on this website belong to S24bycecilia. You may not copy, sell, or reuse them without written permission.</p>"
+          }
+        },
+        "law": {
+          "type": "article",
+          "settings": {
+            "heading": "Governing law",
+            "text": "<p>These terms are governed by the laws of <strong>Manitoba and Canada</strong>. Any dispute will be handled in Manitoba, Canada, except where consumer law in your province or country says otherwise.</p>"
+          }
+        },
+        "contact": {
+          "type": "article",
+          "settings": {
+            "heading": "Questions",
+            "text": "<p>For questions about these terms:</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "agree",
+        "store",
+        "orders",
+        "prices",
+        "custom",
+        "use",
+        "ip",
+        "law",
+        "contact"
+      ],
+      "settings": {
+        "updated": "Last updated: September 9, 2026",
+        "intro": "<p>Please read these Terms of Service before you shop. They apply to every order placed with S24bycecilia.</p>",
+        "padding_top": 12,
+        "padding_bottom": 48
+      }
+    },
+    "policy_cta": {
+      "type": "s24-about-cta",
+      "settings": {
+        "heading": "Need help before you order?",
+        "text": "Email the studio with any question about an order, custom piece, or these terms.",
+        "button_label_1": "Contact us",
+        "button_link_1": "shopify://pages/contact",
+        "button_label_2": "Shop the collection",
+        "button_link_2": "shopify://collections/all",
+        "padding_top": 24,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "policy_hero",
+    "policy_body",
+    "policy_cta"
+  ]
+}

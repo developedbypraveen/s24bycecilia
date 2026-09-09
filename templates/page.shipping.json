@@ -1,0 +1,109 @@
+{
+  "sections": {
+    "policy_hero": {
+      "type": "s24-about-hero",
+      "settings": {
+        "kicker": "S24bycecilia",
+        "heading": "Shipping Policy",
+        "text": "Where we ship, when orders leave the studio, and who pays duties.",
+        "padding_top": 72,
+        "padding_bottom": 28
+      }
+    },
+    "policy_body": {
+      "type": "s24-policy",
+      "blocks": {
+        "where": {
+          "type": "article",
+          "settings": {
+            "heading": "Where we ship",
+            "text": "<p>S24bycecilia ships <strong>worldwide</strong> from Brandon, Manitoba, Canada.</p><p>We ship to home addresses and <strong>P.O. boxes</strong>.</p>"
+          }
+        },
+        "free": {
+          "type": "article",
+          "settings": {
+            "heading": "Free shipping",
+            "text": "<p>Orders of <strong>CAD $500 or more</strong> qualify for free shipping.</p><p>Orders under CAD $500 are charged shipping at checkout. The rate depends on your address, package size, and carrier.</p>"
+          }
+        },
+        "carriers": {
+          "type": "article",
+          "settings": {
+            "heading": "Carriers and delivery time",
+            "text": "<p>We ship with <strong>UPS, DHL, and Canada Post</strong>. The carrier used depends on your destination.</p><p>Delivery time varies by country, carrier, and customs. You will receive tracking when your order ships. We do not guarantee a specific delivery date.</p>"
+          }
+        },
+        "custom": {
+          "type": "article",
+          "settings": {
+            "heading": "Custom and made-to-fit orders",
+            "text": "<p>Custom and made-to-fit pieces are made after you order. Production typically takes <strong>15 working days</strong> after measurements are confirmed. The order is then shipped with UPS, DHL, or Canada Post, and delivery time is added after that.</p>"
+          }
+        },
+        "ready": {
+          "type": "article",
+          "settings": {
+            "heading": "Ready-to-wear orders",
+            "text": "<p>Ready-to-wear pieces in stock are packed and handed to the carrier after payment. You will receive tracking when the parcel ships.</p>"
+          }
+        },
+        "duties": {
+          "type": "article",
+          "settings": {
+            "heading": "Duties and taxes",
+            "text": "<p>For international orders, the <strong>customer pays</strong> any customs duties, import taxes, and brokerage fees. These are not included in the product price or in standard shipping, and they are not refunded by S24bycecilia.</p><p>Please check your country’s import rules before you order.</p>"
+          }
+        },
+        "lost": {
+          "type": "article",
+          "settings": {
+            "heading": "Lost or delayed parcels",
+            "text": "<p>If your parcel is lost or delayed, email <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a> with your order number and tracking number.</p><p>If the carrier confirms the parcel is lost, or it does not arrive in a reasonable time, <strong>we will send you another</strong>.</p>"
+          }
+        },
+        "contact": {
+          "type": "article",
+          "settings": {
+            "heading": "Questions",
+            "text": "<p>For shipping questions:</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "where",
+        "free",
+        "carriers",
+        "custom",
+        "ready",
+        "duties",
+        "lost",
+        "contact"
+      ],
+      "settings": {
+        "updated": "Last updated: September 9, 2026",
+        "intro": "<p>This Shipping Policy explains how S24bycecilia delivers ready-to-wear and custom orders worldwide.</p>",
+        "padding_top": 12,
+        "padding_bottom": 48
+      }
+    },
+    "policy_cta": {
+      "type": "s24-about-cta",
+      "settings": {
+        "heading": "Need help with a delivery?",
+        "text": "Email the studio with your order number and we will look into it.",
+        "button_label_1": "Contact us",
+        "button_link_1": "shopify://pages/contact",
+        "button_label_2": "Shop the collection",
+        "button_link_2": "shopify://collections/all",
+        "padding_top": 24,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "policy_hero",
+    "policy_body",
+    "policy_cta"
+  ]
+}

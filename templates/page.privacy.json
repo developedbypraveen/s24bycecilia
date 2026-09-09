@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "policy_hero": {
+      "type": "s24-about-hero",
+      "settings": {
+        "kicker": "S24bycecilia",
+        "heading": "Privacy Policy",
+        "text": "How we collect, use, and look after your personal information when you shop with us.",
+        "padding_top": 72,
+        "padding_bottom": 28
+      }
+    },
+    "policy_body": {
+      "type": "s24-policy",
+      "blocks": {
+        "who": {
+          "type": "article",
+          "settings": {
+            "heading": "Who we are",
+            "text": "<p>This policy is for S24bycecilia, a fashion brand based in Brandon, Manitoba, Canada.</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p><p>Our online store runs on Shopify. When you visit the site, create an account, place an order, or contact us, we process personal information as described below.</p>"
+          }
+        },
+        "collect": {
+          "type": "article",
+          "settings": {
+            "heading": "Information we collect",
+            "text": "<p>We collect information you give us, and information created when you use the site:</p><ul><li><strong>Orders:</strong> name, email, phone, shipping and billing address, order details, and payment confirmation.</li><li><strong>Account:</strong> name, email, password, and saved addresses if you create a customer account.</li><li><strong>Contact and appointments:</strong> name, email, phone, and the message you send, including custom-order requests.</li><li><strong>Custom measurements:</strong> body measurements you submit so we can make a made-to-fit piece.</li><li><strong>Newsletter:</strong> your email if you subscribe.</li><li><strong>Technical data:</strong> cookies, device and browser information, and pages you visit, including through the Facebook / Instagram Pixel.</li></ul><p>Payments are processed by PayPal. We do not store your full payment card details.</p>"
+          }
+        },
+        "use": {
+          "type": "article",
+          "settings": {
+            "heading": "How we use your information",
+            "text": "<p>We use your information to:</p><ul><li>Process and ship orders</li><li>Create custom and made-to-fit garments from your measurements</li><li>Reply to messages, returns, and appointment requests</li><li>Create and manage your customer account</li><li>Send marketing emails if you have subscribed</li><li>Understand how the shop is used and measure ads with the Facebook / Instagram Pixel</li><li>Prevent fraud and keep the store secure</li></ul>"
+          }
+        },
+        "marketing": {
+          "type": "article",
+          "settings": {
+            "heading": "Marketing emails",
+            "text": "<p>If you subscribe, we may email you about new collections, offers, and studio news.</p><p>You can unsubscribe at any time using the link in the email, or by writing to <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a>. Unsubscribing does not stop order and shipping emails.</p>"
+          }
+        },
+        "pixel": {
+          "type": "article",
+          "settings": {
+            "heading": "Cookies and the Facebook / Instagram Pixel",
+            "text": "<p>We use cookies to keep your cart, remember preferences, and run the store.</p><p>We also use the <strong>Facebook / Instagram Pixel</strong> so Meta can help us measure and improve our ads. Meta may combine this with information from your Facebook or Instagram account, according to Meta’s own policies.</p><p>You can control cookies in your browser. Blocking some cookies may stop parts of the shop from working, such as checkout.</p>"
+          }
+        },
+        "share": {
+          "type": "article",
+          "settings": {
+            "heading": "Who we share information with",
+            "text": "<p><strong>We do not sell your personal information.</strong></p><p>We share information only as needed to run the business:</p><ul><li><strong>Shopify</strong> — to host the store, checkout, and customer accounts</li><li><strong>PayPal</strong> — to process payments</li><li><strong>UPS, DHL, and Canada Post</strong> — to deliver your order</li><li><strong>Meta (Facebook / Instagram)</strong> — for the Pixel and ads</li></ul><p>These companies process information under their own privacy policies. We may also share information if the law requires it.</p>"
+          }
+        },
+        "measurements": {
+          "type": "article",
+          "settings": {
+            "heading": "Custom measurements",
+            "text": "<p>If you order a custom or made-to-fit piece, we keep the measurements you send so we can make and, if needed, support that order. We use them only for your garment and related customer service. They are not sold or used for advertising.</p>"
+          }
+        },
+        "children": {
+          "type": "article",
+          "settings": {
+            "heading": "Children",
+            "text": "<p>This store is not limited to adults. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has given us information, email <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a> and we will delete it. A parent or guardian should place and pay for orders for younger children.</p>"
+          }
+        },
+        "rights": {
+          "type": "article",
+          "settings": {
+            "heading": "Your rights",
+            "text": "<p>You may ask us to access, correct, or delete your personal information, or to stop marketing emails. Email <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a> and we will respond as required under Canadian privacy law (including PIPEDA).</p><p>If you have an account, you can also update some details by signing in. We keep order records as long as needed for accounting, shipping, and legal purposes.</p>"
+          }
+        },
+        "contact": {
+          "type": "article",
+          "settings": {
+            "heading": "Questions",
+            "text": "<p>For privacy questions:</p><p>S24bycecilia<br>2 Wheatgrass Bay<br>Brandon, Manitoba<br>Canada<br>R7A 7Z6<br>Email: <a href=\"mailto:S24bycecilia@gmail.com\">S24bycecilia@gmail.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "who",
+        "collect",
+        "use",
+        "marketing",
+        "pixel",
+        "share",
+        "measurements",
+        "children",
+        "rights",
+        "contact"
+      ],
+      "settings": {
+        "updated": "Last updated: September 9, 2026",
+        "intro": "<p>This Privacy Policy explains how S24bycecilia collects and uses personal information when you visit our website, place an order, subscribe, or contact us.</p>",
+        "padding_top": 12,
+        "padding_bottom": 48
+      }
+    },
+    "policy_cta": {
+      "type": "s24-about-cta",
+      "settings": {
+        "heading": "Questions about your data?",
+        "text": "Email the studio and we will help.",
+        "button_label_1": "Contact us",
+        "button_link_1": "shopify://pages/contact",
+        "button_label_2": "Shop the collection",
+        "button_link_2": "shopify://collections/all",
+        "padding_top": 24,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": [
+    "policy_hero",
+    "policy_body",
+    "policy_cta"
+  ]
+}
